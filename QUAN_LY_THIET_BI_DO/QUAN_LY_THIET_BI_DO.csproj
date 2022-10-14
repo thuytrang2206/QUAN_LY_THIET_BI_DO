@@ -107,7 +107,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Calibration.cs" />
+    <Compile Include="Model\CALIBRATION.cs" />
     <Compile Include="Model\CONVERT_DEVICE.cs" />
     <Compile Include="Model\DEVICE.cs" />
     <Compile Include="Model\DeviceControl_Model.cs" />

@@ -24,43 +24,54 @@ namespace QUAN_LY_THIET_BI_DO
             var result = dbcontext.DEVICEs.ToList();
             foreach(var item in result)
             {
-                string equipment = "";
-                if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
+                var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
+                if (result_cali == null)
                 {
-                    equipment = "OK";
-                }else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
-                {
-                    equipment = "Stop Calibration & Use";
+                    MessageBox.Show("Mã quản lý không có thời gian hiệu chuẩn", "Thông báo");
                 }
-                else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
+                else
                 {
-                    equipment = "NG chờ sửa";
-                }
-                else 
-                {
-                    equipment = "NG hủy";
-                }
-                DateTime cali_next = item.CALI_DATE.AddMonths(item.CALI_CYCLE);
-                list_convert.Add(new CONVERT_DEVICE() { PART_NO = item.PART_NO,
-                    SAP_BARCODE = item.SAP_BARCODE,
-                    PART_NAME = item.PART_NAME,
-                    MODEL = item.MODEL,
-                    SERIAL = item.SERIAL,
-                    MANUFACTORY = item.MANUFACTORY,
-                    CALI_CYCLE = item.CALI_CYCLE,
-                    REGISTRATION_DATE = item.REGISTRATION_DATE,
-                    DEPT_CONTROL = item.DEPT_CONTROL,
-                    PLACE_USE = item.PLACE_USE,
-                    CONTROL_MNG = item.CONTROL_MNG,
-                    CALI_DATE = item.CALI_DATE,
-                    CALI_RECOMMEND = item.CALI_RECOMMEND,
-                    CALI_NEXT_LASTEST = cali_next,
-                    MONTH_YEAR= cali_next.Month.ToString()+"/"+cali_next.Year.ToString(),
-                    MAKER= item.MAKER,
-                    ENQUIP_STATE= equipment,
-                    RMK= item.RMK
+                    string equipment = "";
+                    if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
+                    {
+                        equipment = "OK";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
+                    {
+                        equipment = "Stop Calibration & Use";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
+                    {
+                        equipment = "NG chờ sửa";
+                    }
+                    else
+                    {
+                        equipment = "NG hủy";
+                    }
+                    DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
+                    list_convert.Add(new CONVERT_DEVICE()
+                    {
+                        PART_NO = item.PART_NO,
+                        SAP_BARCODE = item.SAP_BARCODE,
+                        PART_NAME = item.PART_NAME,
+                        MODEL = item.MODEL,
+                        SERIAL = item.SERIAL,
+                        MANUFACTORY = item.MANUFACTORY,
+                        CALI_CYCLE = item.CALI_CYCLE,
+                        REGISTRATION_DATE = item.REGISTRATION_DATE,
+                        DEPT_CONTROL = item.DEPT_CONTROL,
+                        PLACE_USE = item.PLACE_USE,
+                        CONTROL_MNG = item.CONTROL_MNG,
+                        CALI_DATE = result_cali.CALI_DATE,
+                        CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
+                        CALI_NEXT_LASTEST = cali_next,
+                        MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
+                        MAKER = item.MAKER,
+                        ENQUIP_STATE = equipment,
+                        RMK = item.RMK
 
-                });
+                    });
+                }
             }
             dtgv_device.DataSource = list_convert ;
            
@@ -74,13 +85,13 @@ namespace QUAN_LY_THIET_BI_DO
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FormTask formTask = new FormTask(this);
-            formTask.Show();
+            formTask.ShowDialog();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             FormEditdevice formEditdevice = new FormEditdevice(this);
-            formEditdevice.Show();
+            formEditdevice.ShowDialog();
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -104,7 +115,7 @@ namespace QUAN_LY_THIET_BI_DO
             formEditdevice.txtcontrol_mng.Text = this.dtgv_device.CurrentRow.Cells[10].Value.ToString();
             formEditdevice.dtcalibrationdate.Text = this.dtgv_device.CurrentRow.Cells[11].Value.ToString();
             formEditdevice.dtrecommend_date.Text = this.dtgv_device.CurrentRow.Cells[12].Value.ToString();
-            formEditdevice.txtmaker.Text = this.dtgv_device.CurrentRow.Cells[13].Value.ToString();
+            formEditdevice.txtmaker.Text = this.dtgv_device.CurrentRow.Cells[15].Value.ToString();
             if (this.dtgv_device.CurrentRow.Cells[16].Value.ToString() == "OK")
             {
                 formEditdevice.cbbequip_state.SelectedIndex = 0;
@@ -132,8 +143,61 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void txtsearch_TextChanged(object sender, EventArgs e)
         {
-            dtgv_device.DataSource = dbcontext.DEVICEs.Where(x => x.PART_NO.Contains(txtsearch.Text)).ToList();
-            
+            List<CONVERT_DEVICE>list_convert_search= new List<CONVERT_DEVICE>() ;
+           var result = dbcontext.DEVICEs.Where(x => x.PART_NO.Contains(txtsearch.Text)).ToList();
+            foreach (var item in result)
+            {
+                var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
+                if (result_cali == null)
+                {
+                    MessageBox.Show("Mã quản lý không có thời gian hiệu chuẩn", "Thông báo");
+                }
+                else
+                {
+                    string equipment = "";
+                    if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
+                    {
+                        equipment = "OK";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
+                    {
+                        equipment = "Stop Calibration & Use";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
+                    {
+                        equipment = "NG chờ sửa";
+                    }
+                    else
+                    {
+                        equipment = "NG hủy";
+                    }
+                    DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
+                    list_convert_search.Add(new CONVERT_DEVICE()
+                    {
+                        PART_NO = item.PART_NO,
+                        SAP_BARCODE = item.SAP_BARCODE,
+                        PART_NAME = item.PART_NAME,
+                        MODEL = item.MODEL,
+                        SERIAL = item.SERIAL,
+                        MANUFACTORY = item.MANUFACTORY,
+                        CALI_CYCLE = item.CALI_CYCLE,
+                        REGISTRATION_DATE = item.REGISTRATION_DATE,
+                        DEPT_CONTROL = item.DEPT_CONTROL,
+                        PLACE_USE = item.PLACE_USE,
+                        CONTROL_MNG = item.CONTROL_MNG,
+                        CALI_DATE = result_cali.CALI_DATE,
+                        CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
+                        CALI_NEXT_LASTEST = cali_next,
+                        MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
+                        MAKER = item.MAKER,
+                        ENQUIP_STATE = equipment,
+                        RMK = item.RMK
+
+                    });
+                }
+                
+            }
+            dtgv_device.DataSource = list_convert_search;
         }
     }
 }

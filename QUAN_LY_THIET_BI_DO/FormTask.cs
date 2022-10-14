@@ -16,7 +16,7 @@ namespace QUAN_LY_THIET_BI_DO
     public partial class FormTask : Form
     {
         DeviceControl_Model dbcontext = new DeviceControl_Model();
-        DEVICE device = new DEVICE();
+        //List<DEVICE> device = new List<DEVICE>();
         Form_device form_Device;
         List<CONVERT_DEVICE> list_convert = new List<CONVERT_DEVICE>();
         Task task;
@@ -47,38 +47,50 @@ namespace QUAN_LY_THIET_BI_DO
                             var checkpartno = dbcontext.DEVICEs.Where(c => c.PART_NO ==part_no ).SingleOrDefault();
                             if (checkpartno == null)
                             {
-                                device.PART_NO = item[2].ToString();
-                                device.PART_NAME = item[4].ToString();
-                                device.SAP_BARCODE = item[3].ToString();
-                                device.MODEL = item[5].ToString();
-                                device.SERIAL = item[6].ToString();
-                                device.MANUFACTORY = item[7].ToString();
-                                device.CALI_CYCLE = int.Parse(item[8].ToString());
-                                device.REGISTRATION_DATE = Convert.ToDateTime(item[9].ToString());
-                                device.DEPT_CONTROL = item[10].ToString();
-                                device.PLACE_USE = item[11].ToString();
-                                device.CONTROL_MNG = item[12].ToString();
-                                device.CALI_DATE = Convert.ToDateTime(item[13].ToString());
-                                device.CALI_RECOMMEND = Convert.ToDateTime(item[14].ToString());
-                                device.MAKER = item[17].ToString();
-                                string equipment_state = item[18].ToString();
-                                if (equipment_state == "OK")
-                                {                                   
-                                    device.ENQUIP_STATE = Convert.ToInt32(Task.OK);
-                                }else if(equipment_state == "NG chờ sửa")
+                                int equipment_state =0 ;
+                                if (item[18].ToString() == "OK")
                                 {
-                                    device.ENQUIP_STATE = Convert.ToInt32(Task.NG_Waiting_for_Repair);
-                                }else if (equipment_state == "NG hủy")
+                                    equipment_state= Convert.ToInt32(Task.OK);
+                                }
+                                else if (item[18].ToString() == "NG chờ sửa")
                                 {
-                                    device.ENQUIP_STATE = Convert.ToInt32(Task.NG_Cancel);
+                                    equipment_state = Convert.ToInt32(Task.NG_Waiting_for_Repair);
+                                }
+                                else if (item[18].ToString() == "NG hủy")
+                                {
+                                    equipment_state = Convert.ToInt32(Task.NG_Cancel);
                                 }
                                 else
                                 {
-                                    device.ENQUIP_STATE = Convert.ToInt32(Task.Stop_Calibration);
+                                    equipment_state = Convert.ToInt32(Task.Stop_Calibration);
                                 }
 
-                                device.RMK = item[19].ToString();
-                                dbcontext.DEVICEs.Add(device);
+                                var data = new DEVICE()
+                                {
+                                    PART_NO = item[2].ToString(),
+                                    PART_NAME = item[4].ToString(),
+                                    SAP_BARCODE = item[3].ToString(),
+                                    MODEL = item[5].ToString(),
+                                    SERIAL = item[6].ToString(),
+                                    MANUFACTORY = item[7].ToString(),
+                                    CALI_CYCLE = int.Parse(item[8].ToString()),
+                                    REGISTRATION_DATE = Convert.ToDateTime(item[9].ToString()),
+                                    DEPT_CONTROL = item[10].ToString(),
+                                    PLACE_USE = item[11].ToString(),
+                                    CONTROL_MNG = item[12].ToString(),
+                                    ENQUIP_STATE = equipment_state,
+                                    MAKER = item[17].ToString(),
+                                    RMK = item[19].ToString(),
+                                };
+
+                                dbcontext.DEVICEs.Add(data);
+                                var data_cali = new CALIBRATION()
+                                {
+                                    PART_NO = item[2].ToString(),
+                                    CALI_DATE = Convert.ToDateTime(item[13].ToString()),
+                                    CALI_RECOMMEND = Convert.ToDateTime(item[14].ToString()),
+                                };
+                                dbcontext.CALIBRATIONs.Add(data_cali);
                                 dbcontext.SaveChanges();
                             }
                             else
@@ -88,7 +100,7 @@ namespace QUAN_LY_THIET_BI_DO
                             
                         }
                         
-                        
+
                     }
                 }
                 else
@@ -98,28 +110,31 @@ namespace QUAN_LY_THIET_BI_DO
                         var check_part_no = dbcontext.DEVICEs.Where(c => c.PART_NO == txtpart_no.Text).SingleOrDefault();
                         if (check_part_no == null)
                         {
-                            device.PART_NO = txtpart_no.Text;
-                            device.PART_NAME = txtpart_name.Text;
-                            device.SAP_BARCODE = txtsap_barcode.Text;
-                            device.MODEL = txtmodel.Text;
-                            device.SERIAL = txtserial.Text;
-                            device.MANUFACTORY = txtmanufactory.Text;
-                            device.CALI_CYCLE = int.Parse(txtcycle.Text);
-                            device.REGISTRATION_DATE = Convert.ToDateTime(dateTimePicker1.Text);
-                            device.DEPT_CONTROL = txtdept_control.Text;
-                            device.PLACE_USE = txtpleace_use.Text;
-                            device.CONTROL_MNG = txtcontrol_mng.Text;
-                            device.CALI_DATE = Convert.ToDateTime(dateTimePicker2.Text);
-                            device.CALI_RECOMMEND = Convert.ToDateTime(dateTimePicker3.Text);
-                            device.MAKER = txtmaker.Text;
-                            device.ENQUIP_STATE = cbbequip_state.SelectedIndex;
-                            string item = "";
-                            item = cbbequip_state.SelectedIndex.ToString();
-                            item = cbbequip_state.SelectedItem.ToString();
-                            item = cbbequip_state.SelectedText;
-                            item = cbbequip_state.SelectedValue.ToString();
-                            device.RMK = txtrmk.Text;
-                            dbcontext.DEVICEs.Add(device);
+                            var data = new DEVICE()
+                            {
+                            PART_NO = txtpart_no.Text,
+                            PART_NAME = txtpart_name.Text,
+                            SAP_BARCODE = txtsap_barcode.Text,
+                            MODEL = txtmodel.Text,
+                            SERIAL = txtserial.Text,
+                            MANUFACTORY = txtmanufactory.Text,
+                            CALI_CYCLE = int.Parse(txtcycle.Text),
+                            REGISTRATION_DATE = Convert.ToDateTime(dateTimePicker1.Text),
+                            DEPT_CONTROL = txtdept_control.Text,
+                            PLACE_USE = txtpleace_use.Text,
+                            CONTROL_MNG = txtcontrol_mng.Text,
+                            MAKER = txtmaker.Text,
+                            ENQUIP_STATE = cbbequip_state.SelectedIndex,
+                            RMK = txtrmk.Text
+                            };
+                            dbcontext.DEVICEs.Add(data);
+                            var data_cali = new CALIBRATION()
+                            {
+                                PART_NO = txtpart_no.Text,
+                                CALI_DATE = Convert.ToDateTime(dateTimePicker2.Text),
+                                CALI_RECOMMEND = Convert.ToDateTime(dateTimePicker3.Text),
+                            };                            
+                            dbcontext.CALIBRATIONs.Add(data_cali);
                             dbcontext.SaveChanges();
                             MessageBox.Show("Lưu thành công!", "Thông báo");
                             
@@ -147,46 +162,50 @@ namespace QUAN_LY_THIET_BI_DO
             var result = dbcontext.DEVICEs.ToList();
             foreach (var item in result)
             {
-                string equipment = "";
-                if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
-                {
-                    equipment = "OK";
-                }
-                else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
-                {
-                    equipment = "Stop Calibration & Use";
-                }
-                else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
-                {
-                    equipment = "NG chờ sửa";
-                }
-                else
-                {
-                    equipment = "NG hủy";
-                }
-                DateTime cali_next = item.CALI_DATE.AddMonths(item.CALI_CYCLE);
-                list_convert.Add(new CONVERT_DEVICE()
-                {
-                    PART_NO = item.PART_NO,
-                    SAP_BARCODE = item.SAP_BARCODE,
-                    PART_NAME = item.PART_NAME,
-                    MODEL = item.MODEL,
-                    SERIAL = item.SERIAL,
-                    MANUFACTORY = item.MANUFACTORY,
-                    CALI_CYCLE = item.CALI_CYCLE,
-                    REGISTRATION_DATE = item.REGISTRATION_DATE,
-                    DEPT_CONTROL = item.DEPT_CONTROL,
-                    PLACE_USE = item.PLACE_USE,
-                    CONTROL_MNG = item.CONTROL_MNG,
-                    CALI_DATE = item.CALI_DATE,
-                    CALI_RECOMMEND = item.CALI_RECOMMEND,
-                    CALI_NEXT_LASTEST = cali_next,
-                    MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
-                    MAKER = item.MAKER,
-                    ENQUIP_STATE = equipment,
-                    RMK = item.RMK
+                var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
+          
+                    string equipment = "";
+                    if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
+                    {
+                        equipment = "OK";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
+                    {
+                        equipment = "Stop Calibration & Use";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
+                    {
+                        equipment = "NG chờ sửa";
+                    }
+                    else
+                    {
+                        equipment = "NG hủy";
+                    }
+                    DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
+                    list_convert.Add(new CONVERT_DEVICE()
+                    {
+                        PART_NO = item.PART_NO,
+                        SAP_BARCODE = item.SAP_BARCODE,
+                        PART_NAME = item.PART_NAME,
+                        MODEL = item.MODEL,
+                        SERIAL = item.SERIAL,
+                        MANUFACTORY = item.MANUFACTORY,
+                        CALI_CYCLE = item.CALI_CYCLE,
+                        REGISTRATION_DATE = item.REGISTRATION_DATE,
+                        DEPT_CONTROL = item.DEPT_CONTROL,
+                        PLACE_USE = item.PLACE_USE,
+                        CONTROL_MNG = item.CONTROL_MNG,
+                        CALI_DATE = result_cali.CALI_DATE,
+                        CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
+                        CALI_NEXT_LASTEST = cali_next,
+                        MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
+                        MAKER = item.MAKER,
+                        ENQUIP_STATE = equipment,
+                        RMK = item.RMK
 
-                });
+                    });
+                
+                
             }
             form_Device.dtgv_device.DataSource = list_convert;
         }

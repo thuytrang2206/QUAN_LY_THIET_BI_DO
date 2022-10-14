@@ -41,8 +41,8 @@ namespace QUAN_LY_THIET_BI_DO
                 device.DEPT_CONTROL = txtdept_control.Text;
                 device.PLACE_USE = txtpleace_use.Text;
                 device.CONTROL_MNG = txtcontrol_mng.Text;
-                device.CALI_DATE = Convert.ToDateTime(dtcalibrationdate.Text);
-                device.CALI_RECOMMEND = Convert.ToDateTime(dtrecommend_date.Text);
+               // device.CALI_DATE = Convert.ToDateTime(dtcalibrationdate.Text);
+                //device.CALI_RECOMMEND = Convert.ToDateTime(dtrecommend_date.Text);
                 device.MAKER = txtmaker.Text;
                 device.ENQUIP_STATE = cbbequip_state.SelectedIndex;
                 device.RMK = txtrmk.Text;
@@ -58,46 +58,54 @@ namespace QUAN_LY_THIET_BI_DO
             var result = dbcontext.DEVICEs.ToList();
             foreach (var item in result)
             {
-                string equipment = "";
-                if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
+                var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
+                if (result_cali == null)
                 {
-                    equipment = "OK";
-                }
-                else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
-                {
-                    equipment = "Stop Calibration & Use";
-                }
-                else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
-                {
-                    equipment = "NG chờ sửa";
+                    MessageBox.Show("Mã quản lý không có thời gian hiệu chuẩn", "Thông báo");
                 }
                 else
                 {
-                    equipment = "NG hủy";
-                }
-                DateTime cali_next = item.CALI_DATE.AddMonths(item.CALI_CYCLE);
-                list_convert.Add(new CONVERT_DEVICE()
-                {
-                    PART_NO = item.PART_NO,
-                    SAP_BARCODE = item.SAP_BARCODE,
-                    PART_NAME = item.PART_NAME,
-                    MODEL = item.MODEL,
-                    SERIAL = item.SERIAL,
-                    MANUFACTORY = item.MANUFACTORY,
-                    CALI_CYCLE = item.CALI_CYCLE,
-                    REGISTRATION_DATE = item.REGISTRATION_DATE,
-                    DEPT_CONTROL = item.DEPT_CONTROL,
-                    PLACE_USE = item.PLACE_USE,
-                    CONTROL_MNG = item.CONTROL_MNG,
-                    CALI_DATE = item.CALI_DATE,
-                    CALI_RECOMMEND = item.CALI_RECOMMEND,
-                    CALI_NEXT_LASTEST = cali_next,
-                    MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
-                    MAKER = item.MAKER,
-                    ENQUIP_STATE = equipment,
-                    RMK = item.RMK
+                    string equipment = "";
+                    if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
+                    {
+                        equipment = "OK";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
+                    {
+                        equipment = "Stop Calibration & Use";
+                    }
+                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
+                    {
+                        equipment = "NG chờ sửa";
+                    }
+                    else
+                    {
+                        equipment = "NG hủy";
+                    }
+                    DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
+                    list_convert.Add(new CONVERT_DEVICE()
+                    {
+                        PART_NO = item.PART_NO,
+                        SAP_BARCODE = item.SAP_BARCODE,
+                        PART_NAME = item.PART_NAME,
+                        MODEL = item.MODEL,
+                        SERIAL = item.SERIAL,
+                        MANUFACTORY = item.MANUFACTORY,
+                        CALI_CYCLE = item.CALI_CYCLE,
+                        REGISTRATION_DATE = item.REGISTRATION_DATE,
+                        DEPT_CONTROL = item.DEPT_CONTROL,
+                        PLACE_USE = item.PLACE_USE,
+                        CONTROL_MNG = item.CONTROL_MNG,
+                        CALI_DATE = result_cali.CALI_DATE,
+                        CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
+                        CALI_NEXT_LASTEST = cali_next,
+                        MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
+                        MAKER = item.MAKER,
+                        ENQUIP_STATE = equipment,
+                        RMK = item.RMK
 
-                });
+                    });
+                }
             }
             form_Device.dtgv_device.DataSource = list_convert;
         }

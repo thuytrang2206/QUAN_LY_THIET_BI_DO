@@ -14,7 +14,6 @@ namespace QUAN_LY_THIET_BI_DO
     {
 
         DeviceControl_Model dbContext = new DeviceControl_Model();
-        List<Calibration> list_calibrations = new List<Calibration>();
         public FormCalibration()
         {
             InitializeComponent();

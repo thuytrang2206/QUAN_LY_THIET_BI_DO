@@ -160,7 +160,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(5, 262);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(905, 534);
+            this.groupBox1.Size = new System.Drawing.Size(905, 439);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
@@ -806,7 +806,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox7.Controls.Add(this.dtgvreaderexcel);
             this.groupBox7.Location = new System.Drawing.Point(5, 155);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(905, 101);
+            this.groupBox7.Size = new System.Drawing.Size(905, 6);
             this.groupBox7.TabIndex = 12;
             this.groupBox7.TabStop = false;
             this.groupBox7.Visible = false;
@@ -821,7 +821,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgvreaderexcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvreaderexcel.Location = new System.Drawing.Point(10, 19);
             this.dtgvreaderexcel.Name = "dtgvreaderexcel";
-            this.dtgvreaderexcel.Size = new System.Drawing.Size(885, 68);
+            this.dtgvreaderexcel.Size = new System.Drawing.Size(885, 0);
             this.dtgvreaderexcel.TabIndex = 0;
             // 
             // cbbequip_state
@@ -842,7 +842,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 681);
+            this.ClientSize = new System.Drawing.Size(922, 586);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);

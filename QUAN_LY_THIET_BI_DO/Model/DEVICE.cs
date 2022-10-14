@@ -38,7 +38,6 @@ namespace QUAN_LY_THIET_BI_DO.Model
         [Column(TypeName = "date")]
         public DateTime REGISTRATION_DATE { get; set; }
 
-        [Required]
         [StringLength(64)]
         public string DEPT_CONTROL { get; set; }
 
@@ -49,12 +48,6 @@ namespace QUAN_LY_THIET_BI_DO.Model
         [Required]
         [StringLength(64)]
         public string CONTROL_MNG { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime CALI_DATE { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime CALI_RECOMMEND { get; set; }
 
         [Required]
         [StringLength(64)]
