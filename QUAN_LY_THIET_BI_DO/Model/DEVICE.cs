@@ -58,5 +58,6 @@ namespace QUAN_LY_THIET_BI_DO.Model
         [Required]
         [StringLength(64)]
         public string RMK { get; set; }
+        public bool STATUS { get; set; }
     }
 }

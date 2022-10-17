@@ -18,25 +18,28 @@ namespace QUAN_LY_THIET_BI_DO
         DeviceControl_Model dbcontext = new DeviceControl_Model();
         //List<DEVICE> device = new List<DEVICE>();
         Form_device form_Device;
+        CALIBRATION calibration = new CALIBRATION();
+        DEVICE device = new DEVICE();
         List<CONVERT_DEVICE> list_convert = new List<CONVERT_DEVICE>();
         Task task;
         public FormTask(Form_device form_Device)
         {
             InitializeComponent();
             this.form_Device = form_Device;
+            grboximpportexcel.Size = new Size(893, 404);
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
             try
             {
-                if (rdimportexcel.Checked == true)
+                if (checkboximport.Checked == true)
                 {
                     var Result = dtgvreaderexcel.Rows.OfType<DataGridViewRow>().Select(
                     r => r.Cells.OfType<DataGridViewCell>().Select(c => c.Value).ToArray()).ToList();
                     if (Result.Count() == 0)
                     {
-                        MessageBox.Show("Xem lại thông tin cần lưu!");
+                        MessageBox.Show("Bạn chưa chọn file excel để nhập thông tin!");
                     }
                     else
                     {
@@ -47,23 +50,7 @@ namespace QUAN_LY_THIET_BI_DO
                             var checkpartno = dbcontext.DEVICEs.Where(c => c.PART_NO ==part_no ).SingleOrDefault();
                             if (checkpartno == null)
                             {
-                                int equipment_state =0 ;
-                                if (item[18].ToString() == "OK")
-                                {
-                                    equipment_state= Convert.ToInt32(Task.OK);
-                                }
-                                else if (item[18].ToString() == "NG chờ sửa")
-                                {
-                                    equipment_state = Convert.ToInt32(Task.NG_Waiting_for_Repair);
-                                }
-                                else if (item[18].ToString() == "NG hủy")
-                                {
-                                    equipment_state = Convert.ToInt32(Task.NG_Cancel);
-                                }
-                                else
-                                {
-                                    equipment_state = Convert.ToInt32(Task.Stop_Calibration);
-                                }
+
 
                                 var data = new DEVICE()
                                 {
@@ -78,9 +65,10 @@ namespace QUAN_LY_THIET_BI_DO
                                     DEPT_CONTROL = item[10].ToString(),
                                     PLACE_USE = item[11].ToString(),
                                     CONTROL_MNG = item[12].ToString(),
-                                    ENQUIP_STATE = equipment_state,
+                                    ENQUIP_STATE = Check_equipment(item[18].ToString()),
                                     MAKER = item[17].ToString(),
                                     RMK = item[19].ToString(),
+                                    STATUS = true,
                                 };
 
                                 dbcontext.DEVICEs.Add(data);
@@ -95,11 +83,30 @@ namespace QUAN_LY_THIET_BI_DO
                             }
                             else
                             {
-                                MessageBox.Show("Mã quản lý " + item[2].ToString() + " đã có trong database!", "Thông báo");
+                                device = dbcontext.DEVICEs.Find(item[2].ToString());
+                                device.SAP_BARCODE = item[3].ToString();
+                                device.PART_NAME = item[4].ToString();
+                                device.MODEL = item[5].ToString();
+                                device.SERIAL = item[6].ToString();
+                                device.MANUFACTORY = item[7].ToString();
+                                device.CALI_CYCLE = int.Parse(item[8].ToString());
+                                device.REGISTRATION_DATE= Convert.ToDateTime(item[9].ToString());
+                                device.DEPT_CONTROL = item[10].ToString();
+                                device.PLACE_USE = item[11].ToString();
+                                device.CONTROL_MNG = item[12].ToString();
+                                device.MAKER = item[17].ToString();
+                                device.ENQUIP_STATE = Check_equipment(item[18].ToString());
+                                device.RMK = item[19].ToString();
+                                device.STATUS = true;
+                                calibration = dbcontext.CALIBRATIONs.Find(item[2].ToString());
+                                calibration.CALI_DATE = Convert.ToDateTime(item[13].ToString());
+                                calibration.CALI_RECOMMEND = Convert.ToDateTime(item[14].ToString());
+                                dbcontext.SaveChanges();
+
                             }
                             
                         }
-                        
+                        MessageBox.Show("Lưu thành công!", "Thông báo");
 
                     }
                 }
@@ -112,27 +119,28 @@ namespace QUAN_LY_THIET_BI_DO
                         {
                             var data = new DEVICE()
                             {
-                            PART_NO = txtpart_no.Text,
-                            PART_NAME = txtpart_name.Text,
-                            SAP_BARCODE = txtsap_barcode.Text,
-                            MODEL = txtmodel.Text,
-                            SERIAL = txtserial.Text,
-                            MANUFACTORY = txtmanufactory.Text,
-                            CALI_CYCLE = int.Parse(txtcycle.Text),
-                            REGISTRATION_DATE = Convert.ToDateTime(dateTimePicker1.Text),
-                            DEPT_CONTROL = txtdept_control.Text,
-                            PLACE_USE = txtpleace_use.Text,
-                            CONTROL_MNG = txtcontrol_mng.Text,
-                            MAKER = txtmaker.Text,
-                            ENQUIP_STATE = cbbequip_state.SelectedIndex,
-                            RMK = txtrmk.Text
+                                PART_NO = txtpart_no.Text,
+                                PART_NAME = txtpart_name.Text,
+                                SAP_BARCODE = txtsap_barcode.Text,
+                                MODEL = txtmodel.Text,
+                                SERIAL = txtserial.Text,
+                                MANUFACTORY = txtmanufactory.Text,
+                                CALI_CYCLE = int.Parse(txtcycle.Text),
+                                REGISTRATION_DATE = Convert.ToDateTime(dateTimePicker1.Text),
+                                DEPT_CONTROL = txtdept_control.Text,
+                                PLACE_USE = txtpleace_use.Text,
+                                CONTROL_MNG = txtcontrol_mng.Text,
+                                MAKER = txtmaker.Text,
+                                ENQUIP_STATE = cbbequip_state.SelectedIndex,
+                                RMK = txtrmk.Text,
+                                STATUS = true,
                             };
                             dbcontext.DEVICEs.Add(data);
                             var data_cali = new CALIBRATION()
                             {
                                 PART_NO = txtpart_no.Text,
-                                CALI_DATE = Convert.ToDateTime(dateTimePicker2.Text),
-                                CALI_RECOMMEND = Convert.ToDateTime(dateTimePicker3.Text),
+                                CALI_DATE = Convert.ToDateTime(dateTimePicker2.Value),
+                                CALI_RECOMMEND = Convert.ToDateTime(dateTimePicker3.Value),
                             };                            
                             dbcontext.CALIBRATIONs.Add(data_cali);
                             dbcontext.SaveChanges();
@@ -141,7 +149,7 @@ namespace QUAN_LY_THIET_BI_DO
                         }
                         else
                         {
-                            MessageBox.Show("Mã quản lý "+txtpart_no.Text+"đã có trong database!", "Thông báo");
+                            MessageBox.Show("Mã quản lý "+txtpart_no.Text+" đã có trong database!", "Thông báo");
                         }
                         
                     }
@@ -157,9 +165,30 @@ namespace QUAN_LY_THIET_BI_DO
             
            
         }
+        public int Check_equipment(string equipment)
+        {
+            int equipment_state = 0;
+            if (equipment == "OK")
+            {
+                equipment_state = Convert.ToInt32(Task.OK);
+            }
+            else if (equipment == "NG chờ sửa")
+            {
+                equipment_state = Convert.ToInt32(Task.NG_Waiting_for_Repair);
+            }
+            else if (equipment == "NG hủy")
+            {
+                equipment_state = Convert.ToInt32(Task.NG_Cancel);
+            }
+            else
+            {
+                equipment_state = Convert.ToInt32(Task.Stop_Calibration);
+            }
+            return equipment_state;
+        }
         public void Reload_datawhencreate()
         {
-            var result = dbcontext.DEVICEs.ToList();
+            var result = dbcontext.DEVICEs.Where(c=>c.STATUS==true).ToList();
             foreach (var item in result)
             {
                 var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
@@ -195,8 +224,8 @@ namespace QUAN_LY_THIET_BI_DO
                         DEPT_CONTROL = item.DEPT_CONTROL,
                         PLACE_USE = item.PLACE_USE,
                         CONTROL_MNG = item.CONTROL_MNG,
-                        CALI_DATE = result_cali.CALI_DATE,
-                        CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
+                        //CALI_DATE = result_cali.CALI_DATE,
+                        //CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
                         CALI_NEXT_LASTEST = cali_next,
                         MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
                         MAKER = item.MAKER,
@@ -264,7 +293,7 @@ namespace QUAN_LY_THIET_BI_DO
                 lblCalibrationby.Visible = true;
                 lblCalibrationby.Text = "Đơn vị đo không được để trống!";
             }
-            if (cbbequip_state.SelectedValue==null)
+            if (cbbequip_state.SelectedIndex == 0)
             {
                 lblequipment.Visible = true;
                 lblequipment.Text = "Tình trạng thiết bị không được để trống!";
@@ -287,10 +316,6 @@ namespace QUAN_LY_THIET_BI_DO
 
         }
 
-        private void txtpayment_Validating(object sender, CancelEventArgs e)
-        {
-
-        }
         private void btnOpenfile_Click(object sender, EventArgs e)
         {
             try
@@ -343,40 +368,11 @@ namespace QUAN_LY_THIET_BI_DO
 
         }
 
-        private void btnAddHander_Click(object sender, EventArgs e)
-        {
-            groupBox1.Visible = true;
-            btnOpenfile.Enabled = false;
-        }
         public void Restart()
         {
             btnOpenfile.Enabled = true;
-            groupBox1.Visible = false;
-        }
-        private void rdHander_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdHander.Checked == true)
-            {
-                groupBox1.Visible = true;
-                rdimportexcel.Checked = false;
-                groupBox7.Visible = false;
-                groupBox1.Location = new Point(5, 155);
-                btnOpenfile.Enabled = false;
-            }
-            
-        }
-
-        private void rdimportexcel_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdimportexcel.Checked == true)
-            {
-                groupBox7.Visible = true;
-                rdimportexcel.Checked = true;
-                groupBox1.Visible = false;
-                groupBox7.Size = new Size(893, 404);
-                btnOpenfile.Enabled = true;
-            }
-        }
+            grboximporthand.Visible = false;
+        }      
 
         private void txtcycle_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -458,10 +454,29 @@ namespace QUAN_LY_THIET_BI_DO
             lblrmk.Text = "";
         }
 
-        private void cbbequip_state_Click(object sender, EventArgs e)
+        private void cbbequip_state_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblequipment.Visible = false;
             lblequipment.Text = "";
         }
+        private void checkboximport_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkboximport.Checked == false)
+            {
+                grboximporthand.Visible = true;
+                grboximpportexcel.Visible = false;
+                grboximporthand.Location = new Point(5, 155);
+                btnOpenfile.Enabled = false;
+            }
+            else
+            {
+                grboximpportexcel.Visible = true;
+                grboximporthand.Visible = false;
+                grboximpportexcel.Size = new Size(893, 404);
+                btnOpenfile.Enabled = true;
+            }
+        }
+
+       
     }
 }

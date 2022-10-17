@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="3855617_edit_pencil_write mode_icon16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\3855617_edit_pencil_write mode_icon16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="3855617_edit_pencil_write mode_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\3855617_edit_pencil_write mode_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,11 +145,17 @@
   <data name="3213447_magnifier_magnifying glass_search_icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\3213447_magnifier_magnifying glass_search_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="85542_guardar_save_icon (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\85542_guardar_save_icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="285690_zip_file_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\285690_zip_file_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="85334_file_open_icon24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\85334_file_open_icon24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="8725676_copy_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\8725676_copy_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="85542_guardar_save_icon (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\85542_guardar_save_icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,14 +163,17 @@
   <data name="85334_file_open_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\85334_file_open_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="8725676_copy_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\8725676_copy_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="85334_file_open_icon16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\85334_file_open_icon16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="85334_file_open_icon (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\85334_file_open_icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="85542_guardar_save_icon (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Image\85542_guardar_save_icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="4373169_excel_logo_logos_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\4373169_excel_logo_logos_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="3213447_magnifier_magnifying glass_search_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\3213447_magnifier_magnifying glass_search_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,7 +184,7 @@
   <data name="85542_guardar_save_icon (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Image\85542_guardar_save_icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4373169_excel_logo_logos_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Image\4373169_excel_logo_logos_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="2462966_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\2462966_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

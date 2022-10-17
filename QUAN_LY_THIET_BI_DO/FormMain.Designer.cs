@@ -32,11 +32,11 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tabcalibration = new System.Windows.Forms.TabPage();
-            this.tagManager = new System.Windows.Forms.TabControl();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btncalibration = new System.Windows.Forms.Button();
             this.btnDevice = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tagManager = new System.Windows.Forms.TabControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tabcalibration.SuspendLayout();
             this.tagManager.SuspendLayout();
@@ -72,31 +72,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.tabcalibration.TabIndex = 1;
             this.tabcalibration.Text = "Calibration management";
             this.tabcalibration.UseVisualStyleBackColor = true;
-            // 
-            // tagManager
-            // 
-            this.tagManager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tagManager.Controls.Add(this.tabcalibration);
-            this.tagManager.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tagManager.Location = new System.Drawing.Point(5, 96);
-            this.tagManager.Name = "tagManager";
-            this.tagManager.SelectedIndex = 0;
-            this.tagManager.Size = new System.Drawing.Size(944, 417);
-            this.tagManager.TabIndex = 3;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(5, 33);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(944, 57);
-            this.panel1.TabIndex = 4;
             // 
             // btncalibration
             // 
@@ -134,15 +109,41 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnDevice.UseVisualStyleBackColor = false;
             this.btnDevice.Click += new System.EventHandler(this.btnDevice_Click);
             // 
-            // textBox1
+            // tagManager
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(3, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(403, 24);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "QUAN LY HIEU CHUAN THIET BI DO";
+            this.tagManager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tagManager.Controls.Add(this.tabcalibration);
+            this.tagManager.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tagManager.Location = new System.Drawing.Point(5, 96);
+            this.tagManager.Name = "tagManager";
+            this.tagManager.SelectedIndex = 0;
+            this.tagManager.Size = new System.Drawing.Size(944, 417);
+            this.tagManager.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Location = new System.Drawing.Point(5, 33);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(944, 57);
+            this.panel1.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Red;
+            this.textBox2.Location = new System.Drawing.Point(2, 16);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(475, 24);
+            this.textBox2.TabIndex = 2;
+            this.textBox2.Text = "UMC_QUẢN LÝ HIỆU CHUẨN THIẾT BỊ ĐO";
             // 
             // FormMain
             // 
@@ -175,7 +176,7 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.Button btnDevice;
         private System.Windows.Forms.Button btncalibration;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

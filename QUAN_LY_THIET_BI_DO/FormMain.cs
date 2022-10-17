@@ -25,13 +25,13 @@ namespace QUAN_LY_THIET_BI_DO
         private void btnDevice_Click(object sender, EventArgs e)
         {
             Form_device form_Device = new Form_device();
-            form_Device.ShowDialog();
+            form_Device.Show();
         }
 
         private void btncalibration_Click(object sender, EventArgs e)
         {
             FormCalibration formCalibration = new FormCalibration();
-            formCalibration.ShowDialog();
+            formCalibration.Show();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

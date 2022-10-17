@@ -41,8 +41,6 @@ namespace QUAN_LY_THIET_BI_DO
                 device.DEPT_CONTROL = txtdept_control.Text;
                 device.PLACE_USE = txtpleace_use.Text;
                 device.CONTROL_MNG = txtcontrol_mng.Text;
-               // device.CALI_DATE = Convert.ToDateTime(dtcalibrationdate.Text);
-                //device.CALI_RECOMMEND = Convert.ToDateTime(dtrecommend_date.Text);
                 device.MAKER = txtmaker.Text;
                 device.ENQUIP_STATE = cbbequip_state.SelectedIndex;
                 device.RMK = txtrmk.Text;
@@ -96,8 +94,8 @@ namespace QUAN_LY_THIET_BI_DO
                         DEPT_CONTROL = item.DEPT_CONTROL,
                         PLACE_USE = item.PLACE_USE,
                         CONTROL_MNG = item.CONTROL_MNG,
-                        CALI_DATE = result_cali.CALI_DATE,
-                        CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
+                        //CALI_DATE = result_cali.CALI_DATE,
+                        //CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
                         CALI_NEXT_LASTEST = cali_next,
                         MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
                         MAKER = item.MAKER,

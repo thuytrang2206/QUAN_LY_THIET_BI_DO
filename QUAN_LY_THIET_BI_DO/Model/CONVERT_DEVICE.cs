@@ -30,9 +30,9 @@ namespace QUAN_LY_THIET_BI_DO.Model
 
         public string CONTROL_MNG { get; set; }
 
-        public DateTime CALI_DATE { get; set; }
+        //public DateTime CALI_DATE { get; set; }
 
-        public DateTime CALI_RECOMMEND { get; set; }
+        //public DateTime CALI_RECOMMEND { get; set; }
 
         public DateTime CALI_NEXT_LASTEST { get; set; }
 

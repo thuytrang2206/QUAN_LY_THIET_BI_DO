@@ -73,6 +73,16 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2462966_delete {
+            get {
+                object obj = ResourceManager.GetObject("2462966_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2462966_delete_eliminate_garbage_litter_recycle_icon {
             get {
                 object obj = ResourceManager.GetObject("2462966_delete_eliminate_garbage_litter_recycle_icon", resourceCulture);
@@ -136,6 +146,16 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         internal static System.Drawing.Bitmap _3855617_edit_pencil_write_mode_icon {
             get {
                 object obj = ResourceManager.GetObject("3855617_edit_pencil_write mode_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3855617_edit_pencil_write_mode_icon16px {
+            get {
+                object obj = ResourceManager.GetObject("3855617_edit_pencil_write mode_icon16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +266,26 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         internal static System.Drawing.Bitmap _85542_guardar_save_icon__1_2 {
             get {
                 object obj = ResourceManager.GetObject("85542_guardar_save_icon (1)2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8725676_copy_icon {
+            get {
+                object obj = ResourceManager.GetObject("8725676_copy_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8725676_copy_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("8725676_copy_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

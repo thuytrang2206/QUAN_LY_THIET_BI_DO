@@ -155,11 +155,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Image\1379793_document_excel_file_spreadsheet_table_icon.png" />
+    <Content Include="Image\2462966_delete.png" />
     <Content Include="Image\2462966_delete_eliminate_garbage_litter_recycle_icon.png" />
     <Content Include="Image\285690_zip_file_icon.png" />
     <Content Include="Image\3213447_magnifier_magnifying glass_search_icon.png" />
     <Content Include="Image\32378_add_plus_icon.png" />
     <Content Include="Image\3855617_edit_pencil_write mode_icon.png" />
+    <Content Include="Image\3855617_edit_pencil_write mode_icon16px.png" />
     <Content Include="Image\4373169_excel_logo_logos_icon.png" />
     <Content Include="Image\72864_add_plus_icon.png" />
     <Content Include="Image\85334_file_open_icon %281%29.png" />
@@ -169,6 +171,7 @@
     <Content Include="Image\85334_file_open_icon_32px.png" />
     <Content Include="Image\85542_guardar_save_icon %281%29.png" />
     <Content Include="Image\85542_guardar_save_icon.png" />
+    <Content Include="Image\8725676_copy_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
