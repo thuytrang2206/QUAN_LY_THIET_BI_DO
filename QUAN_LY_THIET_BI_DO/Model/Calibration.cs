@@ -18,5 +18,6 @@ namespace QUAN_LY_THIET_BI_DO.Model
 
         [Column(TypeName = "date")]
         public DateTime CALI_RECOMMEND { get; set; }
+        public bool STATUS { get; set; }
     }
 }

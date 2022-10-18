@@ -29,7 +29,9 @@ namespace QUAN_LY_THIET_BI_DO
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTask));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.grboximporthand = new System.Windows.Forms.GroupBox();
@@ -41,8 +43,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.lblcontrolman = new System.Windows.Forms.Label();
             this.lblpleaceuse = new System.Windows.Forms.Label();
             this.lbldepartment = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimerecon = new System.Windows.Forms.DateTimePicker();
+            this.dateTimecalidate = new System.Windows.Forms.DateTimePicker();
             this.txtrmk = new System.Windows.Forms.TextBox();
             this.txtmaker = new System.Windows.Forms.TextBox();
             this.txtcontrol_mng = new System.Windows.Forms.TextBox();
@@ -65,7 +67,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.lblpartname = new System.Windows.Forms.Label();
             this.lblsapbarcode = new System.Windows.Forms.Label();
             this.lblpartno = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeregistration = new System.Windows.Forms.DateTimePicker();
             this.txtcycle = new System.Windows.Forms.TextBox();
             this.txtmanufactory = new System.Windows.Forms.TextBox();
             this.txtserial = new System.Windows.Forms.TextBox();
@@ -84,14 +86,13 @@ namespace QUAN_LY_THIET_BI_DO
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkboximport = new System.Windows.Forms.CheckBox();
+            this.btn_save = new System.Windows.Forms.Button();
             this.lblnamefile = new System.Windows.Forms.Label();
+            this.btnOpenfile = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.grboximpportexcel = new System.Windows.Forms.GroupBox();
             this.dtgvreaderexcel = new System.Windows.Forms.DataGridView();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btnOpenfile = new System.Windows.Forms.Button();
-            this.checkboximport = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.grboximporthand.SuspendLayout();
@@ -115,6 +116,17 @@ namespace QUAN_LY_THIET_BI_DO
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(893, 57);
             this.panel1.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Red;
+            this.textBox1.Location = new System.Drawing.Point(3, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(520, 24);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "UMCVN_QUẢN LÝ HIỆU CHUẨN THIẾT BỊ ĐO";
             // 
             // menuStrip1
             // 
@@ -144,9 +156,9 @@ namespace QUAN_LY_THIET_BI_DO
             this.grboximporthand.Controls.Add(this.groupBox2);
             this.grboximporthand.Controls.Add(this.label1);
             this.grboximporthand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grboximporthand.Location = new System.Drawing.Point(10, 247);
+            this.grboximporthand.Location = new System.Drawing.Point(5, 215);
             this.grboximporthand.Name = "grboximporthand";
-            this.grboximporthand.Size = new System.Drawing.Size(893, 370);
+            this.grboximporthand.Size = new System.Drawing.Size(893, 365);
             this.grboximporthand.TabIndex = 10;
             this.grboximporthand.TabStop = false;
             this.grboximporthand.Visible = false;
@@ -160,8 +172,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox4.Controls.Add(this.lblcontrolman);
             this.groupBox4.Controls.Add(this.lblpleaceuse);
             this.groupBox4.Controls.Add(this.lbldepartment);
-            this.groupBox4.Controls.Add(this.dateTimePicker3);
-            this.groupBox4.Controls.Add(this.dateTimePicker2);
+            this.groupBox4.Controls.Add(this.dateTimerecon);
+            this.groupBox4.Controls.Add(this.dateTimecalidate);
             this.groupBox4.Controls.Add(this.txtrmk);
             this.groupBox4.Controls.Add(this.txtmaker);
             this.groupBox4.Controls.Add(this.txtcontrol_mng);
@@ -256,21 +268,21 @@ namespace QUAN_LY_THIET_BI_DO
             this.lbldepartment.Text = "label29";
             this.lbldepartment.Visible = false;
             // 
-            // dateTimePicker3
+            // dateTimerecon
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(6, 180);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker3.TabIndex = 9;
+            this.dateTimerecon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimerecon.Location = new System.Drawing.Point(6, 180);
+            this.dateTimerecon.Name = "dateTimerecon";
+            this.dateTimerecon.Size = new System.Drawing.Size(200, 20);
+            this.dateTimerecon.TabIndex = 9;
             // 
-            // dateTimePicker2
+            // dateTimecalidate
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(6, 140);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 8;
+            this.dateTimecalidate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimecalidate.Location = new System.Drawing.Point(6, 140);
+            this.dateTimecalidate.Name = "dateTimecalidate";
+            this.dateTimecalidate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimecalidate.TabIndex = 8;
             // 
             // txtrmk
             // 
@@ -419,7 +431,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox3.Controls.Add(this.lblpartname);
             this.groupBox3.Controls.Add(this.lblsapbarcode);
             this.groupBox3.Controls.Add(this.lblpartno);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.dateTimeregistration);
             this.groupBox3.Controls.Add(this.txtcycle);
             this.groupBox3.Controls.Add(this.txtmanufactory);
             this.groupBox3.Controls.Add(this.txtserial);
@@ -511,13 +523,13 @@ namespace QUAN_LY_THIET_BI_DO
             this.lblpartno.Text = "label21";
             this.lblpartno.Visible = false;
             // 
-            // dateTimePicker1
+            // dateTimeregistration
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 297);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimeregistration.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeregistration.Location = new System.Drawing.Point(6, 297);
+            this.dateTimeregistration.Name = "dateTimeregistration";
+            this.dateTimeregistration.Size = new System.Drawing.Size(200, 20);
+            this.dateTimeregistration.TabIndex = 8;
             // 
             // txtcycle
             // 
@@ -683,7 +695,8 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // groupBox6
             // 
-            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.Color.White;
             this.groupBox6.Controls.Add(this.checkboximport);
             this.groupBox6.Controls.Add(this.btn_save);
@@ -695,41 +708,18 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             // 
-            // lblnamefile
+            // checkboximport
             // 
-            this.lblnamefile.AutoSize = true;
-            this.lblnamefile.Location = new System.Drawing.Point(615, 28);
-            this.lblnamefile.Name = "lblnamefile";
-            this.lblnamefile.Size = new System.Drawing.Size(52, 13);
-            this.lblnamefile.TabIndex = 2;
-            this.lblnamefile.Text = "name_file";
-            this.lblnamefile.Visible = false;
-            // 
-            // grboximpportexcel
-            // 
-            this.grboximpportexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grboximpportexcel.Controls.Add(this.dtgvreaderexcel);
-            this.grboximpportexcel.Location = new System.Drawing.Point(5, 155);
-            this.grboximpportexcel.Name = "grboximpportexcel";
-            this.grboximpportexcel.Size = new System.Drawing.Size(893, 86);
-            this.grboximpportexcel.TabIndex = 12;
-            this.grboximpportexcel.TabStop = false;
-            // 
-            // dtgvreaderexcel
-            // 
-            this.dtgvreaderexcel.AllowUserToAddRows = false;
-            this.dtgvreaderexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgvreaderexcel.BackgroundColor = System.Drawing.Color.White;
-            this.dtgvreaderexcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvreaderexcel.ColumnHeadersVisible = false;
-            this.dtgvreaderexcel.Location = new System.Drawing.Point(10, 19);
-            this.dtgvreaderexcel.Name = "dtgvreaderexcel";
-            this.dtgvreaderexcel.Size = new System.Drawing.Size(873, 56);
-            this.dtgvreaderexcel.TabIndex = 0;
+            this.checkboximport.AutoSize = true;
+            this.checkboximport.Checked = true;
+            this.checkboximport.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkboximport.Location = new System.Drawing.Point(10, 19);
+            this.checkboximport.Name = "checkboximport";
+            this.checkboximport.Size = new System.Drawing.Size(123, 17);
+            this.checkboximport.TabIndex = 9;
+            this.checkboximport.Text = "Nhập bằng file excel";
+            this.checkboximport.UseVisualStyleBackColor = true;
+            this.checkboximport.CheckedChanged += new System.EventHandler(this.checkboximport_CheckedChanged);
             // 
             // btn_save
             // 
@@ -743,6 +733,17 @@ namespace QUAN_LY_THIET_BI_DO
             this.btn_save.Text = "   Save";
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // lblnamefile
+            // 
+            this.lblnamefile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblnamefile.AutoSize = true;
+            this.lblnamefile.Location = new System.Drawing.Point(452, 28);
+            this.lblnamefile.Name = "lblnamefile";
+            this.lblnamefile.Size = new System.Drawing.Size(52, 13);
+            this.lblnamefile.TabIndex = 2;
+            this.lblnamefile.Text = "name_file";
+            this.lblnamefile.Visible = false;
             // 
             // btnOpenfile
             // 
@@ -766,43 +767,45 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnOpenfile.UseVisualStyleBackColor = false;
             this.btnOpenfile.Click += new System.EventHandler(this.btnOpenfile_Click);
             // 
-            // checkboximport
+            // grboximpportexcel
             // 
-            this.checkboximport.AutoSize = true;
-            this.checkboximport.Checked = true;
-            this.checkboximport.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkboximport.Location = new System.Drawing.Point(10, 19);
-            this.checkboximport.Name = "checkboximport";
-            this.checkboximport.Size = new System.Drawing.Size(123, 17);
-            this.checkboximport.TabIndex = 9;
-            this.checkboximport.Text = "Nhập bằng file excel";
-            this.checkboximport.UseVisualStyleBackColor = true;
-            this.checkboximport.CheckedChanged += new System.EventHandler(this.checkboximport_CheckedChanged);
+            this.grboximpportexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grboximpportexcel.Controls.Add(this.dtgvreaderexcel);
+            this.grboximpportexcel.Location = new System.Drawing.Point(5, 155);
+            this.grboximpportexcel.Name = "grboximpportexcel";
+            this.grboximpportexcel.Size = new System.Drawing.Size(893, 54);
+            this.grboximpportexcel.TabIndex = 12;
+            this.grboximpportexcel.TabStop = false;
             // 
-            // textBox1
+            // dtgvreaderexcel
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(3, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(475, 24);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "UMCVN_QUẢN LÝ HIỆU CHUẨN THIẾT BỊ ĐO";
+            this.dtgvreaderexcel.AllowUserToAddRows = false;
+            this.dtgvreaderexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgvreaderexcel.BackgroundColor = System.Drawing.Color.White;
+            this.dtgvreaderexcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvreaderexcel.ColumnHeadersVisible = false;
+            this.dtgvreaderexcel.Location = new System.Drawing.Point(10, 15);
+            this.dtgvreaderexcel.Name = "dtgvreaderexcel";
+            this.dtgvreaderexcel.Size = new System.Drawing.Size(873, 28);
+            this.dtgvreaderexcel.TabIndex = 0;
             // 
             // FormTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 622);
+            this.ClientSize = new System.Drawing.Size(910, 583);
             this.Controls.Add(this.grboximpportexcel);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.grboximporthand);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormTask";
             this.Text = "UMC_QUAN_LY_HIEU_CHUAN_THIET_BI_DO";
-            this.Load += new System.EventHandler(this.FormTask_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -859,7 +862,7 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimeregistration;
         private System.Windows.Forms.TextBox txtcycle;
         private System.Windows.Forms.TextBox txtmanufactory;
         private System.Windows.Forms.TextBox txtserial;
@@ -885,9 +888,9 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.DataGridView dtgvreaderexcel;
         private System.Windows.Forms.Label lblrmk;
         private System.Windows.Forms.ComboBox cbbequip_state;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dateTimerecon;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimecalidate;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox checkboximport;
         private System.Windows.Forms.TextBox textBox1;

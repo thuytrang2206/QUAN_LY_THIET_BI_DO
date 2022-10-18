@@ -29,13 +29,13 @@ namespace QUAN_LY_THIET_BI_DO
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditdevice));
             this.label19 = new System.Windows.Forms.Label();
             this.lblcycle = new System.Windows.Forms.Label();
             this.lblfactory = new System.Windows.Forms.Label();
             this.lblserial = new System.Windows.Forms.Label();
             this.lblmodel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -43,11 +43,11 @@ namespace QUAN_LY_THIET_BI_DO
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblpartname = new System.Windows.Forms.Label();
             this.lblsapbarcode = new System.Windows.Forms.Label();
             this.lblpartno = new System.Windows.Forms.Label();
-            this.dtregistration_date = new System.Windows.Forms.DateTimePicker();
             this.txtcycle = new System.Windows.Forms.TextBox();
             this.txtmanufactory = new System.Windows.Forms.TextBox();
             this.txtserial = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.txtpart_name = new System.Windows.Forms.TextBox();
             this.txtsap_barcode = new System.Windows.Forms.TextBox();
             this.txtpart_no = new System.Windows.Forms.TextBox();
+            this.dtregistration_date = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.lblrmk = new System.Windows.Forms.Label();
@@ -164,16 +165,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "name";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(8, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 16);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Ngày đăng ký:";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -244,6 +235,16 @@ namespace QUAN_LY_THIET_BI_DO
             this.label3.TabIndex = 1;
             this.label3.Text = "Mã quản lý:";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(8, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(108, 16);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Ngày đăng ký:";
+            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
@@ -301,14 +302,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.lblpartno.Text = "label21";
             this.lblpartno.Visible = false;
             // 
-            // dtregistration_date
-            // 
-            this.dtregistration_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtregistration_date.Location = new System.Drawing.Point(6, 16);
-            this.dtregistration_date.Name = "dtregistration_date";
-            this.dtregistration_date.Size = new System.Drawing.Size(200, 20);
-            this.dtregistration_date.TabIndex = 8;
-            // 
             // txtcycle
             // 
             this.txtcycle.Location = new System.Drawing.Point(0, 256);
@@ -359,6 +352,14 @@ namespace QUAN_LY_THIET_BI_DO
             this.txtpart_no.ReadOnly = true;
             this.txtpart_no.Size = new System.Drawing.Size(200, 20);
             this.txtpart_no.TabIndex = 1;
+            // 
+            // dtregistration_date
+            // 
+            this.dtregistration_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtregistration_date.Location = new System.Drawing.Point(6, 16);
+            this.dtregistration_date.Name = "dtregistration_date";
+            this.dtregistration_date.Size = new System.Drawing.Size(200, 20);
+            this.dtregistration_date.TabIndex = 8;
             // 
             // label1
             // 
@@ -676,6 +677,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEditdevice";
             this.Text = "UMC_QUAN_LY_HIEU_CHUAN_THIET_BI_DO";
             this.groupBox2.ResumeLayout(false);

@@ -29,14 +29,18 @@ namespace QUAN_LY_THIET_BI_DO
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCalibration));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.grb_datagridview = new System.Windows.Forms.GroupBox();
             this.dtgvcalibration = new System.Windows.Forms.DataGridView();
+            this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CALI_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CALI_RECOMMEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.checkboximportexcel = new System.Windows.Forms.CheckBox();
             this.btn_save = new System.Windows.Forms.Button();
@@ -55,9 +59,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.lblPartNo = new System.Windows.Forms.Label();
             this.grbimport_excel = new System.Windows.Forms.GroupBox();
             this.dtgvimport_excel = new System.Windows.Forms.DataGridView();
-            this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CALI_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CALI_RECOMMEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.grb_datagridview.SuspendLayout();
@@ -129,14 +130,14 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvcalibration.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvcalibration.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvcalibration.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvcalibration.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvcalibration.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvcalibration.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PART_NO,
@@ -147,6 +148,24 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgvcalibration.RowHeadersVisible = false;
             this.dtgvcalibration.Size = new System.Drawing.Size(463, 318);
             this.dtgvcalibration.TabIndex = 0;
+            // 
+            // PART_NO
+            // 
+            this.PART_NO.DataPropertyName = "PART_NO";
+            this.PART_NO.HeaderText = "Mã quản lý";
+            this.PART_NO.Name = "PART_NO";
+            // 
+            // CALI_DATE
+            // 
+            this.CALI_DATE.DataPropertyName = "CALI_DATE";
+            this.CALI_DATE.HeaderText = "Ngày hiệu chuẩn";
+            this.CALI_DATE.Name = "CALI_DATE";
+            // 
+            // CALI_RECOMMEND
+            // 
+            this.CALI_RECOMMEND.DataPropertyName = "CALI_RECOMMEND";
+            this.CALI_RECOMMEND.HeaderText = "Ngày hiệu chuẩn đề nghị";
+            this.CALI_RECOMMEND.Name = "CALI_RECOMMEND";
             // 
             // panel3
             // 
@@ -362,38 +381,20 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvimport_excel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvimport_excel.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvimport_excel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvimport_excel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvimport_excel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvimport_excel.Location = new System.Drawing.Point(9, 13);
             this.dtgvimport_excel.Name = "dtgvimport_excel";
             this.dtgvimport_excel.RowHeadersVisible = false;
             this.dtgvimport_excel.Size = new System.Drawing.Size(486, 140);
             this.dtgvimport_excel.TabIndex = 1;
-            // 
-            // PART_NO
-            // 
-            this.PART_NO.DataPropertyName = "PART_NO";
-            this.PART_NO.HeaderText = "Mã quản lý";
-            this.PART_NO.Name = "PART_NO";
-            // 
-            // CALI_DATE
-            // 
-            this.CALI_DATE.DataPropertyName = "CALI_DATE";
-            this.CALI_DATE.HeaderText = "Ngày hiệu chuẩn";
-            this.CALI_DATE.Name = "CALI_DATE";
-            // 
-            // CALI_RECOMMEND
-            // 
-            this.CALI_RECOMMEND.DataPropertyName = "CALI_RECOMMEND";
-            this.CALI_RECOMMEND.HeaderText = "Ngày hiệu chuẩn đề nghị";
-            this.CALI_RECOMMEND.Name = "CALI_RECOMMEND";
             // 
             // FormCalibration
             // 
@@ -406,8 +407,9 @@ namespace QUAN_LY_THIET_BI_DO
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCalibration";
-            this.Text = "FormCalibration";
+            this.Text = "UMC_QUAN_LY_HIEU_CHUAN_THIET_BI_DO";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

@@ -23,7 +23,7 @@ namespace QUAN_LY_THIET_BI_DO
             InitializeComponent();
             Load_Calibration();
             grb_importhand.Size = new Size(501, 340);
-            var get_partno= dbContext.CALIBRATIONs.ToList();
+            var get_partno= dbContext.CALIBRATIONs.Where(c=>c.STATUS==true).ToList();
             foreach (var item  in get_partno)
             {
                 cbbpart_no.Items.Add(item.PART_NO);
@@ -33,46 +33,40 @@ namespace QUAN_LY_THIET_BI_DO
         }
         public void Load_Calibration()
         {
-            dtgvcalibration.DataSource = dbContext.CALIBRATIONs.ToList();
-
+            dtgvcalibration.DataSource = dbContext.CALIBRATIONs.Where(c => c.STATUS == true).ToList();
+            dtgvcalibration.Columns["STATUS"].Visible = false;
         }
 
-        public bool CheckValueTextBox()
-        {
-            bool ok;
-            //if (String.IsNullOrEmpty(txtPart_no.Text))
-            //{
-            //    lblpart_no.Visible = true;
-            //    lblpart_no.Text = "Mã quản lý không được để trống!";
-            //}
-            
-            //else
-            //{
-            //    return ok = true;
-            //}
-            return ok = false;
-
-        }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
             if (checkboximportexcel.Checked == false)
             {
-
-                var check_part_no = dbContext.DEVICEs.Where(c => c.PART_NO == cbbpart_no.SelectedItem.ToString()).SingleOrDefault();
-                if(check_part_no == null)
+                if (cbbpart_no.SelectedIndex < 0)
                 {
-                    MessageBox.Show("Mã quản lý " + cbbpart_no.SelectedItem.ToString() + "không tồn tại!", "Thông báo");
+                    lblpart_no.Text = "Mã quản lý không được để trống!";
+                    lblpart_no.Visible = true;
                 }
                 else
                 {
-                    calibration = dbContext.CALIBRATIONs.Find(cbbpart_no.SelectedItem.ToString());
-                    calibration.CALI_DATE = dtcali_date.Value;
-                    calibration.CALI_RECOMMEND = dtcali_recommend.Value;
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Lưu thành công!", "Thông báo");
-
+                    var check_part_no = dbContext.DEVICEs.Where(c => c.PART_NO == cbbpart_no.SelectedItem.ToString()).SingleOrDefault();
+                    if (check_part_no == null)
+                    {
+                        MessageBox.Show("Mã quản lý " + cbbpart_no.SelectedItem.ToString() + "không tồn tại!", "Thông báo");
+                    }
+                    else
+                    {
+                        calibration = dbContext.CALIBRATIONs.Find(cbbpart_no.SelectedItem.ToString());
+                        calibration.CALI_DATE = dtcali_date.Value;
+                        calibration.CALI_RECOMMEND = dtcali_recommend.Value;
+                        calibration.STATUS = true;
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Lưu thành công!", "Thông báo");
+                        
+                    }
                 }
+                
+               
 
              }
             else
@@ -98,6 +92,7 @@ namespace QUAN_LY_THIET_BI_DO
                             calibration = dbContext.CALIBRATIONs.Find(item[0].ToString());
                             calibration.CALI_DATE = Convert.ToDateTime(item[1].ToString());
                             calibration.CALI_RECOMMEND = Convert.ToDateTime(item[2].ToString());
+                            calibration.STATUS = true;
                             dbContext.SaveChanges();
                         }
 
@@ -158,8 +153,10 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void cbbpart_no_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblpart_no.Visible = false;
+            lblpart_no.Text = "";
             string partno = cbbpart_no.SelectedItem.ToString();
-            var result = dbContext.CALIBRATIONs.Where(x => x.PART_NO==partno).SingleOrDefault();
+            var result = dbContext.CALIBRATIONs.Where(x => x.PART_NO==partno && x.STATUS==true).SingleOrDefault();
             if (result == null)
             {
                 MessageBox.Show("Mã quản lý " + partno + " không tìm thấy!","Thông báo");

@@ -114,6 +114,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="Ultils.cs" />
     <EmbeddedResource Include="FormCalibration.resx">
       <DependentUpon>FormCalibration.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +173,7 @@
     <Content Include="Image\85542_guardar_save_icon %281%29.png" />
     <Content Include="Image\85542_guardar_save_icon.png" />
     <Content Include="Image\8725676_copy_icon.png" />
+    <Content Include="Image\logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

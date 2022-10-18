@@ -15,10 +15,11 @@ namespace QUAN_LY_THIET_BI_DO
         DeviceControl_Model dbcontext = new DeviceControl_Model();
         List<CONVERT_DEVICE> list_convert = new List<CONVERT_DEVICE>();
         DEVICE device = new DEVICE();
+        CALIBRATION calibration = new CALIBRATION();
         public Form_device()
         {
             InitializeComponent();
-            Load_data();
+            toolStripStatusVersion.Text = Ultils.GetRunningVersion();
         }
         public void Load_data()
         {
@@ -27,7 +28,7 @@ namespace QUAN_LY_THIET_BI_DO
                 var result = dbcontext.DEVICEs.Where(c => c.STATUS == true).ToList();
                 foreach (var item in result)
                 {
-                    var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
+                    var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO && c.STATUS==true).SingleOrDefault();
                     if (result_cali == null)
                     {
                         MessageBox.Show("Mã quản lý không có thời gian hiệu chuẩn", "Thông báo");
@@ -148,7 +149,7 @@ namespace QUAN_LY_THIET_BI_DO
         private void txtsearch_TextChanged(object sender, EventArgs e)
         {
             List<CONVERT_DEVICE>list_convert_search= new List<CONVERT_DEVICE>() ;
-           var result = dbcontext.DEVICEs.Where(x => x.PART_NO.Contains(txtsearch.Text)).ToList();
+           var result = dbcontext.DEVICEs.Where(x => x.PART_NO.Contains(txtsearch.Text) && x.STATUS==true).ToList();
             foreach (var item in result)
             {
                 var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
@@ -189,8 +190,6 @@ namespace QUAN_LY_THIET_BI_DO
                         DEPT_CONTROL = item.DEPT_CONTROL,
                         PLACE_USE = item.PLACE_USE,
                         CONTROL_MNG = item.CONTROL_MNG,
-                        //CALI_DATE = result_cali.CALI_DATE,
-                        //CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
                         CALI_NEXT_LASTEST = cali_next,
                         MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
                         MAKER = item.MAKER,
@@ -298,6 +297,7 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void deletetoolStripMenuItem2_Click(object sender, EventArgs e)
         {
+          
             string part_no= this.dtgv_device.CurrentRow.Cells[0].Value.ToString();
             var check_partno= dbcontext.DEVICEs.Where(c=>c.PART_NO==part_no).ToList();
             if (check_partno == null)
@@ -308,10 +308,14 @@ namespace QUAN_LY_THIET_BI_DO
             {
                 device = dbcontext.DEVICEs.Find(this.dtgv_device.CurrentRow.Cells[0].Value.ToString());
                 device.STATUS = false;
+                calibration = dbcontext.CALIBRATIONs.Find(device.PART_NO);
+                calibration.STATUS = false;
                 dbcontext.SaveChanges();
-                MessageBox.Show("Xóa thành công!","Thông báo");
-                
+                MessageBox.Show("Xóa thành công!", "Thông báo");
+                list_convert.Clear();
+                dtgv_device.DataSource = null;
+                Load_data();
             }
-        }
+        }       
     }
 }
