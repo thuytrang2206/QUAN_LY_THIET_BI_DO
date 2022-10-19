@@ -35,23 +35,7 @@ namespace QUAN_LY_THIET_BI_DO
                     }
                     else
                     {
-                        string equipment = "";
-                        if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
-                        {
-                            equipment = "OK";
-                        }
-                        else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
-                        {
-                            equipment = "Stop Calibration & Use";
-                        }
-                        else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
-                        {
-                            equipment = "NG chờ sửa";
-                        }
-                        else
-                        {
-                            equipment = "NG hủy";
-                        }
+                        string equipment = item.ENQUIP_STATE == Convert.ToInt32(Task.OK) ? "OK" : item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration) ? "Stop Calibration & Use" : item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair) ? equipment = "NG chờ sửa" : "NG hủy";
                         DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
                         list_convert.Add(new CONVERT_DEVICE()
                         {
@@ -82,9 +66,7 @@ namespace QUAN_LY_THIET_BI_DO
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
-           
+            } 
         }
 
         private void Form_device_Load(object sender, EventArgs e)
@@ -112,8 +94,6 @@ namespace QUAN_LY_THIET_BI_DO
             formEditdevice.txtdept_control.Text = this.dtgv_device.CurrentRow.Cells[8].Value.ToString();
             formEditdevice.txtpleace_use.Text = this.dtgv_device.CurrentRow.Cells[9].Value.ToString();
             formEditdevice.txtcontrol_mng.Text = this.dtgv_device.CurrentRow.Cells[10].Value.ToString();
-            //formEditdevice.dtcalibrationdate.Text = this.dtgv_device.CurrentRow.Cells[11].Value.ToString();
-            //formEditdevice.dtrecommend_date.Text = this.dtgv_device.CurrentRow.Cells[12].Value.ToString();
             formEditdevice.txtmaker.Text = this.dtgv_device.CurrentRow.Cells[13].Value.ToString();
             if (this.dtgv_device.CurrentRow.Cells[14].Value.ToString() == "OK")
             {
@@ -136,11 +116,6 @@ namespace QUAN_LY_THIET_BI_DO
            
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
@@ -159,23 +134,7 @@ namespace QUAN_LY_THIET_BI_DO
                 }
                 else
                 {
-                    string equipment = "";
-                    if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
-                    {
-                        equipment = "OK";
-                    }
-                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
-                    {
-                        equipment = "Stop Calibration & Use";
-                    }
-                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
-                    {
-                        equipment = "NG chờ sửa";
-                    }
-                    else
-                    {
-                        equipment = "NG hủy";
-                    }
+                    string equipment = item.ENQUIP_STATE == Convert.ToInt32(Task.OK) ? "OK" : item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration) ? "Stop Calibration & Use" : item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair) ? equipment = "NG chờ sửa" : "NG hủy";
                     DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
                     list_convert_search.Add(new CONVERT_DEVICE()
                     {
@@ -195,10 +154,8 @@ namespace QUAN_LY_THIET_BI_DO
                         MAKER = item.MAKER,
                         ENQUIP_STATE = equipment,
                         RMK = item.RMK
-
                     });
-                }
-                
+                }                
             }
             dtgv_device.DataSource = list_convert_search;
         }
@@ -220,12 +177,10 @@ namespace QUAN_LY_THIET_BI_DO
                     var pos = ((DataGridView)sender).GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
                     pos.X += e.X;
                     pos.Y += e.Y;
-                    contextMenuStrip1.Show(Control.MousePosition);
-             
+                    contextMenuStrip1.Show(Control.MousePosition);            
                 }
                 catch (Exception)
                 {
-
                 }
             }
         }
@@ -270,34 +225,27 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Int32 selectedCellCount =
-              dtgv_device.GetCellCount(DataGridViewElementStates.Selected);
-           
+            Int32 selectedCellCount =dtgv_device.GetCellCount(DataGridViewElementStates.Selected);          
             if (selectedCellCount > 0)
             {
-                if (dtgv_device.AreAllCellsSelected(true))
+                StringBuilder ClipboardBuillder = new StringBuilder();
+                if (selectedCellCount == 1)
                 {
-                    MessageBox.Show("All cells are selected", "Selected Cells");
+                    ClipboardBuillder.Append(dtgv_device.Rows[dtgv_device.SelectedCells[0].RowIndex].Cells[dtgv_device.SelectedCells[0].ColumnIndex].Value.ToString() + " ");
                 }
                 else
                 {
-                    System.Text.StringBuilder sb =
-                        new System.Text.StringBuilder();
-                    StringBuilder ClipboardBuillder = new StringBuilder();
-                    for (int i = 0;
-                        i < selectedCellCount; i++)
+                    for (int i = selectedCellCount-1; i >=0; i--)
                     {
                         ClipboardBuillder.Append(dtgv_device.Rows[dtgv_device.SelectedCells[i].RowIndex].Cells[dtgv_device.SelectedCells[i].ColumnIndex].Value.ToString() + " ");                 
-                    }
-
-                    Clipboard.SetText(ClipboardBuillder.ToString());                   
+                    }                                    
                 }
+                Clipboard.SetText(ClipboardBuillder.ToString());
             }
         }
 
         private void deletetoolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-          
+        {          
             string part_no= this.dtgv_device.CurrentRow.Cells[0].Value.ToString();
             var check_partno= dbcontext.DEVICEs.Where(c=>c.PART_NO==part_no).ToList();
             if (check_partno == null)
@@ -314,7 +262,7 @@ namespace QUAN_LY_THIET_BI_DO
                 MessageBox.Show("Xóa thành công!", "Thông báo");
                 list_convert.Clear();
                 dtgv_device.DataSource = null;
-                Load_data();
+                Form_device_Load(sender, e);
             }
         }       
     }

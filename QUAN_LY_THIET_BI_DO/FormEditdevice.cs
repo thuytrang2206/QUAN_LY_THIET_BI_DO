@@ -63,23 +63,7 @@ namespace QUAN_LY_THIET_BI_DO
                 }
                 else
                 {
-                    string equipment = "";
-                    if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
-                    {
-                        equipment = "OK";
-                    }
-                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
-                    {
-                        equipment = "Stop Calibration & Use";
-                    }
-                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
-                    {
-                        equipment = "NG chờ sửa";
-                    }
-                    else
-                    {
-                        equipment = "NG hủy";
-                    }
+                    string equipment = item.ENQUIP_STATE == Convert.ToInt32(Task.OK) ? "OK" : item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration) ? "Stop Calibration & Use" : item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair) ? equipment = "NG chờ sửa" : "NG hủy";
                     DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
                     list_convert.Add(new CONVERT_DEVICE()
                     {

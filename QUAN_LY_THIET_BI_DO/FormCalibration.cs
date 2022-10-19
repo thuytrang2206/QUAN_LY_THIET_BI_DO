@@ -111,7 +111,7 @@ namespace QUAN_LY_THIET_BI_DO
                 {
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+                        using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                         {
                             lblnamefile.Visible = true;
                             lblnamefile.Text = openFileDialog.FileName.Split('\\').LastOrDefault();

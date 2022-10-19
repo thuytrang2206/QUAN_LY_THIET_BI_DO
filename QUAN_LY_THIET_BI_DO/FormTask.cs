@@ -16,7 +16,6 @@ namespace QUAN_LY_THIET_BI_DO
     public partial class FormTask : Form
     {
         DeviceControl_Model dbcontext = new DeviceControl_Model();
-
         Form_device form_Device;
         CALIBRATION calibration = new CALIBRATION();
         DEVICE device = new DEVICE();
@@ -79,6 +78,7 @@ namespace QUAN_LY_THIET_BI_DO
                                 dbcontext.CALIBRATIONs.Add(data_cali);
                                 dbcontext.SaveChanges();
                             }
+                            // part_no đã có trong csdl=>sửa dữ liệu theo item file excel
                             else
                             {
                                 device = dbcontext.DEVICEs.Find(item[2].ToString());
@@ -112,6 +112,7 @@ namespace QUAN_LY_THIET_BI_DO
                     if (CheckValueTextBox() == true)
                     {
                         var check_part_no = dbcontext.DEVICEs.Where(c => c.PART_NO == txtpart_no.Text).SingleOrDefault();
+                        // part_no chưa có trong csdl
                         if (check_part_no == null)
                         {
                             var data = new DEVICE()
@@ -145,8 +146,11 @@ namespace QUAN_LY_THIET_BI_DO
                             Reloadlistconvert_datagridview();
                             Reload_datawhencreate();
                         }
+                        //part_no có trong csdl
                         else
                         {
+                            //kiểm tra status
+                            //status=false=> sửa dữ liệu theo textbox và status= true
                             if (check_part_no.STATUS == true)
                             {
                                 MessageBox.Show("Mã quản lý " + txtpart_no.Text + " đã có trong database!", "Thông báo");
@@ -196,23 +200,7 @@ namespace QUAN_LY_THIET_BI_DO
 
         public int Check_equipment(string equipment)
         {
-            int equipment_state = 0;
-            if (equipment == "OK")
-            {
-                equipment_state = Convert.ToInt32(Task.OK);
-            }
-            else if (equipment == "NG chờ sửa")
-            {
-                equipment_state = Convert.ToInt32(Task.NG_Waiting_for_Repair);
-            }
-            else if (equipment == "NG hủy")
-            {
-                equipment_state = Convert.ToInt32(Task.NG_Cancel);
-            }
-            else
-            {
-                equipment_state = Convert.ToInt32(Task.Stop_Calibration);
-            }
+            int equipment_state = equipment == "OK" ? 0 : equipment == "Stop Calibration & Use" ? 1 : equipment == "NG chờ sửa" ?2:3;
             return equipment_state;
         }
 
@@ -222,24 +210,8 @@ namespace QUAN_LY_THIET_BI_DO
             foreach (var item in result)
             {
                 var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO && c.STATUS==true).SingleOrDefault();
-          
-                    string equipment = "";
-                    if (item.ENQUIP_STATE == Convert.ToInt32(Task.OK))
-                    {
-                        equipment = "OK";
-                    }
-                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration))
-                    {
-                        equipment = "Stop Calibration & Use";
-                    }
-                    else if (item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair))
-                    {
-                        equipment = "NG chờ sửa";
-                    }
-                    else
-                    {
-                        equipment = "NG hủy";
-                    }
+
+                    string equipment = item.ENQUIP_STATE == Convert.ToInt32(Task.OK)?"OK": item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration)? "Stop Calibration & Use": item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair)? equipment = "NG chờ sửa": "NG hủy";                   
                     DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
                     list_convert.Add(new CONVERT_DEVICE()
                     {
@@ -260,9 +232,7 @@ namespace QUAN_LY_THIET_BI_DO
                         ENQUIP_STATE = equipment,
                         RMK = item.RMK
 
-                    });
-                
-                
+                    });               
             }
             form_Device.dtgv_device.DataSource = list_convert;
         }
