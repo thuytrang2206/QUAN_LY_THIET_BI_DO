@@ -85,6 +85,18 @@ namespace QUAN_LY_THIET_BI_DO
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblpayment = new System.Windows.Forms.Label();
+            this.txtpayment = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblmodelumc = new System.Windows.Forms.Label();
+            this.lblfctno = new System.Windows.Forms.Label();
+            this.lblline = new System.Windows.Forms.Label();
+            this.txtmodelumc = new System.Windows.Forms.TextBox();
+            this.txtfctno = new System.Windows.Forms.TextBox();
+            this.txtline = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -99,7 +111,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(8, 60);
+            this.label19.Location = new System.Drawing.Point(6, 384);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(123, 16);
             this.label19.TabIndex = 0;
@@ -109,7 +121,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblcycle.AutoSize = true;
             this.lblcycle.ForeColor = System.Drawing.Color.Red;
-            this.lblcycle.Location = new System.Drawing.Point(0, 280);
+            this.lblcycle.Location = new System.Drawing.Point(6, 280);
             this.lblcycle.Name = "lblcycle";
             this.lblcycle.Size = new System.Drawing.Size(41, 13);
             this.lblcycle.TabIndex = 16;
@@ -120,7 +132,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblfactory.AutoSize = true;
             this.lblfactory.ForeColor = System.Drawing.Color.Red;
-            this.lblfactory.Location = new System.Drawing.Point(0, 240);
+            this.lblfactory.Location = new System.Drawing.Point(6, 240);
             this.lblfactory.Name = "lblfactory";
             this.lblfactory.Size = new System.Drawing.Size(41, 13);
             this.lblfactory.TabIndex = 15;
@@ -131,7 +143,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblserial.AutoSize = true;
             this.lblserial.ForeColor = System.Drawing.Color.Red;
-            this.lblserial.Location = new System.Drawing.Point(0, 200);
+            this.lblserial.Location = new System.Drawing.Point(6, 200);
             this.lblserial.Name = "lblserial";
             this.lblserial.Size = new System.Drawing.Size(41, 13);
             this.lblserial.TabIndex = 14;
@@ -142,7 +154,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblmodel.AutoSize = true;
             this.lblmodel.ForeColor = System.Drawing.Color.Red;
-            this.lblmodel.Location = new System.Drawing.Point(0, 160);
+            this.lblmodel.Location = new System.Drawing.Point(6, 160);
             this.lblmodel.Name = "lblmodel";
             this.lblmodel.Size = new System.Drawing.Size(41, 13);
             this.lblmodel.TabIndex = 13;
@@ -151,16 +163,19 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(7, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(145, 347);
+            this.groupBox2.Size = new System.Drawing.Size(145, 425);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "name";
@@ -239,7 +254,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(8, 20);
+            this.label10.Location = new System.Drawing.Point(6, 341);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 16);
             this.label10.TabIndex = 8;
@@ -248,15 +263,20 @@ namespace QUAN_LY_THIET_BI_DO
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.lblpayment);
+            this.groupBox3.Controls.Add(this.txtpayment);
             this.groupBox3.Controls.Add(this.lblcycle);
             this.groupBox3.Controls.Add(this.lblfactory);
             this.groupBox3.Controls.Add(this.lblserial);
             this.groupBox3.Controls.Add(this.lblmodel);
             this.groupBox3.Controls.Add(this.lblpartname);
+            this.groupBox3.Controls.Add(this.lbldepartment);
             this.groupBox3.Controls.Add(this.lblsapbarcode);
+            this.groupBox3.Controls.Add(this.dtregistration_date);
             this.groupBox3.Controls.Add(this.lblpartno);
             this.groupBox3.Controls.Add(this.txtcycle);
             this.groupBox3.Controls.Add(this.txtmanufactory);
+            this.groupBox3.Controls.Add(this.txtdept_control);
             this.groupBox3.Controls.Add(this.txtserial);
             this.groupBox3.Controls.Add(this.txtmodel);
             this.groupBox3.Controls.Add(this.txtpart_name);
@@ -264,7 +284,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox3.Controls.Add(this.txtpart_no);
             this.groupBox3.Location = new System.Drawing.Point(158, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(250, 347);
+            this.groupBox3.Size = new System.Drawing.Size(250, 425);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "value";
@@ -273,7 +293,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblpartname.AutoSize = true;
             this.lblpartname.ForeColor = System.Drawing.Color.Red;
-            this.lblpartname.Location = new System.Drawing.Point(0, 119);
+            this.lblpartname.Location = new System.Drawing.Point(6, 119);
             this.lblpartname.Name = "lblpartname";
             this.lblpartname.Size = new System.Drawing.Size(41, 13);
             this.lblpartname.TabIndex = 12;
@@ -284,7 +304,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblsapbarcode.AutoSize = true;
             this.lblsapbarcode.ForeColor = System.Drawing.Color.Red;
-            this.lblsapbarcode.Location = new System.Drawing.Point(0, 80);
+            this.lblsapbarcode.Location = new System.Drawing.Point(6, 80);
             this.lblsapbarcode.Name = "lblsapbarcode";
             this.lblsapbarcode.Size = new System.Drawing.Size(41, 13);
             this.lblsapbarcode.TabIndex = 11;
@@ -295,7 +315,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblpartno.AutoSize = true;
             this.lblpartno.ForeColor = System.Drawing.Color.Red;
-            this.lblpartno.Location = new System.Drawing.Point(0, 39);
+            this.lblpartno.Location = new System.Drawing.Point(6, 39);
             this.lblpartno.Name = "lblpartno";
             this.lblpartno.Size = new System.Drawing.Size(41, 13);
             this.lblpartno.TabIndex = 10;
@@ -304,42 +324,42 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtcycle
             // 
-            this.txtcycle.Location = new System.Drawing.Point(0, 256);
+            this.txtcycle.Location = new System.Drawing.Point(6, 256);
             this.txtcycle.Name = "txtcycle";
             this.txtcycle.Size = new System.Drawing.Size(200, 20);
             this.txtcycle.TabIndex = 7;
             // 
             // txtmanufactory
             // 
-            this.txtmanufactory.Location = new System.Drawing.Point(0, 216);
+            this.txtmanufactory.Location = new System.Drawing.Point(6, 216);
             this.txtmanufactory.Name = "txtmanufactory";
             this.txtmanufactory.Size = new System.Drawing.Size(200, 20);
             this.txtmanufactory.TabIndex = 6;
             // 
             // txtserial
             // 
-            this.txtserial.Location = new System.Drawing.Point(0, 176);
+            this.txtserial.Location = new System.Drawing.Point(6, 176);
             this.txtserial.Name = "txtserial";
             this.txtserial.Size = new System.Drawing.Size(200, 20);
             this.txtserial.TabIndex = 5;
             // 
             // txtmodel
             // 
-            this.txtmodel.Location = new System.Drawing.Point(0, 136);
+            this.txtmodel.Location = new System.Drawing.Point(6, 136);
             this.txtmodel.Name = "txtmodel";
             this.txtmodel.Size = new System.Drawing.Size(200, 20);
             this.txtmodel.TabIndex = 4;
             // 
             // txtpart_name
             // 
-            this.txtpart_name.Location = new System.Drawing.Point(0, 96);
+            this.txtpart_name.Location = new System.Drawing.Point(6, 96);
             this.txtpart_name.Name = "txtpart_name";
             this.txtpart_name.Size = new System.Drawing.Size(200, 20);
             this.txtpart_name.TabIndex = 3;
             // 
             // txtsap_barcode
             // 
-            this.txtsap_barcode.Location = new System.Drawing.Point(0, 56);
+            this.txtsap_barcode.Location = new System.Drawing.Point(6, 56);
             this.txtsap_barcode.Name = "txtsap_barcode";
             this.txtsap_barcode.Size = new System.Drawing.Size(200, 20);
             this.txtsap_barcode.TabIndex = 2;
@@ -347,7 +367,7 @@ namespace QUAN_LY_THIET_BI_DO
             // txtpart_no
             // 
             this.txtpart_no.BackColor = System.Drawing.Color.White;
-            this.txtpart_no.Location = new System.Drawing.Point(0, 16);
+            this.txtpart_no.Location = new System.Drawing.Point(6, 16);
             this.txtpart_no.Name = "txtpart_no";
             this.txtpart_no.ReadOnly = true;
             this.txtpart_no.Size = new System.Drawing.Size(200, 20);
@@ -356,7 +376,7 @@ namespace QUAN_LY_THIET_BI_DO
             // dtregistration_date
             // 
             this.dtregistration_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtregistration_date.Location = new System.Drawing.Point(6, 16);
+            this.dtregistration_date.Location = new System.Drawing.Point(6, 341);
             this.dtregistration_date.Name = "dtregistration_date";
             this.dtregistration_date.Size = new System.Drawing.Size(200, 20);
             this.dtregistration_date.TabIndex = 8;
@@ -374,7 +394,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.lblrmk.AutoSize = true;
             this.lblrmk.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblrmk.ForeColor = System.Drawing.Color.Red;
-            this.lblrmk.Location = new System.Drawing.Point(9, 287);
+            this.lblrmk.Location = new System.Drawing.Point(9, 202);
             this.lblrmk.Name = "lblrmk";
             this.lblrmk.Size = new System.Drawing.Size(41, 13);
             this.lblrmk.TabIndex = 16;
@@ -385,7 +405,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(8, 101);
+            this.label18.Location = new System.Drawing.Point(15, 20);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 16);
             this.label18.TabIndex = 1;
@@ -395,7 +415,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblequipment.AutoSize = true;
             this.lblequipment.ForeColor = System.Drawing.Color.Red;
-            this.lblequipment.Location = new System.Drawing.Point(9, 248);
+            this.lblequipment.Location = new System.Drawing.Point(9, 163);
             this.lblequipment.Name = "lblequipment";
             this.lblequipment.Size = new System.Drawing.Size(41, 13);
             this.lblequipment.TabIndex = 15;
@@ -406,7 +426,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblCalibrationby.AutoSize = true;
             this.lblCalibrationby.ForeColor = System.Drawing.Color.Red;
-            this.lblCalibrationby.Location = new System.Drawing.Point(6, 204);
+            this.lblCalibrationby.Location = new System.Drawing.Point(6, 119);
             this.lblCalibrationby.Name = "lblCalibrationby";
             this.lblCalibrationby.Size = new System.Drawing.Size(41, 13);
             this.lblCalibrationby.TabIndex = 13;
@@ -417,7 +437,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblcontrolman.AutoSize = true;
             this.lblcontrolman.ForeColor = System.Drawing.Color.Red;
-            this.lblcontrolman.Location = new System.Drawing.Point(6, 165);
+            this.lblcontrolman.Location = new System.Drawing.Point(6, 80);
             this.lblcontrolman.Name = "lblcontrolman";
             this.lblcontrolman.Size = new System.Drawing.Size(41, 13);
             this.lblcontrolman.TabIndex = 12;
@@ -426,6 +446,12 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.lblmodelumc);
+            this.groupBox4.Controls.Add(this.lblfctno);
+            this.groupBox4.Controls.Add(this.lblline);
+            this.groupBox4.Controls.Add(this.txtmodelumc);
+            this.groupBox4.Controls.Add(this.txtfctno);
+            this.groupBox4.Controls.Add(this.txtline);
             this.groupBox4.Controls.Add(this.cbbequip_state);
             this.groupBox4.Controls.Add(this.btnSave);
             this.groupBox4.Controls.Add(this.lblrmk);
@@ -433,17 +459,14 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox4.Controls.Add(this.lblCalibrationby);
             this.groupBox4.Controls.Add(this.lblcontrolman);
             this.groupBox4.Controls.Add(this.lblpleaceuse);
-            this.groupBox4.Controls.Add(this.lbldepartment);
-            this.groupBox4.Controls.Add(this.dtregistration_date);
             this.groupBox4.Controls.Add(this.txtrmk);
             this.groupBox4.Controls.Add(this.txtmaker);
             this.groupBox4.Controls.Add(this.txtcontrol_mng);
             this.groupBox4.Controls.Add(this.txtpleace_use);
-            this.groupBox4.Controls.Add(this.txtdept_control);
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(636, 11);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(236, 347);
+            this.groupBox4.Size = new System.Drawing.Size(236, 425);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "value";
@@ -456,7 +479,7 @@ namespace QUAN_LY_THIET_BI_DO
             "Stop Calibration & Use",
             "NG chờ sửa",
             "NG hủy"});
-            this.cbbequip_state.Location = new System.Drawing.Point(6, 224);
+            this.cbbequip_state.Location = new System.Drawing.Point(6, 139);
             this.cbbequip_state.Name = "cbbequip_state";
             this.cbbequip_state.Size = new System.Drawing.Size(201, 21);
             this.cbbequip_state.TabIndex = 18;
@@ -469,7 +492,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85542_guardar_save_icon__1_2;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(146, 314);
+            this.btnSave.Location = new System.Drawing.Point(147, 396);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(60, 23);
             this.btnSave.TabIndex = 17;
@@ -481,7 +504,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblpleaceuse.AutoSize = true;
             this.lblpleaceuse.ForeColor = System.Drawing.Color.Red;
-            this.lblpleaceuse.Location = new System.Drawing.Point(6, 125);
+            this.lblpleaceuse.Location = new System.Drawing.Point(6, 40);
             this.lblpleaceuse.Name = "lblpleaceuse";
             this.lblpleaceuse.Size = new System.Drawing.Size(41, 13);
             this.lblpleaceuse.TabIndex = 11;
@@ -492,7 +515,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lbldepartment.AutoSize = true;
             this.lbldepartment.ForeColor = System.Drawing.Color.Red;
-            this.lbldepartment.Location = new System.Drawing.Point(6, 85);
+            this.lbldepartment.Location = new System.Drawing.Point(6, 403);
             this.lbldepartment.Name = "lbldepartment";
             this.lbldepartment.Size = new System.Drawing.Size(41, 13);
             this.lbldepartment.TabIndex = 10;
@@ -501,35 +524,35 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtrmk
             // 
-            this.txtrmk.Location = new System.Drawing.Point(6, 264);
+            this.txtrmk.Location = new System.Drawing.Point(6, 179);
             this.txtrmk.Name = "txtrmk";
             this.txtrmk.Size = new System.Drawing.Size(200, 20);
             this.txtrmk.TabIndex = 6;
             // 
             // txtmaker
             // 
-            this.txtmaker.Location = new System.Drawing.Point(6, 180);
+            this.txtmaker.Location = new System.Drawing.Point(6, 95);
             this.txtmaker.Name = "txtmaker";
             this.txtmaker.Size = new System.Drawing.Size(200, 20);
             this.txtmaker.TabIndex = 3;
             // 
             // txtcontrol_mng
             // 
-            this.txtcontrol_mng.Location = new System.Drawing.Point(6, 141);
+            this.txtcontrol_mng.Location = new System.Drawing.Point(6, 56);
             this.txtcontrol_mng.Name = "txtcontrol_mng";
             this.txtcontrol_mng.Size = new System.Drawing.Size(200, 20);
             this.txtcontrol_mng.TabIndex = 2;
             // 
             // txtpleace_use
             // 
-            this.txtpleace_use.Location = new System.Drawing.Point(6, 101);
+            this.txtpleace_use.Location = new System.Drawing.Point(6, 16);
             this.txtpleace_use.Name = "txtpleace_use";
             this.txtpleace_use.Size = new System.Drawing.Size(200, 20);
             this.txtpleace_use.TabIndex = 1;
             // 
             // txtdept_control
             // 
-            this.txtdept_control.Location = new System.Drawing.Point(6, 60);
+            this.txtdept_control.Location = new System.Drawing.Point(6, 380);
             this.txtdept_control.Name = "txtdept_control";
             this.txtdept_control.Size = new System.Drawing.Size(200, 20);
             this.txtdept_control.TabIndex = 0;
@@ -574,22 +597,23 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(8, 90);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(881, 368);
+            this.groupBox1.Size = new System.Drawing.Size(881, 448);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label14);
             this.groupBox5.Controls.Add(this.label17);
             this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Location = new System.Drawing.Point(428, 11);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(202, 347);
+            this.groupBox5.Size = new System.Drawing.Size(202, 425);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "name";
@@ -598,7 +622,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(8, 260);
+            this.label11.Location = new System.Drawing.Point(15, 179);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 16);
             this.label11.TabIndex = 8;
@@ -608,7 +632,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(8, 220);
+            this.label12.Location = new System.Drawing.Point(15, 139);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(159, 16);
             this.label12.TabIndex = 7;
@@ -618,7 +642,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(8, 180);
+            this.label14.Location = new System.Drawing.Point(15, 99);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(133, 16);
             this.label14.TabIndex = 5;
@@ -628,7 +652,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(8, 138);
+            this.label17.Location = new System.Drawing.Point(15, 57);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(107, 16);
             this.label17.TabIndex = 2;
@@ -662,17 +686,133 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Red;
             this.textBox2.Location = new System.Drawing.Point(3, 15);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(403, 24);
             this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "QUAN LY HIEU CHUAN THIET BI DO";
+            this.textBox2.Text = "QUẢN LÝ HIỆU CHUẨN THIẾT BỊ ĐO";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 297);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Thanh toán:";
+            // 
+            // lblpayment
+            // 
+            this.lblpayment.AutoSize = true;
+            this.lblpayment.ForeColor = System.Drawing.Color.Red;
+            this.lblpayment.Location = new System.Drawing.Point(6, 320);
+            this.lblpayment.Name = "lblpayment";
+            this.lblpayment.Size = new System.Drawing.Size(41, 13);
+            this.lblpayment.TabIndex = 18;
+            this.lblpayment.Text = "label27";
+            this.lblpayment.Visible = false;
+            // 
+            // txtpayment
+            // 
+            this.txtpayment.Location = new System.Drawing.Point(6, 296);
+            this.txtpayment.Name = "txtpayment";
+            this.txtpayment.Size = new System.Drawing.Size(200, 20);
+            this.txtpayment.TabIndex = 17;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(15, 298);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(138, 16);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "Model thành phẩm:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(15, 260);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 16);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "FCT no:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(15, 220);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 16);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Line:";
+            // 
+            // lblmodelumc
+            // 
+            this.lblmodelumc.AutoSize = true;
+            this.lblmodelumc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblmodelumc.ForeColor = System.Drawing.Color.Red;
+            this.lblmodelumc.Location = new System.Drawing.Point(6, 323);
+            this.lblmodelumc.Name = "lblmodelumc";
+            this.lblmodelumc.Size = new System.Drawing.Size(41, 13);
+            this.lblmodelumc.TabIndex = 29;
+            this.lblmodelumc.Text = "label29";
+            this.lblmodelumc.Visible = false;
+            // 
+            // lblfctno
+            // 
+            this.lblfctno.AutoSize = true;
+            this.lblfctno.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblfctno.ForeColor = System.Drawing.Color.Red;
+            this.lblfctno.Location = new System.Drawing.Point(6, 283);
+            this.lblfctno.Name = "lblfctno";
+            this.lblfctno.Size = new System.Drawing.Size(41, 13);
+            this.lblfctno.TabIndex = 28;
+            this.lblfctno.Text = "label29";
+            this.lblfctno.Visible = false;
+            // 
+            // lblline
+            // 
+            this.lblline.AutoSize = true;
+            this.lblline.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblline.ForeColor = System.Drawing.Color.Red;
+            this.lblline.Location = new System.Drawing.Point(5, 244);
+            this.lblline.Name = "lblline";
+            this.lblline.Size = new System.Drawing.Size(41, 13);
+            this.lblline.TabIndex = 27;
+            this.lblline.Text = "label29";
+            this.lblline.Visible = false;
+            // 
+            // txtmodelumc
+            // 
+            this.txtmodelumc.Location = new System.Drawing.Point(6, 298);
+            this.txtmodelumc.Name = "txtmodelumc";
+            this.txtmodelumc.Size = new System.Drawing.Size(200, 20);
+            this.txtmodelumc.TabIndex = 26;
+            // 
+            // txtfctno
+            // 
+            this.txtfctno.Location = new System.Drawing.Point(6, 260);
+            this.txtfctno.Name = "txtfctno";
+            this.txtfctno.Size = new System.Drawing.Size(200, 20);
+            this.txtfctno.TabIndex = 25;
+            // 
+            // txtline
+            // 
+            this.txtline.Location = new System.Drawing.Point(6, 220);
+            this.txtline.Name = "txtline";
+            this.txtline.Size = new System.Drawing.Size(200, 20);
+            this.txtline.TabIndex = 24;
             // 
             // FormEditdevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 470);
+            this.ClientSize = new System.Drawing.Size(901, 550);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
@@ -758,5 +898,17 @@ namespace QUAN_LY_THIET_BI_DO
         public System.Windows.Forms.TextBox txtpleace_use;
         public System.Windows.Forms.TextBox txtdept_control;
         public System.Windows.Forms.ComboBox cbbequip_state;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblpayment;
+        public System.Windows.Forms.TextBox txtpayment;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblmodelumc;
+        private System.Windows.Forms.Label lblfctno;
+        private System.Windows.Forms.Label lblline;
+        private System.Windows.Forms.TextBox txtmodelumc;
+        private System.Windows.Forms.TextBox txtfctno;
+        private System.Windows.Forms.TextBox txtline;
     }
 }

@@ -3,75 +3,37 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QUAN_LY_THIET_BI_DO.Business;
 using QUAN_LY_THIET_BI_DO.Model;
 namespace QUAN_LY_THIET_BI_DO
 {
     public partial class Form_device : Form
     {
         DeviceControl_Model dbcontext = new DeviceControl_Model();
-        List<CONVERT_DEVICE> list_convert = new List<CONVERT_DEVICE>();
+        Repository repository = new Repository();
         DEVICE device = new DEVICE();
         CALIBRATION calibration = new CALIBRATION();
         public Form_device()
         {
             InitializeComponent();
             toolStripStatusVersion.Text = Ultils.GetRunningVersion();
+            this.dtgv_device.AutoGenerateColumns = false;
         }
         public void Load_data()
         {
-            try
-            {
-                var result = dbcontext.DEVICEs.Where(c => c.STATUS == true).ToList();
-                foreach (var item in result)
-                {
-                    var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO && c.STATUS==true).SingleOrDefault();
-                    if (result_cali == null)
-                    {
-                        MessageBox.Show("Mã quản lý không có thời gian hiệu chuẩn", "Thông báo");
-                    }
-                    else
-                    {
-                        string equipment = item.ENQUIP_STATE == Convert.ToInt32(Task.OK) ? "OK" : item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration) ? "Stop Calibration & Use" : item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair) ? equipment = "NG chờ sửa" : "NG hủy";
-                        DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
-                        list_convert.Add(new CONVERT_DEVICE()
-                        {
-                            PART_NO = item.PART_NO,
-                            SAP_BARCODE = item.SAP_BARCODE,
-                            PART_NAME = item.PART_NAME,
-                            MODEL = item.MODEL,
-                            SERIAL = item.SERIAL,
-                            MANUFACTORY = item.MANUFACTORY,
-                            CALI_CYCLE = item.CALI_CYCLE,
-                            REGISTRATION_DATE = item.REGISTRATION_DATE,
-                            DEPT_CONTROL = item.DEPT_CONTROL,
-                            PLACE_USE = item.PLACE_USE,
-                            CONTROL_MNG = item.CONTROL_MNG,
-                            //CALI_DATE = result_cali.CALI_DATE,
-                            //CALI_RECOMMEND = result_cali.CALI_RECOMMEND,
-                            CALI_NEXT_LASTEST = cali_next,
-                            MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
-                            MAKER = item.MAKER,
-                            ENQUIP_STATE = equipment,
-                            RMK = item.RMK
-
-                        });
-                    }
-                }
-                dtgv_device.DataSource = list_convert;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            } 
+            var res =  repository.FindAll();
+            this.dtgv_device.DataSource = res;
         }
 
         private void Form_device_Load(object sender, EventArgs e)
         {
             Load_data();
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -82,38 +44,8 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            FormEditdevice formEditdevice = new FormEditdevice(this);
-            formEditdevice.txtpart_no.Text = this.dtgv_device.CurrentRow.Cells[0].Value.ToString();
-            formEditdevice.txtsap_barcode.Text = this.dtgv_device.CurrentRow.Cells[2].Value.ToString();
-            formEditdevice.txtpart_name.Text = this.dtgv_device.CurrentRow.Cells[1].Value.ToString();
-            formEditdevice.txtmodel.Text = this.dtgv_device.CurrentRow.Cells[3].Value.ToString();
-            formEditdevice.txtserial.Text = this.dtgv_device.CurrentRow.Cells[4].Value.ToString();
-            formEditdevice.txtmanufactory.Text = this.dtgv_device.CurrentRow.Cells[5].Value.ToString();
-            formEditdevice.txtcycle.Text = this.dtgv_device.CurrentRow.Cells[6].Value.ToString();
-            formEditdevice.dtregistration_date.Text = this.dtgv_device.CurrentRow.Cells[7].Value.ToString();
-            formEditdevice.txtdept_control.Text = this.dtgv_device.CurrentRow.Cells[8].Value.ToString();
-            formEditdevice.txtpleace_use.Text = this.dtgv_device.CurrentRow.Cells[9].Value.ToString();
-            formEditdevice.txtcontrol_mng.Text = this.dtgv_device.CurrentRow.Cells[10].Value.ToString();
-            formEditdevice.txtmaker.Text = this.dtgv_device.CurrentRow.Cells[13].Value.ToString();
-            if (this.dtgv_device.CurrentRow.Cells[14].Value.ToString() == "OK")
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 0;
-            }
-            else if (this.dtgv_device.CurrentRow.Cells[14].Value.ToString() == "Stop Calibration & Use")
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 1;
-            }
-            else if (this.dtgv_device.CurrentRow.Cells[14].Value.ToString() == "NG chờ sửa")
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 2;
-            }
-            else
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 3;
-            }
-            formEditdevice.txtrmk.Text = this.dtgv_device.CurrentRow.Cells[15].Value.ToString();
-            formEditdevice.Show();
-           
+            FormEditdevice formEditdevice = new FormEditdevice(this, this.dtgv_device.CurrentRow.Cells[2].Value.ToString());
+            formEditdevice.Show();          
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -122,42 +54,9 @@ namespace QUAN_LY_THIET_BI_DO
         }
 
         private void txtsearch_TextChanged(object sender, EventArgs e)
-        {
-            List<CONVERT_DEVICE>list_convert_search= new List<CONVERT_DEVICE>() ;
-           var result = dbcontext.DEVICEs.Where(x => x.PART_NO.Contains(txtsearch.Text) && x.STATUS==true).ToList();
-            foreach (var item in result)
-            {
-                var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO).SingleOrDefault();
-                if (result_cali == null)
-                {
-                    MessageBox.Show("Mã quản lý không có thời gian hiệu chuẩn", "Thông báo");
-                }
-                else
-                {
-                    string equipment = item.ENQUIP_STATE == Convert.ToInt32(Task.OK) ? "OK" : item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration) ? "Stop Calibration & Use" : item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair) ? equipment = "NG chờ sửa" : "NG hủy";
-                    DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
-                    list_convert_search.Add(new CONVERT_DEVICE()
-                    {
-                        PART_NO = item.PART_NO,
-                        SAP_BARCODE = item.SAP_BARCODE,
-                        PART_NAME = item.PART_NAME,
-                        MODEL = item.MODEL,
-                        SERIAL = item.SERIAL,
-                        MANUFACTORY = item.MANUFACTORY,
-                        CALI_CYCLE = item.CALI_CYCLE,
-                        REGISTRATION_DATE = item.REGISTRATION_DATE,
-                        DEPT_CONTROL = item.DEPT_CONTROL,
-                        PLACE_USE = item.PLACE_USE,
-                        CONTROL_MNG = item.CONTROL_MNG,
-                        CALI_NEXT_LASTEST = cali_next,
-                        MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
-                        MAKER = item.MAKER,
-                        ENQUIP_STATE = equipment,
-                        RMK = item.RMK
-                    });
-                }                
-            }
-            dtgv_device.DataSource = list_convert_search;
+       {
+            var result = repository.Search(txtsearch.Text);
+            dtgv_device.DataSource = result;
         }
 
         private void dtgv_device_MouseClick(object sender, MouseEventArgs e)
@@ -187,40 +86,7 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEditdevice formEditdevice = new FormEditdevice(this);
-            formEditdevice.txtpart_no.Text = this.dtgv_device.CurrentRow.Cells[0].Value.ToString();
-            formEditdevice.txtsap_barcode.Text = this.dtgv_device.CurrentRow.Cells[2].Value.ToString();
-            formEditdevice.txtpart_name.Text = this.dtgv_device.CurrentRow.Cells[1].Value.ToString();
-            formEditdevice.txtmodel.Text = this.dtgv_device.CurrentRow.Cells[3].Value.ToString();
-            formEditdevice.txtserial.Text = this.dtgv_device.CurrentRow.Cells[4].Value.ToString();
-            formEditdevice.txtmanufactory.Text = this.dtgv_device.CurrentRow.Cells[5].Value.ToString();
-            formEditdevice.txtcycle.Text = this.dtgv_device.CurrentRow.Cells[6].Value.ToString();
-            formEditdevice.dtregistration_date.Text = this.dtgv_device.CurrentRow.Cells[7].Value.ToString();
-            formEditdevice.txtdept_control.Text = this.dtgv_device.CurrentRow.Cells[8].Value.ToString();
-            formEditdevice.txtpleace_use.Text = this.dtgv_device.CurrentRow.Cells[9].Value.ToString();
-            formEditdevice.txtcontrol_mng.Text = this.dtgv_device.CurrentRow.Cells[10].Value.ToString();
-            //formEditdevice.dtcalibrationdate.Text = this.dtgv_device.CurrentRow.Cells[11].Value.ToString();
-            //formEditdevice.dtrecommend_date.Text = this.dtgv_device.CurrentRow.Cells[12].Value.ToString();
-            formEditdevice.txtmaker.Text = this.dtgv_device.CurrentRow.Cells[13].Value.ToString();
-            if (this.dtgv_device.CurrentRow.Cells[14].Value.ToString() == "OK")
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 0;
-            }
-            else if (this.dtgv_device.CurrentRow.Cells[14].Value.ToString() == "Stop Calibration & Use")
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 1;
-            }
-            else if (this.dtgv_device.CurrentRow.Cells[14].Value.ToString() == "NG chờ sửa")
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 2;
-            }
-            else
-            {
-                formEditdevice.cbbequip_state.SelectedIndex = 3;
-            }
-            formEditdevice.txtrmk.Text = this.dtgv_device.CurrentRow.Cells[15].Value.ToString();
-            formEditdevice.Show();
-
+            btnEdit_Click(sender, e);
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -260,10 +126,52 @@ namespace QUAN_LY_THIET_BI_DO
                 calibration.STATUS = false;
                 dbcontext.SaveChanges();
                 MessageBox.Show("Xóa thành công!", "Thông báo");
-                list_convert.Clear();
                 dtgv_device.DataSource = null;
                 Form_device_Load(sender, e);
             }
-        }       
+        }
+
+        private void dtgv_device_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dtgv_device.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+           
+            using (SaveFileDialog saveFileDialog= new SaveFileDialog() { Filter="Excel workbook|* .xlsx"})
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    var fileInfo = new FileInfo(saveFileDialog.FileName);
+                    try
+                    {
+                        Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                        Microsoft.Office.Interop.Excel.Workbook workbook = app.Workbooks.Add(Type.Missing);
+                        System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.CurrentCulture;
+                        for (int i = 1; i < dtgv_device.Columns.Count + 1; i++)
+                        {
+                            app.Cells[1, i] = dtgv_device.Columns[i - 1].HeaderText;
+                        }
+                        for (int i = 0; i < dtgv_device.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dtgv_device.Columns.Count; j++)
+                            {
+                                app.Cells[i + 2, j + 1] = dtgv_device.Rows[i].Cells[j].Value.ToString();
+                            }
+                        }
+                        workbook.SaveAs(fileInfo, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                        app.Quit();
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }    
+        }
+
+        
     }
 }

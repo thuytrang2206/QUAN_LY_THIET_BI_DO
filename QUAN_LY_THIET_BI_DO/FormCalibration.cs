@@ -62,13 +62,10 @@ namespace QUAN_LY_THIET_BI_DO
                         calibration.STATUS = true;
                         dbContext.SaveChanges();
                         MessageBox.Show("Lưu thành công!", "Thông báo");
-                        
+
                     }
                 }
-                
-               
-
-             }
+            }
             else
             {
                 var Result = dtgvimport_excel.Rows.OfType<DataGridViewRow>().Select(
@@ -85,7 +82,7 @@ namespace QUAN_LY_THIET_BI_DO
                         var checkpartno = dbContext.CALIBRATIONs.Where(c => c.PART_NO == part_no).SingleOrDefault();
                         if (checkpartno == null)
                         {
-                            MessageBox.Show("Mã quản lý " + part_no + "không tìm thấy", "Thông báo");                           
+                            MessageBox.Show("Mã quản lý " + part_no + "không tìm thấy", "Thông báo");
                         }
                         else
                         {
@@ -95,10 +92,8 @@ namespace QUAN_LY_THIET_BI_DO
                             calibration.STATUS = true;
                             dbContext.SaveChanges();
                         }
-
                     }
                     MessageBox.Show("Lưu thành công!", "Thông báo");
-                   
                 }
             }
             Load_Calibration();
@@ -132,12 +127,10 @@ namespace QUAN_LY_THIET_BI_DO
                                         //    rowReader.Read();
                                         //},
                                     }
-                                });
-                                
+                                });                                
                                 if (result.Tables.Count > 0)
                                 {
                                     var dtData = result.Tables[0];
-
                                     this.dtgvimport_excel.DataSource = dtData;
                                 }
                             }               
@@ -180,7 +173,6 @@ namespace QUAN_LY_THIET_BI_DO
             }
             else
             {
-
                 grb_importhand.Visible = true;
                 grbimport_excel.Visible = false;
                 grb_importhand.Size = new Size(501, 340);

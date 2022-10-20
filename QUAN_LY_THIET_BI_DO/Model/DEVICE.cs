@@ -58,6 +58,24 @@ namespace QUAN_LY_THIET_BI_DO.Model
         [Required]
         [StringLength(64)]
         public string RMK { get; set; }
+
         public bool STATUS { get; set; }
+
+        [Required]
+        [StringLength(64)]
+        public string PAYMENT { get; set; }
+
+        [Required]
+        [StringLength(64)]
+        public string LINE { get; set; }
+
+        [Required]
+        [StringLength(64)]
+        public string FCT_NO { get; set; }
+
+        [Required]
+        [StringLength(64)]
+        public string MODEL_UMC { get; set; }
+        
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExcelDataReader;
+using QUAN_LY_THIET_BI_DO.Business;
 using QUAN_LY_THIET_BI_DO.Model;
 
 namespace QUAN_LY_THIET_BI_DO
@@ -19,14 +20,13 @@ namespace QUAN_LY_THIET_BI_DO
         Form_device form_Device;
         CALIBRATION calibration = new CALIBRATION();
         DEVICE device = new DEVICE();
-        List<CONVERT_DEVICE> list_convert = new List<CONVERT_DEVICE>();
-
+        Repository repository = new Repository();
         public FormTask(Form_device form_Device)
         {
             InitializeComponent();
             this.form_Device = form_Device;
             grboximpportexcel.Size = new Size(893, 404);
-            
+
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -42,29 +42,33 @@ namespace QUAN_LY_THIET_BI_DO
                         MessageBox.Show("Bạn chưa chọn file excel để nhập thông tin!");
                     }
                     else
-                    {                       
+                    {
                         foreach (var item in Result)
                         {
                             string part_no = item[2].ToString();
-                            var checkpartno = dbcontext.DEVICEs.Where(c => c.PART_NO ==part_no ).SingleOrDefault();
+                            var checkpartno = dbcontext.DEVICEs.Where(c => c.PART_NO == part_no).SingleOrDefault();
                             if (checkpartno == null)
                             {
                                 var data = new DEVICE()
                                 {
+                                    PAYMENT = item[1].ToString() == "" ? "." : item[1].ToString(),
                                     PART_NO = item[2].ToString(),
-                                    PART_NAME = item[4].ToString(),
-                                    SAP_BARCODE = item[3].ToString(),
-                                    MODEL = item[5].ToString(),
-                                    SERIAL = item[6].ToString(),
-                                    MANUFACTORY = item[7].ToString(),
+                                    PART_NAME = item[4].ToString() == "" ? "." : item[4].ToString(),
+                                    SAP_BARCODE = item[3].ToString() == "" ? "." : item[3].ToString(),
+                                    MODEL = item[5].ToString() == "" ? "." : item[5].ToString(),
+                                    SERIAL = item[6].ToString() == "" ? "." : item[6].ToString(),
+                                    MANUFACTORY = item[7].ToString() == "" ? "." : item[7].ToString(),
                                     CALI_CYCLE = int.Parse(item[8].ToString()),
                                     REGISTRATION_DATE = Convert.ToDateTime(item[9].ToString()),
-                                    DEPT_CONTROL = item[10].ToString(),
-                                    PLACE_USE = item[11].ToString(),
-                                    CONTROL_MNG = item[12].ToString(),
+                                    DEPT_CONTROL = item[10].ToString() == "" ? "." : item[10].ToString(),
+                                    PLACE_USE = item[11].ToString() == "" ? "." : item[11].ToString(),
+                                    CONTROL_MNG = item[12].ToString() == "" ? "." : item[12].ToString(),
                                     ENQUIP_STATE = Check_equipment(item[18].ToString()),
-                                    MAKER = item[17].ToString(),
-                                    RMK = item[19].ToString(),
+                                    MAKER = item[17].ToString() == "" ? "." : item[17].ToString(),
+                                    RMK = item[19].ToString() == "" ? "." : item[19].ToString(),
+                                    LINE= item[20].ToString() == "" ? "." : item[20].ToString(),
+                                    FCT_NO= item[21].ToString() == "" ? "." : item[21].ToString(),
+                                    MODEL_UMC= item[22].ToString() == "" ? "." : item[22].ToString(),
                                     STATUS = true,
                                 };
                                 dbcontext.DEVICEs.Add(data);
@@ -82,26 +86,30 @@ namespace QUAN_LY_THIET_BI_DO
                             else
                             {
                                 device = dbcontext.DEVICEs.Find(item[2].ToString());
-                                device.SAP_BARCODE = item[3].ToString();
-                                device.PART_NAME = item[4].ToString();
-                                device.MODEL = item[5].ToString();
-                                device.SERIAL = item[6].ToString();
-                                device.MANUFACTORY = item[7].ToString();
+                                device.PAYMENT = item[1].ToString() == "" ? "." : item[1].ToString();
+                                device.SAP_BARCODE = item[3].ToString() == "" ? "." : item[3].ToString();
+                                device.PART_NAME = item[4].ToString() == "" ? "." : item[4].ToString();
+                                device.MODEL = item[5].ToString() == "" ? "." : item[5].ToString();
+                                device.SERIAL = item[6].ToString() == "" ? "." : item[6].ToString();
+                                device.MANUFACTORY = item[7].ToString() == "" ? "." : item[7].ToString();
                                 device.CALI_CYCLE = int.Parse(item[8].ToString());
-                                device.REGISTRATION_DATE= Convert.ToDateTime(item[9].ToString());
-                                device.DEPT_CONTROL = item[10].ToString();
-                                device.PLACE_USE = item[11].ToString();
-                                device.CONTROL_MNG = item[12].ToString();
-                                device.MAKER = item[17].ToString();
+                                device.REGISTRATION_DATE = Convert.ToDateTime(item[9].ToString());
+                                device.DEPT_CONTROL = item[10].ToString() == "" ? "." : item[10].ToString();
+                                device.PLACE_USE = item[11].ToString() == "" ? "." : item[11].ToString();
+                                device.CONTROL_MNG = item[12].ToString() == "" ? "." : item[12].ToString();
+                                device.MAKER = item[17].ToString() == "" ? "." : item[17].ToString();
                                 device.ENQUIP_STATE = Check_equipment(item[18].ToString());
-                                device.RMK = item[19].ToString();
+                                device.RMK = item[19].ToString() == "" ? "." : item[19].ToString();
+                                device.LINE = item[20].ToString() == "" ? "." : item[20].ToString();
+                                device.FCT_NO = item[21].ToString() == "" ? "." : item[21].ToString();
+                                device.MODEL_UMC = item[22].ToString() == "" ? "." : item[22].ToString();
                                 device.STATUS = true;
                                 calibration = dbcontext.CALIBRATIONs.Find(item[2].ToString());
                                 calibration.CALI_DATE = Convert.ToDateTime(item[13].ToString());
                                 calibration.CALI_RECOMMEND = Convert.ToDateTime(item[14].ToString());
                                 calibration.STATUS = true;
                                 dbcontext.SaveChanges();
-                            }                           
+                            }
                         }
                         Reloadlistconvert_datagridview();
                         Reload_datawhencreate();
@@ -117,6 +125,7 @@ namespace QUAN_LY_THIET_BI_DO
                         {
                             var data = new DEVICE()
                             {
+                                PAYMENT= txtpay.Text,
                                 PART_NO = txtpart_no.Text,
                                 PART_NAME = txtpart_name.Text,
                                 SAP_BARCODE = txtsap_barcode.Text,
@@ -131,6 +140,9 @@ namespace QUAN_LY_THIET_BI_DO
                                 MAKER = txtmaker.Text,
                                 ENQUIP_STATE = cbbequip_state.SelectedIndex,
                                 RMK = txtrmk.Text,
+                                LINE = txtline.Text,
+                                FCT_NO = txtfctno.Text,
+                                MODEL_UMC = txtmodelumc.Text,
                                 STATUS = true,
                             };
                             dbcontext.DEVICEs.Add(data);
@@ -140,7 +152,7 @@ namespace QUAN_LY_THIET_BI_DO
                                 CALI_DATE = Convert.ToDateTime(dateTimecalidate.Value),
                                 CALI_RECOMMEND = Convert.ToDateTime(dateTimerecon.Value),
                                 STATUS = true,
-                            };                            
+                            };
                             dbcontext.CALIBRATIONs.Add(data_cali);
                             dbcontext.SaveChanges();
                             Reloadlistconvert_datagridview();
@@ -158,6 +170,7 @@ namespace QUAN_LY_THIET_BI_DO
                             else
                             {
                                 device = dbcontext.DEVICEs.Find(txtpart_no.Text);
+                                device.PAYMENT = txtpay.Text;
                                 device.SAP_BARCODE = txtsap_barcode.Text;
                                 device.PART_NAME = txtpart_no.Text;
                                 device.MODEL = txtmodel.Text;
@@ -171,6 +184,9 @@ namespace QUAN_LY_THIET_BI_DO
                                 device.MAKER = txtmaker.Text;
                                 device.ENQUIP_STATE = cbbequip_state.SelectedIndex;
                                 device.RMK = txtrmk.Text;
+                                device.LINE = txtline.Text;
+                                device.FCT_NO = txtfctno.Text;
+                                device.MODEL_UMC = txtmodelumc.Text;
                                 device.STATUS = true;
                                 calibration = dbcontext.CALIBRATIONs.Find(device.PART_NO);
                                 calibration.CALI_DATE = Convert.ToDateTime(dateTimecalidate.Value);
@@ -178,69 +194,54 @@ namespace QUAN_LY_THIET_BI_DO
                                 calibration.STATUS = true;
                                 dbcontext.SaveChanges();
                                 Reloadlistconvert_datagridview();
-                                Reload_datawhencreate();                                
-                            }                                                     
-                        }                        
-                    }                    
-                }                
+                                Reload_datawhencreate();
+                            }
+                        }
+                    }
+                }
             }
-            catch(Exception ex)
+           catch(System.Data.Entity.Validation.DbEntityValidationException ex)
             {
-                MessageBox.Show(ex.Message);
-            }         
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    }
+                }
+            }
         }
 
         public void Reloadlistconvert_datagridview()
         {
             MessageBox.Show("Lưu thành công!", "Thông báo");
             this.Hide();
-            list_convert.Clear();
-            form_Device.dtgv_device.DataSource = null;
+
+            //form_Device.dtgv_device.DataSource = null;
         }
 
         public int Check_equipment(string equipment)
         {
-            int equipment_state = equipment == "OK" ? 0 : equipment == "Stop Calibration & Use" ? 1 : equipment == "NG chờ sửa" ?2:3;
+            int equipment_state = equipment == "OK" ? 0 : equipment == "Stop Calibration & Use" ? 1 : equipment == "NG chờ sửa" ? 2 : 3;
             return equipment_state;
         }
 
         public void Reload_datawhencreate()
         {
-            var result = dbcontext.DEVICEs.Where(c=>c.STATUS==true).ToList();
-            foreach (var item in result)
-            {
-                var result_cali = dbcontext.CALIBRATIONs.Where(c => c.PART_NO == item.PART_NO && c.STATUS==true).SingleOrDefault();
+            var res = repository.FindAll();
 
-                    string equipment = item.ENQUIP_STATE == Convert.ToInt32(Task.OK)?"OK": item.ENQUIP_STATE == Convert.ToInt32(Task.Stop_Calibration)? "Stop Calibration & Use": item.ENQUIP_STATE == Convert.ToInt32(Task.NG_Waiting_for_Repair)? equipment = "NG chờ sửa": "NG hủy";                   
-                    DateTime cali_next = result_cali.CALI_DATE.AddMonths(item.CALI_CYCLE);
-                    list_convert.Add(new CONVERT_DEVICE()
-                    {
-                        PART_NO = item.PART_NO,
-                        SAP_BARCODE = item.SAP_BARCODE,
-                        PART_NAME = item.PART_NAME,
-                        MODEL = item.MODEL,
-                        SERIAL = item.SERIAL,
-                        MANUFACTORY = item.MANUFACTORY,
-                        CALI_CYCLE = item.CALI_CYCLE,
-                        REGISTRATION_DATE = item.REGISTRATION_DATE,
-                        DEPT_CONTROL = item.DEPT_CONTROL,
-                        PLACE_USE = item.PLACE_USE,
-                        CONTROL_MNG = item.CONTROL_MNG,
-                        CALI_NEXT_LASTEST = cali_next,
-                        MONTH_YEAR = cali_next.Month.ToString() + "/" + cali_next.Year.ToString(),
-                        MAKER = item.MAKER,
-                        ENQUIP_STATE = equipment,
-                        RMK = item.RMK
-
-                    });               
-            }
-            form_Device.dtgv_device.DataSource = list_convert;
+            form_Device.dtgv_device.DataSource = res.OrderByDescending(c => c.PART_NO).ToList();
         }
 
         public bool CheckValueTextBox()
         {
             bool ok;
-           if (String.IsNullOrEmpty(txtpart_no.Text))
+            if (String.IsNullOrEmpty(txtpay.Text))
+            {
+                lblpartno.Visible = true;
+                lblpartno.Text = "Thanh toán không được để trống!";
+            }
+            if (String.IsNullOrEmpty(txtpart_no.Text))
             {
                 lblpartno.Visible = true;
                 lblpartno.Text = "Mã quản lý không được để trống!";
@@ -264,13 +265,13 @@ namespace QUAN_LY_THIET_BI_DO
             {
                 lblserial.Visible = true;
                 lblserial.Text = "Số serial không được để trống!";
-               
+
             }
             if (String.IsNullOrEmpty(txtmanufactory.Text))
             {
                 lblfactory.Visible = true;
                 lblfactory.Text = "Nhà sản xuất không được để trống!";
-             
+
             }
             if (String.IsNullOrEmpty(txtdept_control.Text))
             {
@@ -292,12 +293,12 @@ namespace QUAN_LY_THIET_BI_DO
                 lblCalibrationby.Visible = true;
                 lblCalibrationby.Text = "Đơn vị đo không được để trống!";
             }
-            if (cbbequip_state.SelectedIndex == 0)
+            if (cbbequip_state.SelectedIndex < 0)
             {
                 lblequipment.Visible = true;
                 lblequipment.Text = "Tình trạng thiết bị không được để trống!";
             }
-             if (String.IsNullOrEmpty(txtrmk.Text))
+            if (String.IsNullOrEmpty(txtrmk.Text))
             {
                 lblrmk.Visible = true;
                 lblrmk.Text = "Ghi chú không được để trống!";
@@ -307,16 +308,31 @@ namespace QUAN_LY_THIET_BI_DO
                 lblcycle.Visible = true;
                 lblcycle.Text = "Chu kỳ hiệu chuẩn không được để trống!";
             }
-            if(cbbequip_state.SelectedIndex < 0)
+            if (cbbequip_state.SelectedIndex < 0)
             {
                 lblequipment.Text = "Tình trạng thiết bị không được để trống!";
                 lblequipment.Visible = true;
             }
+            if (String.IsNullOrEmpty(txtline.Text))
+            {
+                lblline.Visible = true;
+                lblline.Text = "Line không được để trống!";
+            }
+            if (String.IsNullOrEmpty(txtfctno.Text))
+            {
+                lblfctno.Visible = true;
+                lblfctno.Text = "FCT No không được để trống!";
+            }
+            if (String.IsNullOrEmpty(txtmodelumc.Text))
+            {
+                lblmodelumc.Visible = true;
+                lblmodelumc.Text = "Model thành phẩm không được để trống!";
+            }
             else
             {
-                return ok= true;
+                return ok = true;
             }
-            return ok=false;
+            return ok = false;
 
         }
 
@@ -361,7 +377,7 @@ namespace QUAN_LY_THIET_BI_DO
         {
             if (!char.IsDigit(e.KeyChar)) e.Handled = true;         //Just Digits
             if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
-            
+
         }
 
         private void txtsap_barcode_TextChanged(object sender, EventArgs e)
@@ -459,6 +475,29 @@ namespace QUAN_LY_THIET_BI_DO
                 btnOpenfile.Enabled = true;
             }
         }
-       
+
+        private void txtpay_TextChanged(object sender, EventArgs e)
+        {
+            lblpayment.Visible = false;
+            lblpayment.Text = "";
+        }
+
+        private void txtline_TextChanged(object sender, EventArgs e)
+        {
+            lblline.Visible = false;
+            lblline.Text = "";
+        }
+
+        private void txtfctno_TextChanged(object sender, EventArgs e)
+        {
+            lblfctno.Visible = false;
+            lblfctno.Text = "";
+        }
+
+        private void txtmodelumc_TextChanged(object sender, EventArgs e)
+        {
+            lblmodelumc.Visible = false;
+            lblmodelumc.Text = "";
+        }
     }
 }
