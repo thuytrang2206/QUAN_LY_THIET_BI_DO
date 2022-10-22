@@ -76,6 +76,9 @@ namespace QUAN_LY_THIET_BI_DO.Model
         [Required]
         [StringLength(64)]
         public string MODEL_UMC { get; set; }
-        
+
+        [StringLength(500)]
+        public string PDF_FILE { get; set; }
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,7 @@ namespace QUAN_LY_THIET_BI_DO
             txtline.Text = result.LINE;
             txtfctno.Text = result.FCT_NO;
             txtmodelumc.Text = result.MODEL_UMC;
+            lblpdf.Text = result.PDF_FILE;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -71,6 +73,7 @@ namespace QUAN_LY_THIET_BI_DO
                 device.LINE = txtline.Text;
                 device.FCT_NO = txtfctno.Text;
                 device.MODEL_UMC = txtmodelumc.Text;
+                device.PDF_FILE = lblpdf.Text;
                 dbcontext.SaveChanges();                              
                 MessageBox.Show("Mã quản lý " + txtpart_no.Text + " được sửa thành công!", "Thành công");
                 this.Hide();
@@ -82,6 +85,18 @@ namespace QUAN_LY_THIET_BI_DO
         {
             var res = repository.FindAll();
             form_Device.dtgv_device.DataSource = res;
+        }
+        private void btnchoosepdf_Click(object sender, EventArgs e)
+        {
+            using(OpenFileDialog openFileDialog= new OpenFileDialog() { Multiselect=false,ValidateNames=true,FileName="*.pdf" })
+            {
+                if(openFileDialog.ShowDialog()== DialogResult.OK)
+                {
+                    FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
+                    UploadFiles.UploadFile(fileInfo.FullName, @"/Cali_Pdf/"+ fileInfo.Name );
+                    lblpdf.Text = fileInfo.Name;
+                }
+            }         
         }
     }
     

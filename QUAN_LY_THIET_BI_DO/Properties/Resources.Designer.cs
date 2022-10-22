@@ -63,9 +63,9 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1379793_document_excel_file_spreadsheet_table_icon {
+        internal static System.Drawing.Bitmap _211739_eye_icon {
             get {
-                object obj = ResourceManager.GetObject("1379793_document_excel_file_spreadsheet_table_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("211739_eye_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,69 +83,9 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2462966_delete_eliminate_garbage_litter_recycle_icon {
-            get {
-                object obj = ResourceManager.GetObject("2462966_delete_eliminate_garbage_litter_recycle_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _285690_zip_file_icon {
-            get {
-                object obj = ResourceManager.GetObject("285690_zip_file_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3213447_magnifier_magnifying_glass_search_icon {
-            get {
-                object obj = ResourceManager.GetObject("3213447_magnifier_magnifying glass_search_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3213447_magnifier_magnifying_glass_search_icon1 {
-            get {
-                object obj = ResourceManager.GetObject("3213447_magnifier_magnifying glass_search_icon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3213447_magnifier_magnifying_glass_search_icon2 {
-            get {
-                object obj = ResourceManager.GetObject("3213447_magnifier_magnifying glass_search_icon2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _32378_add_plus_icon {
             get {
                 object obj = ResourceManager.GetObject("32378_add_plus_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3855617_edit_pencil_write_mode_icon {
-            get {
-                object obj = ResourceManager.GetObject("3855617_edit_pencil_write mode_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,39 +103,19 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3855617_edit_pencil_write_mode_icon16px1 {
+            get {
+                object obj = ResourceManager.GetObject("3855617_edit_pencil_write mode_icon16px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _4373169_excel_logo_logos_icon {
             get {
                 object obj = ResourceManager.GetObject("4373169_excel_logo_logos_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _72864_add_plus_icon {
-            get {
-                object obj = ResourceManager.GetObject("72864_add_plus_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _85334_file_open_icon {
-            get {
-                object obj = ResourceManager.GetObject("85334_file_open_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _85334_file_open_icon__1_ {
-            get {
-                object obj = ResourceManager.GetObject("85334_file_open_icon (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,19 +143,9 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _85334_file_open_icon24px {
+        internal static System.Drawing.Bitmap _85334_file_open_icon16px1 {
             get {
-                object obj = ResourceManager.GetObject("85334_file_open_icon24px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _85542_guardar_save_icon {
-            get {
-                object obj = ResourceManager.GetObject("85542_guardar_save_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("85334_file_open_icon16px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,29 +173,9 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _85542_guardar_save_icon__1_2 {
-            get {
-                object obj = ResourceManager.GetObject("85542_guardar_save_icon (1)2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _8725676_copy_icon {
             get {
                 object obj = ResourceManager.GetObject("8725676_copy_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _8725676_copy_icon1 {
-            get {
-                object obj = ResourceManager.GetObject("8725676_copy_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

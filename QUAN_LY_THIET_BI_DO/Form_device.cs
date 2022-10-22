@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MiniExcelLibs;
 using QUAN_LY_THIET_BI_DO.Business;
 using QUAN_LY_THIET_BI_DO.Model;
 namespace QUAN_LY_THIET_BI_DO
@@ -23,11 +25,12 @@ namespace QUAN_LY_THIET_BI_DO
             InitializeComponent();
             toolStripStatusVersion.Text = Ultils.GetRunningVersion();
             this.dtgv_device.AutoGenerateColumns = false;
+            Load_data();
         }
         public void Load_data()
         {
-            var res =  repository.FindAll();
-            this.dtgv_device.DataSource = res;
+            var res = repository.FindAll();
+            this.dtgv_device.DataSource = res;          
         }
 
         private void Form_device_Load(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace QUAN_LY_THIET_BI_DO
         private void btnEdit_Click(object sender, EventArgs e)
         {
             FormEditdevice formEditdevice = new FormEditdevice(this, this.dtgv_device.CurrentRow.Cells[2].Value.ToString());
-            formEditdevice.Show();          
+            formEditdevice.Show();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -54,7 +57,7 @@ namespace QUAN_LY_THIET_BI_DO
         }
 
         private void txtsearch_TextChanged(object sender, EventArgs e)
-       {
+        {
             var result = repository.Search(txtsearch.Text);
             dtgv_device.DataSource = result;
         }
@@ -76,7 +79,7 @@ namespace QUAN_LY_THIET_BI_DO
                     var pos = ((DataGridView)sender).GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
                     pos.X += e.X;
                     pos.Y += e.Y;
-                    contextMenuStrip1.Show(Control.MousePosition);            
+                    contextMenuStrip1.Show(Control.MousePosition);
                 }
                 catch (Exception)
                 {
@@ -91,7 +94,7 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Int32 selectedCellCount =dtgv_device.GetCellCount(DataGridViewElementStates.Selected);          
+            Int32 selectedCellCount = dtgv_device.GetCellCount(DataGridViewElementStates.Selected);
             if (selectedCellCount > 0)
             {
                 StringBuilder ClipboardBuillder = new StringBuilder();
@@ -101,19 +104,19 @@ namespace QUAN_LY_THIET_BI_DO
                 }
                 else
                 {
-                    for (int i = selectedCellCount-1; i >=0; i--)
+                    for (int i = selectedCellCount - 1; i >= 0; i--)
                     {
-                        ClipboardBuillder.Append(dtgv_device.Rows[dtgv_device.SelectedCells[i].RowIndex].Cells[dtgv_device.SelectedCells[i].ColumnIndex].Value.ToString() + " ");                 
-                    }                                    
+                        ClipboardBuillder.Append(dtgv_device.Rows[dtgv_device.SelectedCells[i].RowIndex].Cells[dtgv_device.SelectedCells[i].ColumnIndex].Value.ToString() + " ");
+                    }
                 }
                 Clipboard.SetText(ClipboardBuillder.ToString());
             }
         }
 
         private void deletetoolStripMenuItem2_Click(object sender, EventArgs e)
-        {          
-            string part_no= this.dtgv_device.CurrentRow.Cells[0].Value.ToString();
-            var check_partno= dbcontext.DEVICEs.Where(c=>c.PART_NO==part_no).ToList();
+        {
+            string part_no = this.dtgv_device.CurrentRow.Cells[0].Value.ToString();
+            var check_partno = dbcontext.DEVICEs.Where(c => c.PART_NO == part_no).ToList();
             if (check_partno == null)
             {
                 MessageBox.Show("Không tìm thấy mã quản lý: " + this.dtgv_device.CurrentRow.Cells[0].Value.ToString(), "Thông báo");
@@ -138,40 +141,64 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-           
-            using (SaveFileDialog saveFileDialog= new SaveFileDialog() { Filter="Excel workbook|* .xlsx"})
+            var data = new List<CaliEntity>();
+            if (checkboxexportall.Checked == true)
+            {
+                data = repository.FindAll();
+                Opendialog(data);
+            }
+            else if (checkboxexport_monthyear.Checked == true)
+            {
+                data = repository.ExportMontnYear(datetime_export.Value);
+                if (data.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu bạn muốn xuất ra file excel!");
+                }
+                Opendialog(data);
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn đối tượng để xuất file excel!");
+            }
+
+        }
+        public void Opendialog(List<CaliEntity> caliEntities)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel workbook|* .xlsx" })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-
                     var fileInfo = new FileInfo(saveFileDialog.FileName);
-                    try
-                    {
-                        Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
-                        Microsoft.Office.Interop.Excel.Workbook workbook = app.Workbooks.Add(Type.Missing);
-                        System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.CurrentCulture;
-                        for (int i = 1; i < dtgv_device.Columns.Count + 1; i++)
-                        {
-                            app.Cells[1, i] = dtgv_device.Columns[i - 1].HeaderText;
-                        }
-                        for (int i = 0; i < dtgv_device.Rows.Count; i++)
-                        {
-                            for (int j = 0; j < dtgv_device.Columns.Count; j++)
-                            {
-                                app.Cells[i + 2, j + 1] = dtgv_device.Rows[i].Cells[j].Value.ToString();
-                            }
-                        }
-                        workbook.SaveAs(fileInfo, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                        app.Quit();
-                    }
-                    catch
-                    {
-
-                    }
+                    var path = $@"{fileInfo}";
+                    MiniExcel.SaveAs(path, caliEntities);
+                    MessageBox.Show("File excel xuất thành công!");
                 }
-            }    
+            }
         }
 
-        
+
+        private void dtgv_device_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string localPath="";
+            if (e.ColumnIndex == 23) //2nd column - DGV_ImageColumn
+            {
+                string part_no = dtgv_device.Rows[e.RowIndex].Cells[2].Value.ToString();
+                var result = repository.Findtopartno_inviewpdf(part_no);
+                if (result.Count() != 0)
+                {
+                    foreach(var item in result)
+                    {
+                        if (item.PDF_FILE != null)
+                        {
+                            localPath = @"D:\2. Projects\FTP_Root\Cali_Pdf\" + "\\" + item.PDF_FILE;
+                            //localPath = @"\\172.28.10.12\Share\48 DM" + "\\" + result.PDF_FILE;
+                            DownloadFiles.DownloadFile(localPath, @"/Cali_Pdf/" + item.PDF_FILE);
+                            Views view = new Views(localPath);
+                            view.Show();
+                        }
+                    }                    
+                }
+            }
+        }
     }
 }

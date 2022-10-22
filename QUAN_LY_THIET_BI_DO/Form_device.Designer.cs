@@ -30,8 +30,8 @@ namespace QUAN_LY_THIET_BI_DO
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_device));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -51,13 +51,17 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusVersion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtsearch = new System.Windows.Forms.TextBox();
-            this.btnExport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkboxexport_monthyear = new System.Windows.Forms.CheckBox();
+            this.checkboxexportall = new System.Windows.Forms.CheckBox();
             this.datetime_export = new System.Windows.Forms.DateTimePicker();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.folderpdf = new System.Windows.Forms.FolderBrowserDialog();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PAYMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,8 +85,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.LINE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FCT_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MODEL_UMC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkboxexportall = new System.Windows.Forms.CheckBox();
-            this.checkboxexport_monthyear = new System.Windows.Forms.CheckBox();
+            this.PDF_FILEs = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PDF_FILE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tagManager.SuspendLayout();
             this.tabcalibration.SuspendLayout();
@@ -149,14 +153,14 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgv_device.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgv_device.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_device.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_device.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_device.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_device.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_device.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
@@ -181,7 +185,9 @@ namespace QUAN_LY_THIET_BI_DO
             this.RMK,
             this.LINE,
             this.FCT_NO,
-            this.MODEL_UMC});
+            this.MODEL_UMC,
+            this.PDF_FILEs,
+            this.PDF_FILE});
             this.dtgv_device.ContextMenuStrip = this.contextMenuStrip1;
             this.dtgv_device.EnableHeadersVisualStyles = false;
             this.dtgv_device.Location = new System.Drawing.Point(6, 1);
@@ -189,6 +195,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgv_device.RowHeadersVisible = false;
             this.dtgv_device.Size = new System.Drawing.Size(952, 388);
             this.dtgv_device.TabIndex = 0;
+            this.dtgv_device.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_device_CellClick);
             this.dtgv_device.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgv_device_RowPostPaint);
             // 
             // contextMenuStrip1
@@ -204,7 +211,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // copyToolStripMenuItem
             // 
-            this.copyToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._8725676_copy_icon1;
+            this.copyToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._8725676_copy_icon;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.copyToolStripMenuItem.Text = "Copy";
@@ -218,7 +225,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // editToolStripMenuItem
             // 
-            this.editToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px;
+            this.editToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px1;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.editToolStripMenuItem.Text = "Edit";
@@ -239,8 +246,6 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(993, 24);
@@ -255,11 +260,6 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabel3,
-            this.toolStripStatusVersion});
             this.statusStrip1.Location = new System.Drawing.Point(0, 590);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(993, 22);
@@ -292,54 +292,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripStatusVersion.Name = "toolStripStatusVersion";
             this.toolStripStatusVersion.Size = new System.Drawing.Size(0, 17);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.BackColor = System.Drawing.Color.White;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._32378_add_plus_icon;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(821, 11);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 30);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "      Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.BackColor = System.Drawing.Color.White;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(902, 11);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(58, 30);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "       Sửa";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3213447_magnifier_magnifying_glass_search_icon;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(745, 11);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(70, 30);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "     Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // txtsearch
             // 
             this.txtsearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -348,20 +300,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.txtsearch.Size = new System.Drawing.Size(221, 20);
             this.txtsearch.TabIndex = 4;
             this.txtsearch.TextChanged += new System.EventHandler(this.txtsearch_TextChanged);
-            // 
-            // btnExport
-            // 
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._4373169_excel_logo_logos_icon;
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(251, 11);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(74, 30);
-            this.btnExport.TabIndex = 7;
-            this.btnExport.Text = "     Export ";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // panel2
             // 
@@ -382,6 +320,26 @@ namespace QUAN_LY_THIET_BI_DO
             this.panel2.Size = new System.Drawing.Size(972, 56);
             this.panel2.TabIndex = 8;
             // 
+            // checkboxexport_monthyear
+            // 
+            this.checkboxexport_monthyear.AutoSize = true;
+            this.checkboxexport_monthyear.Location = new System.Drawing.Point(5, 26);
+            this.checkboxexport_monthyear.Name = "checkboxexport_monthyear";
+            this.checkboxexport_monthyear.Size = new System.Drawing.Size(116, 17);
+            this.checkboxexport_monthyear.TabIndex = 10;
+            this.checkboxexport_monthyear.Text = "Export Month/Year";
+            this.checkboxexport_monthyear.UseVisualStyleBackColor = true;
+            // 
+            // checkboxexportall
+            // 
+            this.checkboxexportall.AutoSize = true;
+            this.checkboxexportall.Location = new System.Drawing.Point(5, 3);
+            this.checkboxexportall.Name = "checkboxexportall";
+            this.checkboxexportall.Size = new System.Drawing.Size(73, 17);
+            this.checkboxexportall.TabIndex = 9;
+            this.checkboxexportall.Text = "Export_All";
+            this.checkboxexportall.UseVisualStyleBackColor = true;
+            // 
             // datetime_export
             // 
             this.datetime_export.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -389,6 +347,74 @@ namespace QUAN_LY_THIET_BI_DO
             this.datetime_export.Name = "datetime_export";
             this.datetime_export.Size = new System.Drawing.Size(105, 20);
             this.datetime_export.TabIndex = 8;
+            // 
+            // btnExport
+            // 
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._4373169_excel_logo_logos_icon;
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExport.Location = new System.Drawing.Point(251, 11);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(74, 30);
+            this.btnExport.TabIndex = 7;
+            this.btnExport.Text = "     Export ";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(745, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(70, 30);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "     Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(902, 11);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(58, 30);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "       Sửa";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._32378_add_plus_icon;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(821, 11);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 30);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "      Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "PDF_FILE";
+            this.dataGridViewImageColumn1.HeaderText = "View PDF";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 40;
             // 
             // No
             // 
@@ -406,8 +432,8 @@ namespace QUAN_LY_THIET_BI_DO
             // PART_NO
             // 
             this.PART_NO.DataPropertyName = "PART_NO";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.PART_NO.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.PART_NO.DefaultCellStyle = dataGridViewCellStyle4;
             this.PART_NO.FillWeight = 79.59391F;
             this.PART_NO.HeaderText = "Mã quản lý";
             this.PART_NO.MinimumWidth = 94;
@@ -581,25 +607,20 @@ namespace QUAN_LY_THIET_BI_DO
             this.MODEL_UMC.Name = "MODEL_UMC";
             this.MODEL_UMC.Width = 124;
             // 
-            // checkboxexportall
+            // PDF_FILEs
             // 
-            this.checkboxexportall.AutoSize = true;
-            this.checkboxexportall.Location = new System.Drawing.Point(5, 3);
-            this.checkboxexportall.Name = "checkboxexportall";
-            this.checkboxexportall.Size = new System.Drawing.Size(73, 17);
-            this.checkboxexportall.TabIndex = 9;
-            this.checkboxexportall.Text = "Export_All";
-            this.checkboxexportall.UseVisualStyleBackColor = true;
+            this.PDF_FILEs.HeaderText = "View PDF";
+            this.PDF_FILEs.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._211739_eye_icon;
+            this.PDF_FILEs.Name = "PDF_FILEs";
+            this.PDF_FILEs.Width = 40;
             // 
-            // checkboxexport_monthyear
+            // PDF_FILE
             // 
-            this.checkboxexport_monthyear.AutoSize = true;
-            this.checkboxexport_monthyear.Location = new System.Drawing.Point(5, 26);
-            this.checkboxexport_monthyear.Name = "checkboxexport_monthyear";
-            this.checkboxexport_monthyear.Size = new System.Drawing.Size(116, 17);
-            this.checkboxexport_monthyear.TabIndex = 10;
-            this.checkboxexport_monthyear.Text = "Export Month/Year";
-            this.checkboxexport_monthyear.UseVisualStyleBackColor = true;
+            this.PDF_FILE.DataPropertyName = "PDF_FILE";
+            this.PDF_FILE.HeaderText = "PDF_FILE";
+            this.PDF_FILE.Name = "PDF_FILE";
+            this.PDF_FILE.Visible = false;
+            this.PDF_FILE.Width = 89;
             // 
             // Form_device
             // 
@@ -659,6 +680,10 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DateTimePicker datetime_export;
+        private System.Windows.Forms.CheckBox checkboxexport_monthyear;
+        private System.Windows.Forms.CheckBox checkboxexportall;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.FolderBrowserDialog folderpdf;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAYMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn PART_NO;
@@ -682,7 +707,7 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.DataGridViewTextBoxColumn LINE;
         private System.Windows.Forms.DataGridViewTextBoxColumn FCT_NO;
         private System.Windows.Forms.DataGridViewTextBoxColumn MODEL_UMC;
-        private System.Windows.Forms.CheckBox checkboxexport_monthyear;
-        private System.Windows.Forms.CheckBox checkboxexportall;
+        private System.Windows.Forms.DataGridViewImageColumn PDF_FILEs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PDF_FILE;
     }
 }

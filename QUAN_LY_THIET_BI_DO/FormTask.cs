@@ -111,7 +111,8 @@ namespace QUAN_LY_THIET_BI_DO
                                 dbcontext.SaveChanges();
                             }
                         }
-                        Reloadlistconvert_datagridview();
+                        MessageBox.Show("Lưu thành công!", "Thông báo");
+                        this.Hide();
                         Reload_datawhencreate();
                     }
                 }
@@ -155,7 +156,8 @@ namespace QUAN_LY_THIET_BI_DO
                             };
                             dbcontext.CALIBRATIONs.Add(data_cali);
                             dbcontext.SaveChanges();
-                            Reloadlistconvert_datagridview();
+                            MessageBox.Show("Lưu thành công!", "Thông báo");
+                            this.Hide();
                             Reload_datawhencreate();
                         }
                         //part_no có trong csdl
@@ -193,7 +195,8 @@ namespace QUAN_LY_THIET_BI_DO
                                 calibration.CALI_RECOMMEND = Convert.ToDateTime(dateTimerecon.Value);
                                 calibration.STATUS = true;
                                 dbcontext.SaveChanges();
-                                Reloadlistconvert_datagridview();
+                                MessageBox.Show("Lưu thành công!", "Thông báo");
+                                this.Hide();
                                 Reload_datawhencreate();
                             }
                         }
@@ -211,14 +214,7 @@ namespace QUAN_LY_THIET_BI_DO
                 }
             }
         }
-
-        public void Reloadlistconvert_datagridview()
-        {
-            MessageBox.Show("Lưu thành công!", "Thông báo");
-            this.Hide();
-
-            //form_Device.dtgv_device.DataSource = null;
-        }
+       
 
         public int Check_equipment(string equipment)
         {
@@ -229,7 +225,6 @@ namespace QUAN_LY_THIET_BI_DO
         public void Reload_datawhencreate()
         {
             var res = repository.FindAll();
-
             form_Device.dtgv_device.DataSource = res.OrderByDescending(c => c.PART_NO).ToList();
         }
 

@@ -77,6 +77,8 @@ namespace QUAN_LY_THIET_BI_DO.Model
         public string FCT_NO { get; set; }
 
         public string MODEL_UMC { get; set; }
-        
+
+        public string PDF_FILE { get; set; }
+
     }
 }
