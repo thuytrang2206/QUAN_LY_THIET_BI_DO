@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace QUAN_LY_THIET_BI_DO
         private void btnDevice_Click(object sender, EventArgs e)
         {
             Form_device form_Device = new Form_device();
-            form_Device.Show();
+            form_Device.Show();           
         }
 
         private void btncalibration_Click(object sender, EventArgs e)

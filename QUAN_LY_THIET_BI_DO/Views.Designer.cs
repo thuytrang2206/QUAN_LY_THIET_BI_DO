@@ -51,7 +51,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.pdfViewer1.FormHighlightColor = System.Drawing.Color.Transparent;
             this.pdfViewer1.FormsBlendMode = Patagames.Pdf.Enums.BlendTypes.FXDIB_BLEND_MULTIPLY;
             this.pdfViewer1.LoadingIconText = "Loading...";
-            this.pdfViewer1.Location = new System.Drawing.Point(12, 101);
+            this.pdfViewer1.Location = new System.Drawing.Point(9, 85);
             this.pdfViewer1.MouseMode = Patagames.Pdf.Net.Controls.WinForms.MouseModes.Default;
             this.pdfViewer1.Name = "pdfViewer1";
             this.pdfViewer1.OptimizedLoadThreshold = 1000;
@@ -66,7 +66,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.pdfViewer1.ShowCurrentPageHighlight = true;
             this.pdfViewer1.ShowLoadingIcon = true;
             this.pdfViewer1.ShowPageSeparator = true;
-            this.pdfViewer1.Size = new System.Drawing.Size(859, 588);
+            this.pdfViewer1.Size = new System.Drawing.Size(867, 595);
             this.pdfViewer1.SizeMode = Patagames.Pdf.Net.Controls.WinForms.SizeModes.FitToWidth;
             this.pdfViewer1.TabIndex = 0;
             this.pdfViewer1.TextSelectColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
@@ -83,6 +83,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.pdfToolStripMain1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.pdfToolStripMain1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1});
+            this.pdfToolStripMain1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.pdfToolStripMain1.Location = new System.Drawing.Point(9, 9);
             this.pdfToolStripMain1.Name = "pdfToolStripMain1";
             this.pdfToolStripMain1.PdfViewer = this.pdfViewer1;
@@ -101,7 +102,7 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pdfToolStripZoom1.Dock = System.Windows.Forms.DockStyle.None;
             this.pdfToolStripZoom1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.pdfToolStripZoom1.Location = new System.Drawing.Point(109, 9);
+            this.pdfToolStripZoom1.Location = new System.Drawing.Point(120, 9);
             this.pdfToolStripZoom1.Name = "pdfToolStripZoom1";
             this.pdfToolStripZoom1.PdfViewer = this.pdfViewer1;
             this.pdfToolStripZoom1.Size = new System.Drawing.Size(194, 73);
@@ -130,7 +131,7 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pdfToolStripRotate1.Dock = System.Windows.Forms.DockStyle.None;
             this.pdfToolStripRotate1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.pdfToolStripRotate1.Location = new System.Drawing.Point(300, 9);
+            this.pdfToolStripRotate1.Location = new System.Drawing.Point(312, 9);
             this.pdfToolStripRotate1.Name = "pdfToolStripRotate1";
             this.pdfToolStripRotate1.PdfViewer = this.pdfViewer1;
             this.pdfToolStripRotate1.Size = new System.Drawing.Size(121, 73);
@@ -143,10 +144,11 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pdfToolStripSizes1.Dock = System.Windows.Forms.DockStyle.None;
             this.pdfToolStripSizes1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.pdfToolStripSizes1.Location = new System.Drawing.Point(640, 9);
+            this.pdfToolStripSizes1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.pdfToolStripSizes1.Location = new System.Drawing.Point(653, 9);
             this.pdfToolStripSizes1.Name = "pdfToolStripSizes1";
             this.pdfToolStripSizes1.PdfViewer = this.pdfViewer1;
-            this.pdfToolStripSizes1.Size = new System.Drawing.Size(231, 73);
+            this.pdfToolStripSizes1.Size = new System.Drawing.Size(229, 92);
             this.pdfToolStripSizes1.TabIndex = 4;
             this.pdfToolStripSizes1.Text = "pdfToolStripSizes1";
             // 
@@ -159,12 +161,13 @@ namespace QUAN_LY_THIET_BI_DO
             this.pdfToolStripSearch1.Dock = System.Windows.Forms.DockStyle.None;
             this.pdfToolStripSearch1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.pdfToolStripSearch1.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.pdfToolStripSearch1.Location = new System.Drawing.Point(420, 45);
+            this.pdfToolStripSearch1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.pdfToolStripSearch1.Location = new System.Drawing.Point(432, 45);
             this.pdfToolStripSearch1.Name = "pdfToolStripSearch1";
             this.pdfToolStripSearch1.PdfViewer = this.pdfViewer1;
             this.pdfToolStripSearch1.SearchFlags = Patagames.Pdf.Enums.FindFlags.None;
             this.pdfToolStripSearch1.SearchText = "";
-            this.pdfToolStripSearch1.Size = new System.Drawing.Size(223, 37);
+            this.pdfToolStripSearch1.Size = new System.Drawing.Size(221, 37);
             this.pdfToolStripSearch1.TabIndex = 5;
             this.pdfToolStripSearch1.Text = "pdfToolStripSearch1";
             // 
@@ -172,7 +175,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 701);
+            this.ClientSize = new System.Drawing.Size(888, 701);
             this.Controls.Add(this.pdfToolStripSearch1);
             this.Controls.Add(this.pdfToolStripSizes1);
             this.Controls.Add(this.pdfToolStripRotate1);

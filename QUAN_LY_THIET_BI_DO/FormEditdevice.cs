@@ -75,7 +75,7 @@ namespace QUAN_LY_THIET_BI_DO
                 device.MODEL_UMC = txtmodelumc.Text;
                 device.PDF_FILE = lblpdf.Text;
                 dbcontext.SaveChanges();                              
-                MessageBox.Show("Mã quản lý " + txtpart_no.Text + " được sửa thành công!", "Thành công");
+                MessageBox.Show("Mã quản lý " + txtpart_no.Text + " được sửa thành công!", "Thông báo");
                 this.Hide();
                 Reload_datawhenedit();
             }

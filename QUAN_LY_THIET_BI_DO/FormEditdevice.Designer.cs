@@ -102,7 +102,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -321,6 +320,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtpayment
             // 
+            this.txtpayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpayment.Location = new System.Drawing.Point(6, 296);
             this.txtpayment.Name = "txtpayment";
             this.txtpayment.Size = new System.Drawing.Size(200, 20);
@@ -364,6 +364,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // dtregistration_date
             // 
+            this.dtregistration_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtregistration_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtregistration_date.Location = new System.Drawing.Point(6, 341);
             this.dtregistration_date.Name = "dtregistration_date";
@@ -384,6 +385,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtcycle
             // 
+            this.txtcycle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcycle.Location = new System.Drawing.Point(6, 256);
             this.txtcycle.Name = "txtcycle";
             this.txtcycle.Size = new System.Drawing.Size(200, 20);
@@ -391,6 +393,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtmanufactory
             // 
+            this.txtmanufactory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmanufactory.Location = new System.Drawing.Point(6, 216);
             this.txtmanufactory.Name = "txtmanufactory";
             this.txtmanufactory.Size = new System.Drawing.Size(200, 20);
@@ -398,6 +401,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtdept_control
             // 
+            this.txtdept_control.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdept_control.Location = new System.Drawing.Point(6, 380);
             this.txtdept_control.Name = "txtdept_control";
             this.txtdept_control.Size = new System.Drawing.Size(200, 20);
@@ -405,6 +409,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtserial
             // 
+            this.txtserial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtserial.Location = new System.Drawing.Point(6, 176);
             this.txtserial.Name = "txtserial";
             this.txtserial.Size = new System.Drawing.Size(200, 20);
@@ -412,6 +417,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtmodel
             // 
+            this.txtmodel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmodel.Location = new System.Drawing.Point(6, 136);
             this.txtmodel.Name = "txtmodel";
             this.txtmodel.Size = new System.Drawing.Size(200, 20);
@@ -419,6 +425,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtpart_name
             // 
+            this.txtpart_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpart_name.Location = new System.Drawing.Point(6, 96);
             this.txtpart_name.Name = "txtpart_name";
             this.txtpart_name.Size = new System.Drawing.Size(200, 20);
@@ -426,6 +433,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtsap_barcode
             // 
+            this.txtsap_barcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtsap_barcode.Location = new System.Drawing.Point(6, 56);
             this.txtsap_barcode.Name = "txtsap_barcode";
             this.txtsap_barcode.Size = new System.Drawing.Size(200, 20);
@@ -434,6 +442,7 @@ namespace QUAN_LY_THIET_BI_DO
             // txtpart_no
             // 
             this.txtpart_no.BackColor = System.Drawing.Color.White;
+            this.txtpart_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpart_no.Location = new System.Drawing.Point(6, 16);
             this.txtpart_no.Name = "txtpart_no";
             this.txtpart_no.ReadOnly = true;
@@ -540,6 +549,7 @@ namespace QUAN_LY_THIET_BI_DO
             // lblpdf
             // 
             this.lblpdf.AutoSize = true;
+            this.lblpdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpdf.Location = new System.Drawing.Point(6, 376);
             this.lblpdf.Name = "lblpdf";
             this.lblpdf.Size = new System.Drawing.Size(0, 13);
@@ -603,6 +613,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtmodelumc
             // 
+            this.txtmodelumc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmodelumc.Location = new System.Drawing.Point(6, 298);
             this.txtmodelumc.Name = "txtmodelumc";
             this.txtmodelumc.Size = new System.Drawing.Size(200, 20);
@@ -610,6 +621,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtfctno
             // 
+            this.txtfctno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtfctno.Location = new System.Drawing.Point(6, 260);
             this.txtfctno.Name = "txtfctno";
             this.txtfctno.Size = new System.Drawing.Size(200, 20);
@@ -617,6 +629,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtline
             // 
+            this.txtline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtline.Location = new System.Drawing.Point(6, 220);
             this.txtline.Name = "txtline";
             this.txtline.Size = new System.Drawing.Size(200, 20);
@@ -624,6 +637,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // cbbequip_state
             // 
+            this.cbbequip_state.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbequip_state.FormattingEnabled = true;
             this.cbbequip_state.Items.AddRange(new object[] {
             "OK",
@@ -665,6 +679,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtrmk
             // 
+            this.txtrmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrmk.Location = new System.Drawing.Point(6, 179);
             this.txtrmk.Name = "txtrmk";
             this.txtrmk.Size = new System.Drawing.Size(200, 20);
@@ -672,6 +687,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtmaker
             // 
+            this.txtmaker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmaker.Location = new System.Drawing.Point(6, 95);
             this.txtmaker.Name = "txtmaker";
             this.txtmaker.Size = new System.Drawing.Size(200, 20);
@@ -679,6 +695,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtcontrol_mng
             // 
+            this.txtcontrol_mng.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontrol_mng.Location = new System.Drawing.Point(6, 56);
             this.txtcontrol_mng.Name = "txtcontrol_mng";
             this.txtcontrol_mng.Size = new System.Drawing.Size(200, 20);
@@ -686,6 +703,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // txtpleace_use
             // 
+            this.txtpleace_use.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpleace_use.Location = new System.Drawing.Point(6, 16);
             this.txtpleace_use.Name = "txtpleace_use";
             this.txtpleace_use.Size = new System.Drawing.Size(200, 20);
@@ -874,8 +892,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);

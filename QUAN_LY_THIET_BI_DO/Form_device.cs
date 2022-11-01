@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using MiniExcelLibs;
 using QUAN_LY_THIET_BI_DO.Business;
 using QUAN_LY_THIET_BI_DO.Model;
+
 namespace QUAN_LY_THIET_BI_DO
 {
     public partial class Form_device : Form
@@ -28,15 +29,14 @@ namespace QUAN_LY_THIET_BI_DO
             Load_data();
         }
         public void Load_data()
-        {
-            var res = repository.FindAll();
-            this.dtgv_device.DataSource = res;          
+        {          
+            var res = repository.FindAll();         
+            this.dtgv_device.DataSource = res;
         }
 
         private void Form_device_Load(object sender, EventArgs e)
         {
-            Load_data();
-
+            //Load_data();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -143,13 +143,13 @@ namespace QUAN_LY_THIET_BI_DO
         {
             var data = new List<CaliEntity>();
             if (checkboxexportall.Checked == true)
-            {
+            {              
                 data = repository.FindAll();
                 Opendialog(data);
             }
             else if (checkboxexport_monthyear.Checked == true)
-            {
-                data = repository.ExportMontnYear(datetime_export.Value);
+            {           
+                data = repository.ExportMonthYear(datetime_export.Value);
                 if (data.Count == 0)
                 {
                     MessageBox.Show("Không có dữ liệu bạn muốn xuất ra file excel!");
@@ -162,6 +162,7 @@ namespace QUAN_LY_THIET_BI_DO
             }
 
         }
+
         public void Opendialog(List<CaliEntity> caliEntities)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Excel workbook|* .xlsx" })
@@ -175,7 +176,6 @@ namespace QUAN_LY_THIET_BI_DO
                 }
             }
         }
-
 
         private void dtgv_device_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -199,6 +199,27 @@ namespace QUAN_LY_THIET_BI_DO
                     }                    
                 }
             }
+            else
+            {
+            }
+        }
+
+        private void checkboxexportall_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkboxexportall.Checked == true)
+            {
+                checkboxexport_monthyear.Checked = false;
+            }
+            
+        }
+
+        private void checkboxexport_monthyear_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkboxexport_monthyear.Checked == true)
+            {
+                checkboxexportall.Checked = false;
+            }
+
         }
     }
 }
