@@ -38,12 +38,15 @@ namespace QUAN_LY_THIET_BI_DO
             this.tagManager = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusVersion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuStrip1.SuspendLayout();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabcalibration.SuspendLayout();
             this.tagManager.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,7 +76,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.tabcalibration.Location = new System.Drawing.Point(4, 22);
             this.tabcalibration.Name = "tabcalibration";
             this.tabcalibration.Padding = new System.Windows.Forms.Padding(3);
-            this.tabcalibration.Size = new System.Drawing.Size(936, 409);
+            this.tabcalibration.Size = new System.Drawing.Size(936, 467);
             this.tabcalibration.TabIndex = 1;
             this.tabcalibration.Text = "Calibration management";
             this.tabcalibration.UseVisualStyleBackColor = true;
@@ -124,7 +127,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.tagManager.Location = new System.Drawing.Point(5, 96);
             this.tagManager.Name = "tagManager";
             this.tagManager.SelectedIndex = 0;
-            this.tagManager.Size = new System.Drawing.Size(944, 435);
+            this.tagManager.Size = new System.Drawing.Size(944, 493);
             this.tagManager.TabIndex = 3;
             // 
             // panel1
@@ -149,14 +152,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.textBox2.Size = new System.Drawing.Size(475, 24);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "UMC_QUẢN LÝ HIỆU CHUẨN THIẾT BỊ ĐO";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 521);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(956, 22);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
@@ -184,11 +179,48 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripStatusVersion.Name = "toolStripStatusVersion";
             this.toolStripStatusVersion.Size = new System.Drawing.Size(0, 17);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel6,
+            this.toolStripStatusLabel7});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 603);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(956, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(37, 17);
+            this.toolStripStatusLabel4.Text = "PE :IT";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(31, 17);
+            this.toolStripStatusLabel5.Text = "3143";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(48, 17);
+            this.toolStripStatusLabel6.Text = "Version:";
+            // 
+            // toolStripStatusLabel7
+            // 
+            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
+            this.toolStripStatusLabel7.Size = new System.Drawing.Size(0, 17);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 543);
+            this.ClientSize = new System.Drawing.Size(956, 625);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tagManager);
@@ -197,8 +229,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.Name = "FormMain";
             this.Text = "UMC_QUAN_LY_HIEU_CHUAN_THIET_BI_DO";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.tabcalibration.ResumeLayout(false);
             this.tagManager.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -220,11 +250,15 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.Button btncalibration;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusVersion;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
     }
 }
 

@@ -8,11 +8,13 @@ namespace QUAN_LY_THIET_BI_DO.Model
 {
     public class CaliEntity
     {
+        public string PAYMENT { get; set; }
+
         public string PART_NO { get; set; }
 
-        public string PART_NAME { get; set; }
-
         public string SAP_BARCODE { get; set; }
+
+        public string PART_NAME { get; set; }
 
         public string MODEL { get; set; }
 
@@ -58,19 +60,18 @@ namespace QUAN_LY_THIET_BI_DO.Model
          
         public string MAKER { get; set; }
 
-        private int ENQUIP_STATE { get; set; }
+        public string ENQUIP_STATE { get; set; }
+        //private int ENQUIP_STATE { get; set; }
 
-        public string Enquip_Name
-        {
-            get
-            {
-                return this.ENQUIP_STATE == 0 ? "OK" : this.ENQUIP_STATE == 1 ? "Stop Calibration & use" : this.ENQUIP_STATE == 2 ? "NG chờ sửa" : "NG hủy";
-            }
-        }
+        //public string Enquip_Name
+        //{
+        //    get
+        //    {
+        //        return this.ENQUIP_STATE == 0 ? "OK" : this.ENQUIP_STATE == 1 ? "Stop Calibration & use" : this.ENQUIP_STATE == 2 ? "NG chờ sửa" : "NG hủy";
+        //    }
+        //}
 
-        public string RMK { get; set; }
-
-        public string PAYMENT { get; set; }
+        public string RMK { get; set; }       
 
         public string LINE { get; set; }
 

@@ -24,7 +24,7 @@ namespace QUAN_LY_THIET_BI_DO
         public Form_device()
         {
             InitializeComponent();
-            toolStripStatusVersion.Text = Ultils.GetRunningVersion();
+            toolStripStatusLabel7.Text = Ultils.GetRunningVersion();
             this.dtgv_device.AutoGenerateColumns = false;
             Load_data();
         }
@@ -154,7 +154,10 @@ namespace QUAN_LY_THIET_BI_DO
                 {
                     MessageBox.Show("Không có dữ liệu bạn muốn xuất ra file excel!");
                 }
-                Opendialog(data);
+                else
+                {
+                    Opendialog(data);
+                }                
             }
             else
             {

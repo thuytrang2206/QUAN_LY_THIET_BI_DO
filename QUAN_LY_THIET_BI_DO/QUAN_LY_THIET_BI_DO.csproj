@@ -29,7 +29,7 @@
     <ProductName>QUẢN LÝ THIẾT BỊ HIỆU CHUẨN ĐO</ProductName>
     <PublisherName>Trangpt</PublisherName>
     <SuiteName>Trangpt</SuiteName>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -168,6 +168,7 @@
     <Compile Include="Model\CaliEntity.cs" />
     <Compile Include="Model\DEVICE.cs" />
     <Compile Include="Model\DeviceControl_Model.cs" />
+    <Compile Include="Model\ListPartNo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

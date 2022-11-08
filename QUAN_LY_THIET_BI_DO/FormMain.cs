@@ -16,7 +16,7 @@ namespace QUAN_LY_THIET_BI_DO
         public FormMain()
         {
             InitializeComponent();
-            toolStripStatusVersion.Text = Ultils.GetRunningVersion();
+            toolStripStatusLabel7.Text = Ultils.GetRunningVersion();
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -41,8 +41,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PAYMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PART_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SAP_BARCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PART_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MODEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SERIAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MANUFACTORY = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.deletetoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -87,12 +86,18 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.folderpdf = new System.Windows.Forms.FolderBrowserDialog();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.tagManager.SuspendLayout();
             this.tabcalibration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_device)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -163,8 +168,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.No,
             this.PAYMENT,
             this.PART_NO,
-            this.PART_NAME,
             this.SAP_BARCODE,
+            this.PART_NAME,
             this.MODEL,
             this.SERIAL,
             this.MANUFACTORY,
@@ -219,14 +224,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.PART_NO.Name = "PART_NO";
             this.PART_NO.Width = 94;
             // 
-            // PART_NAME
-            // 
-            this.PART_NAME.DataPropertyName = "PART_NAME";
-            this.PART_NAME.FillWeight = 79.59391F;
-            this.PART_NAME.HeaderText = "Tên thiết bị";
-            this.PART_NAME.MinimumWidth = 100;
-            this.PART_NAME.Name = "PART_NAME";
-            // 
             // SAP_BARCODE
             // 
             this.SAP_BARCODE.DataPropertyName = "SAP_BARCODE";
@@ -235,6 +232,14 @@ namespace QUAN_LY_THIET_BI_DO
             this.SAP_BARCODE.MinimumWidth = 120;
             this.SAP_BARCODE.Name = "SAP_BARCODE";
             this.SAP_BARCODE.Width = 122;
+            // 
+            // PART_NAME
+            // 
+            this.PART_NAME.DataPropertyName = "PART_NAME";
+            this.PART_NAME.FillWeight = 79.59391F;
+            this.PART_NAME.HeaderText = "Tên thiết bị";
+            this.PART_NAME.MinimumWidth = 100;
+            this.PART_NAME.Name = "PART_NAME";
             // 
             // MODEL
             // 
@@ -349,7 +354,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // ENQUIP_STATE
             // 
-            this.ENQUIP_STATE.DataPropertyName = "Enquip_Name";
+            this.ENQUIP_STATE.DataPropertyName = "ENQUIP_STATE";
             this.ENQUIP_STATE.FillWeight = 79.59391F;
             this.ENQUIP_STATE.HeaderText = "Tình trạng hiệu chuẩn";
             this.ENQUIP_STATE.MinimumWidth = 160;
@@ -460,14 +465,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(62, 20);
             this.toolStripMenuItem1.Text = "Systems";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 590);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(993, 22);
-            this.statusStrip1.TabIndex = 9;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
@@ -621,6 +618,43 @@ namespace QUAN_LY_THIET_BI_DO
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 40;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel6,
+            this.toolStripStatusLabel7});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 590);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(993, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabel4.Text = "PE:IT";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(31, 17);
+            this.toolStripStatusLabel5.Text = "3143";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(45, 17);
+            this.toolStripStatusLabel6.Text = "Version";
+            // 
+            // toolStripStatusLabel7
+            // 
+            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
+            this.toolStripStatusLabel7.Size = new System.Drawing.Size(0, 17);
+            // 
             // Form_device
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -643,6 +677,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,7 +699,6 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem deletetoolStripMenuItem2;
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
@@ -682,8 +717,8 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAYMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn PART_NO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PART_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn SAP_BARCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PART_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn MODEL;
         private System.Windows.Forms.DataGridViewTextBoxColumn SERIAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn MANUFACTORY;
@@ -704,5 +739,10 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.DataGridViewTextBoxColumn MODEL_UMC;
         private System.Windows.Forms.DataGridViewImageColumn PDF_FILEs;
         private System.Windows.Forms.DataGridViewTextBoxColumn PDF_FILE;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
     }
 }

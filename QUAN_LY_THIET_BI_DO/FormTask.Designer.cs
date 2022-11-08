@@ -29,7 +29,7 @@ namespace QUAN_LY_THIET_BI_DO
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTask));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -43,7 +43,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.txtmodelumc = new System.Windows.Forms.TextBox();
             this.txtfctno = new System.Windows.Forms.TextBox();
             this.txtline = new System.Windows.Forms.TextBox();
-            this.cbbequip_state = new System.Windows.Forms.ComboBox();
             this.lblrmk = new System.Windows.Forms.Label();
             this.lblequipment = new System.Windows.Forms.Label();
             this.lblCalibrationby = new System.Windows.Forms.Label();
@@ -106,8 +105,10 @@ namespace QUAN_LY_THIET_BI_DO
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.grboximpportexcel = new System.Windows.Forms.GroupBox();
             this.dtgvreaderexcel = new System.Windows.Forms.DataGridView();
+            this.txtequip_status = new System.Windows.Forms.TextBox();
+            this.cbbsheet = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.grboximporthand.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -176,13 +177,13 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtequip_status);
             this.groupBox4.Controls.Add(this.lblmodelumc);
             this.groupBox4.Controls.Add(this.lblfctno);
             this.groupBox4.Controls.Add(this.lblline);
             this.groupBox4.Controls.Add(this.txtmodelumc);
             this.groupBox4.Controls.Add(this.txtfctno);
             this.groupBox4.Controls.Add(this.txtline);
-            this.groupBox4.Controls.Add(this.cbbequip_state);
             this.groupBox4.Controls.Add(this.lblrmk);
             this.groupBox4.Controls.Add(this.lblequipment);
             this.groupBox4.Controls.Add(this.lblCalibrationby);
@@ -261,20 +262,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.txtline.Size = new System.Drawing.Size(200, 20);
             this.txtline.TabIndex = 18;
             this.txtline.TextChanged += new System.EventHandler(this.txtline_TextChanged);
-            // 
-            // cbbequip_state
-            // 
-            this.cbbequip_state.FormattingEnabled = true;
-            this.cbbequip_state.Items.AddRange(new object[] {
-            "OK",
-            "Stop Calibration & Use",
-            "NG chờ sửa",
-            "NG hủy"});
-            this.cbbequip_state.Location = new System.Drawing.Point(8, 220);
-            this.cbbequip_state.Name = "cbbequip_state";
-            this.cbbequip_state.Size = new System.Drawing.Size(201, 21);
-            this.cbbequip_state.TabIndex = 17;
-            this.cbbequip_state.SelectedIndexChanged += new System.EventHandler(this.cbbequip_state_SelectedIndexChanged);
             // 
             // lblrmk
             // 
@@ -839,6 +826,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.Color.White;
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.cbbsheet);
             this.groupBox6.Controls.Add(this.checkboximport);
             this.groupBox6.Controls.Add(this.btn_save);
             this.groupBox6.Controls.Add(this.lblnamefile);
@@ -869,7 +858,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_save.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85542_guardar_save_icon__1_;
             this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_save.Location = new System.Drawing.Point(821, 19);
+            this.btn_save.Location = new System.Drawing.Point(825, 19);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(62, 27);
             this.btn_save.TabIndex = 5;
@@ -881,7 +870,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblnamefile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblnamefile.AutoSize = true;
-            this.lblnamefile.Location = new System.Drawing.Point(452, 28);
+            this.lblnamefile.Location = new System.Drawing.Point(278, 26);
             this.lblnamefile.Name = "lblnamefile";
             this.lblnamefile.Size = new System.Drawing.Size(52, 13);
             this.lblnamefile.TabIndex = 2;
@@ -900,12 +889,12 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnOpenfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenfile.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85334_file_open_icon16px;
             this.btnOpenfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenfile.Location = new System.Drawing.Point(719, 20);
+            this.btnOpenfile.Location = new System.Drawing.Point(176, 20);
             this.btnOpenfile.Name = "btnOpenfile";
             this.btnOpenfile.Size = new System.Drawing.Size(96, 26);
             this.btnOpenfile.TabIndex = 1;
             this.btnOpenfile.TabStop = false;
-            this.btnOpenfile.Text = "     Open file";
+            this.btnOpenfile.Text = "     Chọn file";
             this.btnOpenfile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenfile.UseVisualStyleBackColor = false;
             this.btnOpenfile.Click += new System.EventHandler(this.btnOpenfile_Click);
@@ -929,20 +918,48 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvreaderexcel.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvreaderexcel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvreaderexcel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvreaderexcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvreaderexcel.Location = new System.Drawing.Point(10, 15);
             this.dtgvreaderexcel.Name = "dtgvreaderexcel";
             this.dtgvreaderexcel.RowHeadersVisible = false;
             this.dtgvreaderexcel.Size = new System.Drawing.Size(873, 30);
             this.dtgvreaderexcel.TabIndex = 0;
+            // 
+            // txtequip_status
+            // 
+            this.txtequip_status.Location = new System.Drawing.Point(6, 216);
+            this.txtequip_status.Name = "txtequip_status";
+            this.txtequip_status.Size = new System.Drawing.Size(200, 20);
+            this.txtequip_status.TabIndex = 24;
+            // 
+            // cbbsheet
+            // 
+            this.cbbsheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbsheet.FormattingEnabled = true;
+            this.cbbsheet.Location = new System.Drawing.Point(648, 23);
+            this.cbbsheet.Name = "cbbsheet";
+            this.cbbsheet.Size = new System.Drawing.Size(121, 21);
+            this.cbbsheet.TabIndex = 10;
+            this.cbbsheet.SelectedIndexChanged += new System.EventHandler(this.cbbsheet_SelectedIndexChanged);
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(568, 26);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(74, 15);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "Chọn Sheet:";
             // 
             // FormTask
             // 
@@ -959,8 +976,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.Text = "UMC_QUAN_LY_HIEU_CHUAN_THIET_BI_DO";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.grboximporthand.ResumeLayout(false);
             this.grboximporthand.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1034,7 +1049,6 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.GroupBox grboximpportexcel;
         private System.Windows.Forms.DataGridView dtgvreaderexcel;
         private System.Windows.Forms.Label lblrmk;
-        private System.Windows.Forms.ComboBox cbbequip_state;
         private System.Windows.Forms.DateTimePicker dateTimerecon;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dateTimecalidate;
@@ -1057,5 +1071,8 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtequip_status;
+        private System.Windows.Forms.ComboBox cbbsheet;
+        private System.Windows.Forms.Label label21;
     }
 }

@@ -77,7 +77,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.txtmodelumc = new System.Windows.Forms.TextBox();
             this.txtfctno = new System.Windows.Forms.TextBox();
             this.txtline = new System.Windows.Forms.TextBox();
-            this.cbbequip_state = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblpleaceuse = new System.Windows.Forms.Label();
             this.txtrmk = new System.Windows.Forms.TextBox();
@@ -99,6 +98,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtequip_status = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -518,6 +518,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtequip_status);
             this.groupBox4.Controls.Add(this.lblpdf);
             this.groupBox4.Controls.Add(this.btnchoosepdf);
             this.groupBox4.Controls.Add(this.lblmodelumc);
@@ -526,7 +527,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox4.Controls.Add(this.txtmodelumc);
             this.groupBox4.Controls.Add(this.txtfctno);
             this.groupBox4.Controls.Add(this.txtline);
-            this.groupBox4.Controls.Add(this.cbbequip_state);
             this.groupBox4.Controls.Add(this.btnSave);
             this.groupBox4.Controls.Add(this.lblrmk);
             this.groupBox4.Controls.Add(this.lblequipment);
@@ -634,20 +634,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.txtline.Name = "txtline";
             this.txtline.Size = new System.Drawing.Size(200, 20);
             this.txtline.TabIndex = 24;
-            // 
-            // cbbequip_state
-            // 
-            this.cbbequip_state.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbequip_state.FormattingEnabled = true;
-            this.cbbequip_state.Items.AddRange(new object[] {
-            "OK",
-            "Stop Calibration & Use",
-            "NG chờ sửa",
-            "NG hủy"});
-            this.cbbequip_state.Location = new System.Drawing.Point(6, 139);
-            this.cbbequip_state.Name = "cbbequip_state";
-            this.cbbequip_state.Size = new System.Drawing.Size(201, 21);
-            this.cbbequip_state.TabIndex = 18;
             // 
             // btnSave
             // 
@@ -874,6 +860,14 @@ namespace QUAN_LY_THIET_BI_DO
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "QUẢN LÝ HIỆU CHUẨN THIẾT BỊ ĐO";
             // 
+            // txtequip_status
+            // 
+            this.txtequip_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtequip_status.Location = new System.Drawing.Point(6, 135);
+            this.txtequip_status.Name = "txtequip_status";
+            this.txtequip_status.Size = new System.Drawing.Size(200, 20);
+            this.txtequip_status.TabIndex = 32;
+            // 
             // FormEditdevice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -961,7 +955,6 @@ namespace QUAN_LY_THIET_BI_DO
         public System.Windows.Forms.TextBox txtcontrol_mng;
         public System.Windows.Forms.TextBox txtpleace_use;
         public System.Windows.Forms.TextBox txtdept_control;
-        public System.Windows.Forms.ComboBox cbbequip_state;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblpayment;
         public System.Windows.Forms.TextBox txtpayment;
@@ -976,5 +969,6 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.TextBox txtline;
         private System.Windows.Forms.Button btnchoosepdf;
         private System.Windows.Forms.Label lblpdf;
+        public System.Windows.Forms.TextBox txtequip_status;
     }
 }

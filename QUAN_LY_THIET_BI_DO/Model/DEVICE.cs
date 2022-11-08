@@ -10,11 +10,11 @@ namespace QUAN_LY_THIET_BI_DO.Model
     public partial class DEVICE
     {
         [Key]
-        [StringLength(50)]
+        [StringLength(300)]
         public string PART_NO { get; set; }
 
         [Required]
-        [StringLength(64)]
+        [StringLength(300)]
         public string PART_NAME { get; set; }
 
         [Required]
@@ -53,7 +53,9 @@ namespace QUAN_LY_THIET_BI_DO.Model
         [StringLength(64)]
         public string MAKER { get; set; }
 
-        public int ENQUIP_STATE { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string ENQUIP_STATE { get; set; }
 
         [Required]
         [StringLength(64)]
@@ -62,7 +64,7 @@ namespace QUAN_LY_THIET_BI_DO.Model
         public bool STATUS { get; set; }
 
         [Required]
-        [StringLength(64)]
+        [StringLength(200)]
         public string PAYMENT { get; set; }
 
         [Required]
@@ -70,11 +72,11 @@ namespace QUAN_LY_THIET_BI_DO.Model
         public string LINE { get; set; }
 
         [Required]
-        [StringLength(64)]
+        [StringLength(300)]
         public string FCT_NO { get; set; }
 
         [Required]
-        [StringLength(64)]
+        [StringLength(300)]
         public string MODEL_UMC { get; set; }
 
         [StringLength(500)]

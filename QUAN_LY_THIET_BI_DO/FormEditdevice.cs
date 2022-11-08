@@ -40,7 +40,7 @@ namespace QUAN_LY_THIET_BI_DO
             txtpleace_use.Text = result.PLACE_USE;
             txtcontrol_mng.Text = result.CONTROL_MNG;
             txtmaker.Text = result.MAKER;
-            cbbequip_state.SelectedIndex = result.ENQUIP_STATE == 0 ? 0 : result.ENQUIP_STATE == 1 ? 1 : result.ENQUIP_STATE == 2 ? 2 : 3;
+            txtequip_status.Text = result.ENQUIP_STATE;
             txtrmk.Text = result.RMK;
             txtline.Text = result.LINE;
             txtfctno.Text = result.FCT_NO;
@@ -68,7 +68,7 @@ namespace QUAN_LY_THIET_BI_DO
                 device.PLACE_USE = txtpleace_use.Text;
                 device.CONTROL_MNG = txtcontrol_mng.Text;
                 device.MAKER = txtmaker.Text;
-                device.ENQUIP_STATE = cbbequip_state.SelectedIndex;
+                device.ENQUIP_STATE = txtequip_status.Text;
                 device.RMK = txtrmk.Text;
                 device.LINE = txtline.Text;
                 device.FCT_NO = txtfctno.Text;
