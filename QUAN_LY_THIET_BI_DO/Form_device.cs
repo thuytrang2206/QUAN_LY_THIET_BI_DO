@@ -115,22 +115,22 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void deletetoolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            string part_no = this.dtgv_device.CurrentRow.Cells[0].Value.ToString();
+            string part_no = this.dtgv_device.CurrentRow.Cells[2].Value.ToString();
             var check_partno = dbcontext.DEVICEs.Where(c => c.PART_NO == part_no).ToList();
             if (check_partno == null)
             {
-                MessageBox.Show("Không tìm thấy mã quản lý: " + this.dtgv_device.CurrentRow.Cells[0].Value.ToString(), "Thông báo");
+                MessageBox.Show("Không tìm thấy mã quản lý: " + this.dtgv_device.CurrentRow.Cells[2].Value.ToString(), "Thông báo");
             }
             else
             {
-                device = dbcontext.DEVICEs.Find(this.dtgv_device.CurrentRow.Cells[0].Value.ToString());
+                device = dbcontext.DEVICEs.Find(this.dtgv_device.CurrentRow.Cells[2].Value.ToString());
                 device.STATUS = false;
                 calibration = dbcontext.CALIBRATIONs.Find(device.PART_NO);
                 calibration.STATUS = false;
                 dbcontext.SaveChanges();
                 MessageBox.Show("Xóa thành công!", "Thông báo");
                 dtgv_device.DataSource = null;
-                Form_device_Load(sender, e);
+                Load_data();
             }
         }
 
@@ -193,7 +193,7 @@ namespace QUAN_LY_THIET_BI_DO
                     {
                         if (item.PDF_FILE != null)
                         {
-                            localPath = @"D:\2. Projects\FTP_Root\Cali_Pdf\" + "\\" + item.PDF_FILE;
+                            localPath = @"D:\2. Projects\FTP_Root\Cali_Pdf\"  + item.PDF_FILE;
                             //localPath = @"\\172.28.10.12\Share\48 DM" + "\\" + result.PDF_FILE;
                             DownloadFiles.DownloadFile(localPath, @"/Cali_Pdf/" + item.PDF_FILE);
                             Views view = new Views(localPath);

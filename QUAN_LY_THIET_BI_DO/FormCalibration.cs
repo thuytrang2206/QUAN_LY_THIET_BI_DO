@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExcelDataReader;
+using QUAN_LY_THIET_BI_DO.Business;
 using QUAN_LY_THIET_BI_DO.Model;
 namespace QUAN_LY_THIET_BI_DO
 {
@@ -21,8 +22,7 @@ namespace QUAN_LY_THIET_BI_DO
         public FormCalibration()
         {
             InitializeComponent();
-            Load_Calibration();
-            grb_importhand.Size = new Size(501, 340);
+            Load_Calibration();           
             var get_partno= dbContext.CALIBRATIONs.Where(c=>c.STATUS==true).ToList();
             foreach (var item  in get_partno)
             {
@@ -30,6 +30,8 @@ namespace QUAN_LY_THIET_BI_DO
                 
             }
             cbbpart_no.SelectedIndex = -1;
+            cbbpart_no.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbbpart_no.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
         public void Load_Calibration()
         {
@@ -40,7 +42,7 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            if (checkboximportexcel.Checked == false)
+            if (tabControl.SelectedTab==handtab)
             {
                 if (cbbpart_no.SelectedIndex < 0)
                 {
@@ -62,7 +64,7 @@ namespace QUAN_LY_THIET_BI_DO
                         calibration.STATUS = true;
                         dbContext.SaveChanges();
                         MessageBox.Show("Lưu thành công!", "Thông báo");
-
+                        
                     }
                 }
             }
@@ -94,6 +96,8 @@ namespace QUAN_LY_THIET_BI_DO
                         }
                     }
                     MessageBox.Show("Lưu thành công!", "Thông báo");
+                    dtgvimport_excel.DataSource = null;
+                    lblnamefile.Text = "";
                 }
             }
             Load_Calibration();
@@ -132,6 +136,7 @@ namespace QUAN_LY_THIET_BI_DO
                                 {
                                     var dtData = result.Tables[0];
                                     this.dtgvimport_excel.DataSource = dtData;
+                                    this.dtgvimport_excel.Visible = true;
                                 }
                             }               
                         }
@@ -149,37 +154,17 @@ namespace QUAN_LY_THIET_BI_DO
             lblpart_no.Visible = false;
             lblpart_no.Text = "";
             string partno = cbbpart_no.SelectedItem.ToString();
-            var result = dbContext.CALIBRATIONs.Where(x => x.PART_NO==partno && x.STATUS==true).SingleOrDefault();
+            var result = dbContext.CALIBRATIONs.Where(x => x.PART_NO == partno && x.STATUS == true).SingleOrDefault();
             if (result == null)
             {
-                MessageBox.Show("Mã quản lý " + partno + " không tìm thấy!","Thông báo");
-            }
-            else
-            {              
-                    dtcali_date.Value = result.CALI_DATE;
-                    dtcali_recommend.Value = result.CALI_RECOMMEND;                
-            }
-        }
-
-        private void checkboximportexcel_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkboximportexcel.Checked == true)
-            {
-                grbimport_excel.Visible = true;
-                grb_importhand.Visible = false;
-                grbimport_excel.Location = new Point(486, 152);
-                grbimport_excel.Size = new Size(501, 340);
-                btnOpenfile.Enabled = true;
+                MessageBox.Show("Mã quản lý " + partno + " không tìm thấy!", "Thông báo");
             }
             else
             {
-                grb_importhand.Visible = true;
-                grbimport_excel.Visible = false;
-                grb_importhand.Size = new Size(501, 340);
-                grb_importhand.Location = new Point(486, 152);
-                btnOpenfile.Enabled = false;
-
+                dtcali_date.Value = result.CALI_DATE;
+                dtcali_recommend.Value = result.CALI_RECOMMEND;
             }
         }
+
     }
 }

@@ -29,8 +29,7 @@ namespace QUAN_LY_THIET_BI_DO
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCalibration));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -42,12 +41,11 @@ namespace QUAN_LY_THIET_BI_DO
             this.CALI_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CALI_RECOMMEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.checkboximportexcel = new System.Windows.Forms.CheckBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.lblnamefile = new System.Windows.Forms.Label();
             this.btnOpenfile = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.grb_importhand = new System.Windows.Forms.GroupBox();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.handtab = new System.Windows.Forms.TabPage();
             this.cbbpart_no = new System.Windows.Forms.ComboBox();
             this.dtcali_recommend = new System.Windows.Forms.DateTimePicker();
             this.dtcali_date = new System.Windows.Forms.DateTimePicker();
@@ -57,15 +55,15 @@ namespace QUAN_LY_THIET_BI_DO
             this.lblRecommendcali = new System.Windows.Forms.Label();
             this.lblDatecali = new System.Windows.Forms.Label();
             this.lblPartNo = new System.Windows.Forms.Label();
-            this.grbimport_excel = new System.Windows.Forms.GroupBox();
+            this.exceltab = new System.Windows.Forms.TabPage();
             this.dtgvimport_excel = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.grb_datagridview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvcalibration)).BeginInit();
             this.panel3.SuspendLayout();
-            this.grb_importhand.SuspendLayout();
-            this.grbimport_excel.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.handtab.SuspendLayout();
+            this.exceltab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvimport_excel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,9 +112,9 @@ namespace QUAN_LY_THIET_BI_DO
             this.grb_datagridview.BackColor = System.Drawing.Color.White;
             this.grb_datagridview.Controls.Add(this.dtgvcalibration);
             this.grb_datagridview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grb_datagridview.Location = new System.Drawing.Point(0, 152);
+            this.grb_datagridview.Location = new System.Drawing.Point(0, 140);
             this.grb_datagridview.Name = "grb_datagridview";
-            this.grb_datagridview.Size = new System.Drawing.Size(480, 340);
+            this.grb_datagridview.Size = new System.Drawing.Size(480, 352);
             this.grb_datagridview.TabIndex = 9;
             this.grb_datagridview.TabStop = false;
             this.grb_datagridview.Text = "Dữ liệu hàng tháng sau hiệu chuẩn";
@@ -128,23 +126,23 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvcalibration.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvcalibration.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvcalibration.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvcalibration.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvcalibration.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvcalibration.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PART_NO,
             this.CALI_DATE,
             this.CALI_RECOMMEND});
-            this.dtgvcalibration.Location = new System.Drawing.Point(7, 16);
+            this.dtgvcalibration.Location = new System.Drawing.Point(7, 19);
             this.dtgvcalibration.Name = "dtgvcalibration";
             this.dtgvcalibration.RowHeadersVisible = false;
-            this.dtgvcalibration.Size = new System.Drawing.Size(463, 318);
+            this.dtgvcalibration.Size = new System.Drawing.Size(463, 327);
             this.dtgvcalibration.TabIndex = 0;
             // 
             // PART_NO
@@ -171,25 +169,11 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.checkboximportexcel);
             this.panel3.Controls.Add(this.btn_save);
-            this.panel3.Controls.Add(this.lblnamefile);
-            this.panel3.Controls.Add(this.btnOpenfile);
             this.panel3.Location = new System.Drawing.Point(0, 88);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(993, 58);
+            this.panel3.Size = new System.Drawing.Size(993, 46);
             this.panel3.TabIndex = 8;
-            // 
-            // checkboximportexcel
-            // 
-            this.checkboximportexcel.AutoSize = true;
-            this.checkboximportexcel.Location = new System.Drawing.Point(10, 20);
-            this.checkboximportexcel.Name = "checkboximportexcel";
-            this.checkboximportexcel.Size = new System.Drawing.Size(123, 17);
-            this.checkboximportexcel.TabIndex = 14;
-            this.checkboximportexcel.Text = "Nhập bằng file excel";
-            this.checkboximportexcel.UseVisualStyleBackColor = true;
-            this.checkboximportexcel.CheckedChanged += new System.EventHandler(this.checkboximportexcel_CheckedChanged);
             // 
             // btn_save
             // 
@@ -207,7 +191,7 @@ namespace QUAN_LY_THIET_BI_DO
             // lblnamefile
             // 
             this.lblnamefile.AutoSize = true;
-            this.lblnamefile.Location = new System.Drawing.Point(595, 20);
+            this.lblnamefile.Location = new System.Drawing.Point(305, 15);
             this.lblnamefile.Name = "lblnamefile";
             this.lblnamefile.Size = new System.Drawing.Size(52, 13);
             this.lblnamefile.TabIndex = 10;
@@ -218,7 +202,6 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.btnOpenfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenfile.BackColor = System.Drawing.SystemColors.Control;
-            this.btnOpenfile.Enabled = false;
             this.btnOpenfile.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnOpenfile.FlatAppearance.BorderSize = 0;
             this.btnOpenfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -227,7 +210,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnOpenfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenfile.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85334_file_open_icon16px1;
             this.btnOpenfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenfile.Location = new System.Drawing.Point(821, 10);
+            this.btnOpenfile.Location = new System.Drawing.Point(391, 7);
             this.btnOpenfile.Name = "btnOpenfile";
             this.btnOpenfile.Size = new System.Drawing.Size(96, 27);
             this.btnOpenfile.TabIndex = 9;
@@ -237,70 +220,70 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnOpenfile.UseVisualStyleBackColor = false;
             this.btnOpenfile.Click += new System.EventHandler(this.btnOpenfile_Click);
             // 
-            // label1
+            // tabControl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 0;
-            // 
-            // grb_importhand
-            // 
-            this.grb_importhand.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grb_importhand.BackColor = System.Drawing.Color.White;
-            this.grb_importhand.Controls.Add(this.cbbpart_no);
-            this.grb_importhand.Controls.Add(this.dtcali_recommend);
-            this.grb_importhand.Controls.Add(this.dtcali_date);
-            this.grb_importhand.Controls.Add(this.lblcali_recommend);
-            this.grb_importhand.Controls.Add(this.lblcali_date);
-            this.grb_importhand.Controls.Add(this.lblpart_no);
-            this.grb_importhand.Controls.Add(this.lblRecommendcali);
-            this.grb_importhand.Controls.Add(this.lblDatecali);
-            this.grb_importhand.Controls.Add(this.label1);
-            this.grb_importhand.Controls.Add(this.lblPartNo);
-            this.grb_importhand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grb_importhand.Location = new System.Drawing.Point(486, 152);
-            this.grb_importhand.Name = "grb_importhand";
-            this.grb_importhand.Size = new System.Drawing.Size(501, 175);
-            this.grb_importhand.TabIndex = 11;
-            this.grb_importhand.TabStop = false;
-            this.grb_importhand.Text = "Nhập bằng tay";
+            this.tabControl.Controls.Add(this.handtab);
+            this.tabControl.Controls.Add(this.exceltab);
+            this.tabControl.Location = new System.Drawing.Point(486, 140);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(501, 352);
+            this.tabControl.TabIndex = 10;
+            this.tabControl.Tag = "";
+            // 
+            // handtab
+            // 
+            this.handtab.Controls.Add(this.cbbpart_no);
+            this.handtab.Controls.Add(this.dtcali_recommend);
+            this.handtab.Controls.Add(this.dtcali_date);
+            this.handtab.Controls.Add(this.lblcali_recommend);
+            this.handtab.Controls.Add(this.lblcali_date);
+            this.handtab.Controls.Add(this.lblpart_no);
+            this.handtab.Controls.Add(this.lblRecommendcali);
+            this.handtab.Controls.Add(this.lblDatecali);
+            this.handtab.Controls.Add(this.lblPartNo);
+            this.handtab.Location = new System.Drawing.Point(4, 22);
+            this.handtab.Name = "handtab";
+            this.handtab.Padding = new System.Windows.Forms.Padding(3);
+            this.handtab.Size = new System.Drawing.Size(493, 326);
+            this.handtab.TabIndex = 0;
+            this.handtab.Text = "Hand";
+            this.handtab.UseVisualStyleBackColor = true;
             // 
             // cbbpart_no
             // 
             this.cbbpart_no.FormattingEnabled = true;
-            this.cbbpart_no.Location = new System.Drawing.Point(217, 26);
+            this.cbbpart_no.Location = new System.Drawing.Point(215, 21);
             this.cbbpart_no.Name = "cbbpart_no";
             this.cbbpart_no.Size = new System.Drawing.Size(121, 21);
-            this.cbbpart_no.TabIndex = 24;
-            this.cbbpart_no.SelectedIndexChanged += new System.EventHandler(this.cbbpart_no_SelectedIndexChanged);
+            this.cbbpart_no.TabIndex = 33;
             // 
             // dtcali_recommend
             // 
             this.dtcali_recommend.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtcali_recommend.Location = new System.Drawing.Point(214, 110);
+            this.dtcali_recommend.Location = new System.Drawing.Point(212, 105);
             this.dtcali_recommend.Name = "dtcali_recommend";
             this.dtcali_recommend.Size = new System.Drawing.Size(200, 20);
-            this.dtcali_recommend.TabIndex = 23;
+            this.dtcali_recommend.TabIndex = 32;
             // 
             // dtcali_date
             // 
             this.dtcali_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtcali_date.Location = new System.Drawing.Point(214, 67);
+            this.dtcali_date.Location = new System.Drawing.Point(212, 62);
             this.dtcali_date.Name = "dtcali_date";
             this.dtcali_date.Size = new System.Drawing.Size(200, 20);
-            this.dtcali_date.TabIndex = 22;
+            this.dtcali_date.TabIndex = 31;
             // 
             // lblcali_recommend
             // 
             this.lblcali_recommend.AutoSize = true;
             this.lblcali_recommend.ForeColor = System.Drawing.Color.Red;
-            this.lblcali_recommend.Location = new System.Drawing.Point(214, 132);
+            this.lblcali_recommend.Location = new System.Drawing.Point(212, 127);
             this.lblcali_recommend.Name = "lblcali_recommend";
             this.lblcali_recommend.Size = new System.Drawing.Size(41, 13);
-            this.lblcali_recommend.TabIndex = 21;
+            this.lblcali_recommend.TabIndex = 30;
             this.lblcali_recommend.Text = "label22";
             this.lblcali_recommend.Visible = false;
             // 
@@ -308,10 +291,10 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblcali_date.AutoSize = true;
             this.lblcali_date.ForeColor = System.Drawing.Color.Red;
-            this.lblcali_date.Location = new System.Drawing.Point(214, 91);
+            this.lblcali_date.Location = new System.Drawing.Point(212, 86);
             this.lblcali_date.Name = "lblcali_date";
             this.lblcali_date.Size = new System.Drawing.Size(41, 13);
-            this.lblcali_date.TabIndex = 20;
+            this.lblcali_date.TabIndex = 29;
             this.lblcali_date.Text = "label21";
             this.lblcali_date.Visible = false;
             // 
@@ -319,10 +302,10 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblpart_no.AutoSize = true;
             this.lblpart_no.ForeColor = System.Drawing.Color.Red;
-            this.lblpart_no.Location = new System.Drawing.Point(214, 51);
+            this.lblpart_no.Location = new System.Drawing.Point(212, 46);
             this.lblpart_no.Name = "lblpart_no";
             this.lblpart_no.Size = new System.Drawing.Size(41, 13);
-            this.lblpart_no.TabIndex = 19;
+            this.lblpart_no.TabIndex = 28;
             this.lblpart_no.Text = "label20";
             this.lblpart_no.Visible = false;
             // 
@@ -330,77 +313,66 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblRecommendcali.AutoSize = true;
             this.lblRecommendcali.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecommendcali.Location = new System.Drawing.Point(24, 114);
+            this.lblRecommendcali.Location = new System.Drawing.Point(22, 109);
             this.lblRecommendcali.Name = "lblRecommendcali";
             this.lblRecommendcali.Size = new System.Drawing.Size(182, 16);
-            this.lblRecommendcali.TabIndex = 18;
+            this.lblRecommendcali.TabIndex = 27;
             this.lblRecommendcali.Text = "Ngày hiệu chuẩn đề nghị:";
             // 
             // lblDatecali
             // 
             this.lblDatecali.AutoSize = true;
             this.lblDatecali.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatecali.Location = new System.Drawing.Point(24, 72);
+            this.lblDatecali.Location = new System.Drawing.Point(22, 67);
             this.lblDatecali.Name = "lblDatecali";
             this.lblDatecali.Size = new System.Drawing.Size(123, 16);
-            this.lblDatecali.TabIndex = 17;
+            this.lblDatecali.TabIndex = 26;
             this.lblDatecali.Text = "Ngày hiệu chuẩn";
             // 
             // lblPartNo
             // 
             this.lblPartNo.AutoSize = true;
             this.lblPartNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartNo.Location = new System.Drawing.Point(24, 31);
+            this.lblPartNo.Location = new System.Drawing.Point(22, 26);
             this.lblPartNo.Name = "lblPartNo";
             this.lblPartNo.Size = new System.Drawing.Size(83, 16);
-            this.lblPartNo.TabIndex = 16;
+            this.lblPartNo.TabIndex = 25;
             this.lblPartNo.Text = "Mã quản lý";
             // 
-            // grbimport_excel
+            // exceltab
             // 
-            this.grbimport_excel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbimport_excel.BackColor = System.Drawing.Color.White;
-            this.grbimport_excel.Controls.Add(this.dtgvimport_excel);
-            this.grbimport_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grbimport_excel.Location = new System.Drawing.Point(486, 333);
-            this.grbimport_excel.Name = "grbimport_excel";
-            this.grbimport_excel.Size = new System.Drawing.Size(501, 159);
-            this.grbimport_excel.TabIndex = 12;
-            this.grbimport_excel.TabStop = false;
-            this.grbimport_excel.Text = "Nhập bằng file excel";
-            this.grbimport_excel.Visible = false;
+            this.exceltab.Controls.Add(this.dtgvimport_excel);
+            this.exceltab.Controls.Add(this.lblnamefile);
+            this.exceltab.Controls.Add(this.btnOpenfile);
+            this.exceltab.Location = new System.Drawing.Point(4, 22);
+            this.exceltab.Name = "exceltab";
+            this.exceltab.Padding = new System.Windows.Forms.Padding(3);
+            this.exceltab.Size = new System.Drawing.Size(493, 326);
+            this.exceltab.TabIndex = 1;
+            this.exceltab.Text = "Import Excel";
+            this.exceltab.UseVisualStyleBackColor = true;
             // 
             // dtgvimport_excel
             // 
             this.dtgvimport_excel.AllowUserToAddRows = false;
-            this.dtgvimport_excel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dtgvimport_excel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvimport_excel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvimport_excel.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvimport_excel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgvimport_excel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvimport_excel.Location = new System.Drawing.Point(9, 13);
+            this.dtgvimport_excel.Location = new System.Drawing.Point(3, 40);
             this.dtgvimport_excel.Name = "dtgvimport_excel";
             this.dtgvimport_excel.RowHeadersVisible = false;
-            this.dtgvimport_excel.Size = new System.Drawing.Size(486, 140);
-            this.dtgvimport_excel.TabIndex = 1;
+            this.dtgvimport_excel.Size = new System.Drawing.Size(486, 283);
+            this.dtgvimport_excel.TabIndex = 2;
+            this.dtgvimport_excel.Visible = false;
             // 
             // FormCalibration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 504);
-            this.Controls.Add(this.grbimport_excel);
-            this.Controls.Add(this.grb_importhand);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.grb_datagridview);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -410,15 +382,14 @@ namespace QUAN_LY_THIET_BI_DO
             this.Text = "UMC_QUAN_LY_HIEU_CHUAN_THIET_BI_DO";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.grb_datagridview.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvcalibration)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.grb_importhand.ResumeLayout(false);
-            this.grb_importhand.PerformLayout();
-            this.grbimport_excel.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.handtab.ResumeLayout(false);
+            this.handtab.PerformLayout();
+            this.exceltab.ResumeLayout(false);
+            this.exceltab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvimport_excel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -436,11 +407,13 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Label lblnamefile;
         private System.Windows.Forms.Button btnOpenfile;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox grb_importhand;
-        private System.Windows.Forms.GroupBox grbimport_excel;
-        private System.Windows.Forms.DataGridView dtgvimport_excel;
         private System.Windows.Forms.DataGridView dtgvcalibration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PART_NO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CALI_DATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CALI_RECOMMEND;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage handtab;
+        private System.Windows.Forms.TabPage exceltab;
         private System.Windows.Forms.ComboBox cbbpart_no;
         private System.Windows.Forms.DateTimePicker dtcali_recommend;
         private System.Windows.Forms.DateTimePicker dtcali_date;
@@ -450,9 +423,6 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.Label lblRecommendcali;
         private System.Windows.Forms.Label lblDatecali;
         private System.Windows.Forms.Label lblPartNo;
-        private System.Windows.Forms.CheckBox checkboximportexcel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PART_NO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CALI_DATE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CALI_RECOMMEND;
+        private System.Windows.Forms.DataGridView dtgvimport_excel;
     }
 }

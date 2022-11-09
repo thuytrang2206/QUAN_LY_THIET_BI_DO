@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using ExcelDataReader;
 using QUAN_LY_THIET_BI_DO.Business;
 using QUAN_LY_THIET_BI_DO.Model;
+using VBSQLHelper;
 
 namespace QUAN_LY_THIET_BI_DO
 {
@@ -23,6 +24,7 @@ namespace QUAN_LY_THIET_BI_DO
         DEVICE device = new DEVICE();
         Repository repository = new Repository();
         List<ListPartNo> listPartNo = new List<ListPartNo>();
+        DataTable tableDevice;
         public FormTask(Form_device form_Device)
         {
             InitializeComponent();
@@ -31,123 +33,114 @@ namespace QUAN_LY_THIET_BI_DO
 
         }
         
-        private void btn_save_Click(object sender, EventArgs e)
+        private  void btn_save_Click(object sender, EventArgs e)
         {
             try
             {
                 if (checkboximport.Checked == true)
                 {
-                    if(listPartNo.Count != 0)
+                    if (listPartNo.Count != 0)
                     {
-                        var Result = dtgvreaderexcel.Rows.OfType<DataGridViewRow>().Select(
-    r => r.Cells.OfType<DataGridViewCell>().Select(c => c.Value).ToArray()).ToList();
-                        if (((DataTable)this.dtgvreaderexcel.DataSource).Columns.Count < 23)
+                        var set = new HashSet<string>();
+                        //Kiểm tra file import có part_no nào trùng hay không
+                        var filterduplicatepartno = listPartNo.Where(x => !set.Add(x.PART_NO)).ToList();
+                        if (filterduplicatepartno.Count > 0)
                         {
-                            MessageBox.Show("File excel để nhập dữ liệu không đúng định dạng. Vui lòng xem lại file!", "Thông báo");
+                            MessageBox.Show("Mã quản lý: " + filterduplicatepartno.Select(inc => inc.PART_NO).Aggregate((buffer, next) => buffer + "," + next.ToString()) + " trong file excel đang bị trùng", "Thông báo");
                         }
                         else
                         {
-                            var set = new HashSet<string>();
-                            //Kiểm tra file import có part_no nào trùng hay không
-                            var filterduplicatepartno = listPartNo.Where(x => !set.Add(x.PART_NO)).ToList();
-
-                            if (filterduplicatepartno.Count > 0)
+                            if (listPartNo.Count() == 0)
                             {
-                                MessageBox.Show("Mã quản lý: " + filterduplicatepartno.Select(inc => inc.PART_NO).Aggregate((buffer, next) => buffer + "," + next.ToString()) + " trong file excel đang bị trùng", "Thông báo");
+                                MessageBox.Show("Bạn chưa chọn file excel để nhập thông tin!");
                             }
                             else
                             {
-                                if (Result.Count() == 0)
+                                foreach (var item in listPartNo)
                                 {
-                                    MessageBox.Show("Bạn chưa chọn file excel để nhập thông tin!");
-                                }
-                                else
-                                {
-
-                                    foreach (var item in Result)
+                                    string part_no = item.PART_NO;
+                                    if (part_no != "")
                                     {
-                                        string part_no = item[2].ToString();
-                                        if (part_no != "")
+                                        var checkpartno = dbcontext.DEVICEs.Where(c => c.PART_NO == part_no).SingleOrDefault();
+                                        if (checkpartno == null)
                                         {
-                                            var checkpartno = dbcontext.DEVICEs.Where(c => c.PART_NO == part_no).SingleOrDefault();
-                                            if (checkpartno == null)
+                                            var data = new DEVICE()
                                             {
-                                                var data = new DEVICE()
-                                                {
-                                                    PAYMENT = item[1].ToString() == "" ? "." : item[1].ToString(),
-                                                    PART_NO = item[2].ToString(),
-                                                    PART_NAME = item[4].ToString() == "" ? "." : item[4].ToString(),
-                                                    SAP_BARCODE = item[3].ToString() == "" ? "." : item[3].ToString(),
-                                                    MODEL = item[5].ToString() == "" ? "." : item[5].ToString(),
-                                                    SERIAL = item[6].ToString() == "" ? "." : item[6].ToString(),
-                                                    MANUFACTORY = item[7].ToString() == "" ? "." : item[7].ToString(),
-                                                    CALI_CYCLE = int.Parse(item[8].ToString()),
-                                                    REGISTRATION_DATE = Convert.ToDateTime(item[9].ToString()),
-                                                    DEPT_CONTROL = item[10].ToString() == "" ? "." : item[10].ToString(),
-                                                    PLACE_USE = item[11].ToString() == "" ? "." : item[11].ToString(),
-                                                    CONTROL_MNG = item[12].ToString() == "" ? "." : item[12].ToString(),
-                                                    ENQUIP_STATE = item[18].ToString() == "" ? "." : item[18].ToString(),
-                                                    MAKER = item[17].ToString() == "" ? "." : item[17].ToString(),
-                                                    RMK = item[19].ToString() == "" ? "." : item[19].ToString(),
-                                                    LINE = item[20].ToString() == "" ? "." : item[20].ToString(),
-                                                    FCT_NO = item[21].ToString() == "" ? "." : item[21].ToString(),
-                                                    MODEL_UMC = item[22].ToString() == "" ? "." : item[22].ToString(),
-                                                    STATUS = true,
-                                                };
-                                                dbcontext.DEVICEs.Add(data);
-                                                var data_cali = new CALIBRATION()
-                                                {
-                                                    PART_NO = item[2].ToString(),
-                                                    CALI_DATE = Convert.ToDateTime(item[13].ToString()),
-                                                    CALI_RECOMMEND = Convert.ToDateTime(item[14].ToString()),
-                                                    STATUS = true,
-                                                };
-                                                dbcontext.CALIBRATIONs.Add(data_cali);
-                                                dbcontext.SaveChanges();
-                                            }
-                                            // part_no đã có trong csdl=>sửa dữ liệu theo item file excel
-                                            else
+                                                PAYMENT = item.PAYMENT == "" ? "." : item.PAYMENT,
+                                                PART_NO = item.PART_NO,
+                                                PART_NAME = item.PART_NAME == "" ? "." : item.PART_NAME,
+                                                SAP_BARCODE = item.SAP_BARCODE == "" ? "." : item.SAP_BARCODE,
+                                                MODEL = item.MODEL == "" ? "." : item.MODEL,
+                                                SERIAL = item.SERIAL == "" ? "." : item.SERIAL,
+                                                MANUFACTORY = item.MANUFACTORY == "" ? "." : item.MANUFACTORY,
+                                                CALI_CYCLE = int.Parse(item.CALI_CYCLE.ToString()),
+                                                REGISTRATION_DATE = Convert.ToDateTime(item.REGISTRATION_DATE),
+                                                DEPT_CONTROL = item.DEPT_CONTROL == "" ? "." : item.DEPT_CONTROL,
+                                                PLACE_USE = item.PLACE_USE == "" ? "." : item.PLACE_USE,
+                                                CONTROL_MNG = item.CONTROL_MNG == "" ? "." : item.CONTROL_MNG,
+                                                ENQUIP_STATE = item.ENQUIP_STATE == "" ? "." : item.ENQUIP_STATE,
+                                                MAKER = item.MAKER == "" ? "." : item.MAKER,
+                                                RMK = item.RMK == "" ? "." : item.RMK,
+                                                LINE = item.LINE == "" ? "." : item.LINE,
+                                                FCT_NO = item.FCT_NO == "" ? "." : item.FCT_NO,
+                                                MODEL_UMC = item.MODEL_UMC == "" ? "." : item.MODEL_UMC,
+                                                STATUS = true,
+                                            };
+                                            dbcontext.DEVICEs.Add(data);
+                                            var data_cali = new CALIBRATION()
                                             {
-                                                device = dbcontext.DEVICEs.Find(item[2].ToString());
-                                                device.PAYMENT = item[1].ToString() == "" ? "." : item[1].ToString();
-                                                device.SAP_BARCODE = item[3].ToString() == "" ? "." : item[3].ToString();
-                                                device.PART_NAME = item[4].ToString() == "" ? "." : item[4].ToString();
-                                                device.MODEL = item[5].ToString() == "" ? "." : item[5].ToString();
-                                                device.SERIAL = item[6].ToString() == "" ? "." : item[6].ToString();
-                                                device.MANUFACTORY = item[7].ToString() == "" ? "." : item[7].ToString();
-                                                device.CALI_CYCLE = int.Parse(item[8].ToString());
-                                                device.REGISTRATION_DATE = Convert.ToDateTime(item[9].ToString());
-                                                device.DEPT_CONTROL = item[10].ToString() == "" ? "." : item[10].ToString();
-                                                device.PLACE_USE = item[11].ToString() == "" ? "." : item[11].ToString();
-                                                device.CONTROL_MNG = item[12].ToString() == "" ? "." : item[12].ToString();
-                                                device.MAKER = item[17].ToString() == "" ? "." : item[17].ToString();
-                                                device.ENQUIP_STATE = item[18].ToString() == "" ? "." : item[18].ToString();
-                                                device.RMK = item[19].ToString() == "" ? "." : item[19].ToString();
-                                                device.LINE = item[20].ToString() == "" ? "." : item[20].ToString();
-                                                device.FCT_NO = item[21].ToString() == "" ? "." : item[21].ToString();
-                                                device.MODEL_UMC = item[22].ToString() == "" ? "." : item[22].ToString();
-                                                device.STATUS = true;
-                                                calibration = dbcontext.CALIBRATIONs.Find(item[2].ToString());
-                                                calibration.CALI_DATE = Convert.ToDateTime(item[13].ToString());
-                                                calibration.CALI_RECOMMEND = Convert.ToDateTime(item[14].ToString());
-                                                calibration.STATUS = true;
-                                                dbcontext.SaveChanges();
-                                            }
+                                                PART_NO = item.PART_NO,
+                                                CALI_DATE = Convert.ToDateTime(item.CALI_DATE),
+                                                CALI_RECOMMEND = Convert.ToDateTime(item.CALI_RECOMMEND),
+                                                STATUS = true,
+                                            };
+                                            dbcontext.CALIBRATIONs.Add(data_cali);
+                                            dbcontext.SaveChanges();
                                         }
+                                        // part_no đã có trong csdl=>sửa dữ liệu theo item file excel
                                         else
                                         {
-                                            MessageBox.Show("Mã quản lý của file import đang để trống. Vui lòng điền mã quản lý để import thành công!", "Thông báo");
+                                            device = dbcontext.DEVICEs.Find(item.PART_NO);
+                                            device.PAYMENT = item.PAYMENT == "" ? "." : item.PAYMENT;
+                                            device.SAP_BARCODE = item.SAP_BARCODE == "" ? "." : item.SAP_BARCODE;
+                                            device.PART_NAME = item.PART_NAME == "" ? "." : item.PART_NAME;
+                                            device.MODEL = item.MODEL == "" ? "." : item.MODEL;
+                                            device.SERIAL = item.SERIAL == "" ? "." : item.SERIAL;
+                                            device.MANUFACTORY = item.MANUFACTORY == "" ? "." : item.MANUFACTORY;
+                                            device.CALI_CYCLE = int.Parse(item.CALI_CYCLE.ToString());
+                                            device.REGISTRATION_DATE = Convert.ToDateTime(item.REGISTRATION_DATE);
+                                            device.DEPT_CONTROL = item.DEPT_CONTROL == "" ? "." : item.DEPT_CONTROL;
+                                            device.PLACE_USE = item.PLACE_USE == "" ? "." : item.PLACE_USE;
+                                            device.CONTROL_MNG = item.CONTROL_MNG == "" ? "." : item.CONTROL_MNG;
+                                            device.MAKER = item.MAKER == "" ? "." : item.MAKER;
+                                            device.ENQUIP_STATE = item.ENQUIP_STATE == "" ? "." : item.ENQUIP_STATE;
+                                            device.RMK = item.RMK == "" ? "." : item.RMK;
+                                            device.LINE = item.LINE == "" ? "." : item.LINE;
+                                            device.FCT_NO = item.FCT_NO == "" ? "." : item.FCT_NO;
+                                            device.MODEL_UMC = item.MODEL_UMC == "" ? "." : item.MODEL_UMC;
+                                            device.STATUS = true;
+                                            calibration = dbcontext.CALIBRATIONs.Find(item.PART_NO);
+                                            calibration.CALI_DATE = Convert.ToDateTime(item.CALI_DATE);
+                                            calibration.CALI_RECOMMEND = Convert.ToDateTime(item.CALI_RECOMMEND);
+                                            calibration.STATUS = true;
+                                            dbcontext.SaveChanges();
                                         }
                                     }
-
-                                    MessageBox.Show("Lưu thành công!", "Thông báo");
-                                    this.Hide();
-                                    Reload_datawhencreate();
+                                    else
+                                    {
+                                        MessageBox.Show("Mã quản lý của file import đang để trống. Vui lòng điền mã quản lý để import thành công!", "Thông báo");
+                                    }
                                 }
+                                MessageBox.Show("Lưu thành công!", "Thông báo");
+                                this.Hide();
+                                Reload_datawhencreate();
                             }
                         }
                     }
-                    
+                    else
+                    {
+                        MessageBox.Show("File excel để nhập dữ liệu không đúng định dạng. Vui lòng xem lại file!", "Thông báo");
+                    }
                 }
                 else
                 {
@@ -381,11 +374,11 @@ namespace QUAN_LY_THIET_BI_DO
                                 });
                                 if (result.Tables.Count > 0)
                                 {
-                                   // var dtData = result.Tables[0];
-                                   // this.dtgvreaderexcel.DataSource = dtData;
+                                     //var dtData = result.Tables[0];
+                                    //this.dtgvreaderexcel.DataSource = dtData;
                                     tableCollection = result.Tables;
                                     cbbsheet.Items.Clear();
-                                    foreach (DataTable table in tableCollection )
+                                    foreach (DataTable table in tableCollection)
                                     {
                                         cbbsheet.Items.Add(table.TableName);
                                         cbbsheet.SelectedIndex = 0;
@@ -408,20 +401,43 @@ namespace QUAN_LY_THIET_BI_DO
             dtgvreaderexcel.DataSource = dt;
             var Result = dtgvreaderexcel.Rows.OfType<DataGridViewRow>().Select(
                    r => r.Cells.OfType<DataGridViewCell>().Select(c => c.Value).ToArray()).ToList();
-            listPartNo.Clear();
-            foreach(var data in Result)
+            if (((DataTable)this.dtgvreaderexcel.DataSource).Columns.Count >= 23)
             {
-                listPartNo.Add(new ListPartNo
-                {
-                    PART_NO = data[2].ToString(),
-                });
-            }
-            var checkpartNonotnull = listPartNo.Where(x => x.PART_NO == "").ToList();
-            if(checkpartNonotnull.Count != 0)
-            {
-                MessageBox.Show("Mã quản lý không được để trống! Vui lòng xem lại thông tin của file excel!");
                 listPartNo.Clear();
+                foreach (var data in Result)
+                {
+                    listPartNo.Add(new ListPartNo
+                    {
+                        PAYMENT = data[1].ToString(),
+                        PART_NO = data[2].ToString(),
+                        PART_NAME = data[4].ToString(),
+                        SAP_BARCODE = data[3].ToString(),
+                        MODEL = data[5].ToString(),
+                        SERIAL = data[6].ToString(),
+                        MANUFACTORY = data[7].ToString(),
+                        CALI_CYCLE = int.Parse(data[8].ToString()),
+                        REGISTRATION_DATE = Convert.ToDateTime(data[9].ToString()),
+                        DEPT_CONTROL = data[10].ToString(),
+                        PLACE_USE = data[11].ToString(),
+                        CONTROL_MNG = data[12].ToString(),
+                        CALI_DATE = Convert.ToDateTime(data[13].ToString()),
+                        CALI_RECOMMEND = Convert.ToDateTime(data[14].ToString()),
+                        MAKER = data[17].ToString(),
+                        ENQUIP_STATE = data[18].ToString(),
+                        RMK = data[19].ToString(),
+                        LINE = data[20].ToString(),
+                        FCT_NO = data[21].ToString(),
+                        MODEL_UMC = data[22].ToString(),
+                    });
+                }
+                var checkpartNonotnull = listPartNo.Where(x => x.PART_NO == "").ToList();
+                if (checkpartNonotnull.Count != 0)
+                {
+                    MessageBox.Show("Mã quản lý không được để trống! Vui lòng xem lại thông tin của file excel!");
+                    listPartNo.Clear();
+                }
             }
+
         }
         private void txtcycle_KeyPress(object sender, KeyPressEventArgs e)
         {
