@@ -131,6 +131,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\ExcelHelper.cs" />
     <Compile Include="Business\Repository.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="DownloadFiles.cs" />
@@ -168,6 +169,8 @@
     <Compile Include="Model\CaliEntity.cs" />
     <Compile Include="Model\DEVICE.cs" />
     <Compile Include="Model\DeviceControl_Model.cs" />
+    <Compile Include="Model\ExcelResponse.cs" />
+    <Compile Include="Model\ItemTable.cs" />
     <Compile Include="Model\ListPartNo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

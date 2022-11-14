@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExcelDataReader;
@@ -17,13 +18,11 @@ using VBSQLHelper;
 namespace QUAN_LY_THIET_BI_DO
 {
     public partial class FormTask : Form
-    {
-        DeviceControl_Model dbcontext = new DeviceControl_Model();
+    {        
         Form_device form_Device;
         CALIBRATION calibration = new CALIBRATION();
         DEVICE device = new DEVICE();
         Repository repository = new Repository();
-        List<ListPartNo> listPartNo = new List<ListPartNo>();
         DataTable tableDevice;
         public FormTask(Form_device form_Device)
         {
@@ -32,212 +31,368 @@ namespace QUAN_LY_THIET_BI_DO
             grboximpportexcel.Size = new Size(893, 404);
 
         }
-        
-        private  void btn_save_Click(object sender, EventArgs e)
+       
+        private string CreateTypeUserDefinedSQL(List<ItemTable> itemTables, string tablename)
         {
-            try
+            string filename_datatype;
+            var temp = new List<string>();
+            foreach (var item in itemTables)
             {
-                if (checkboximport.Checked == true)
+
+                if (item.Caption == "Part no")
                 {
-                    if (listPartNo.Count != 0)
+                    item.Key = true;
+                }
+                if (item.Key) // primary key
+                {
+                    if (string.IsNullOrEmpty(item.Length))
                     {
-                        var set = new HashSet<string>();
-                        //Kiểm tra file import có part_no nào trùng hay không
-                        var filterduplicatepartno = listPartNo.Where(x => !set.Add(x.PART_NO)).ToList();
-                        if (filterduplicatepartno.Count > 0)
-                        {
-                            MessageBox.Show("Mã quản lý: " + filterduplicatepartno.Select(inc => inc.PART_NO).Aggregate((buffer, next) => buffer + "," + next.ToString()) + " trong file excel đang bị trùng", "Thông báo");
-                        }
-                        else
-                        {
-                            if (listPartNo.Count() == 0)
-                            {
-                                MessageBox.Show("Bạn chưa chọn file excel để nhập thông tin!");
-                            }
-                            else
-                            {
-                                foreach (var item in listPartNo)
-                                {
-                                    string part_no = item.PART_NO;
-                                    if (part_no != "")
-                                    {
-                                        var checkpartno = dbcontext.DEVICEs.Where(c => c.PART_NO == part_no).SingleOrDefault();
-                                        if (checkpartno == null)
-                                        {
-                                            var data = new DEVICE()
-                                            {
-                                                PAYMENT = item.PAYMENT == "" ? "." : item.PAYMENT,
-                                                PART_NO = item.PART_NO,
-                                                PART_NAME = item.PART_NAME == "" ? "." : item.PART_NAME,
-                                                SAP_BARCODE = item.SAP_BARCODE == "" ? "." : item.SAP_BARCODE,
-                                                MODEL = item.MODEL == "" ? "." : item.MODEL,
-                                                SERIAL = item.SERIAL == "" ? "." : item.SERIAL,
-                                                MANUFACTORY = item.MANUFACTORY == "" ? "." : item.MANUFACTORY,
-                                                CALI_CYCLE = int.Parse(item.CALI_CYCLE.ToString()),
-                                                REGISTRATION_DATE = Convert.ToDateTime(item.REGISTRATION_DATE),
-                                                DEPT_CONTROL = item.DEPT_CONTROL == "" ? "." : item.DEPT_CONTROL,
-                                                PLACE_USE = item.PLACE_USE == "" ? "." : item.PLACE_USE,
-                                                CONTROL_MNG = item.CONTROL_MNG == "" ? "." : item.CONTROL_MNG,
-                                                ENQUIP_STATE = item.ENQUIP_STATE == "" ? "." : item.ENQUIP_STATE,
-                                                MAKER = item.MAKER == "" ? "." : item.MAKER,
-                                                RMK = item.RMK == "" ? "." : item.RMK,
-                                                LINE = item.LINE == "" ? "." : item.LINE,
-                                                FCT_NO = item.FCT_NO == "" ? "." : item.FCT_NO,
-                                                MODEL_UMC = item.MODEL_UMC == "" ? "." : item.MODEL_UMC,
-                                                STATUS = true,
-                                            };
-                                            dbcontext.DEVICEs.Add(data);
-                                            var data_cali = new CALIBRATION()
-                                            {
-                                                PART_NO = item.PART_NO,
-                                                CALI_DATE = Convert.ToDateTime(item.CALI_DATE),
-                                                CALI_RECOMMEND = Convert.ToDateTime(item.CALI_RECOMMEND),
-                                                STATUS = true,
-                                            };
-                                            dbcontext.CALIBRATIONs.Add(data_cali);
-                                            dbcontext.SaveChanges();
-                                        }
-                                        // part_no đã có trong csdl=>sửa dữ liệu theo item file excel
-                                        else
-                                        {
-                                            device = dbcontext.DEVICEs.Find(item.PART_NO);
-                                            device.PAYMENT = item.PAYMENT == "" ? "." : item.PAYMENT;
-                                            device.SAP_BARCODE = item.SAP_BARCODE == "" ? "." : item.SAP_BARCODE;
-                                            device.PART_NAME = item.PART_NAME == "" ? "." : item.PART_NAME;
-                                            device.MODEL = item.MODEL == "" ? "." : item.MODEL;
-                                            device.SERIAL = item.SERIAL == "" ? "." : item.SERIAL;
-                                            device.MANUFACTORY = item.MANUFACTORY == "" ? "." : item.MANUFACTORY;
-                                            device.CALI_CYCLE = int.Parse(item.CALI_CYCLE.ToString());
-                                            device.REGISTRATION_DATE = Convert.ToDateTime(item.REGISTRATION_DATE);
-                                            device.DEPT_CONTROL = item.DEPT_CONTROL == "" ? "." : item.DEPT_CONTROL;
-                                            device.PLACE_USE = item.PLACE_USE == "" ? "." : item.PLACE_USE;
-                                            device.CONTROL_MNG = item.CONTROL_MNG == "" ? "." : item.CONTROL_MNG;
-                                            device.MAKER = item.MAKER == "" ? "." : item.MAKER;
-                                            device.ENQUIP_STATE = item.ENQUIP_STATE == "" ? "." : item.ENQUIP_STATE;
-                                            device.RMK = item.RMK == "" ? "." : item.RMK;
-                                            device.LINE = item.LINE == "" ? "." : item.LINE;
-                                            device.FCT_NO = item.FCT_NO == "" ? "." : item.FCT_NO;
-                                            device.MODEL_UMC = item.MODEL_UMC == "" ? "." : item.MODEL_UMC;
-                                            device.STATUS = true;
-                                            calibration = dbcontext.CALIBRATIONs.Find(item.PART_NO);
-                                            calibration.CALI_DATE = Convert.ToDateTime(item.CALI_DATE);
-                                            calibration.CALI_RECOMMEND = Convert.ToDateTime(item.CALI_RECOMMEND);
-                                            calibration.STATUS = true;
-                                            dbcontext.SaveChanges();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Mã quản lý của file import đang để trống. Vui lòng điền mã quản lý để import thành công!", "Thông báo");
-                                    }
-                                }
-                                MessageBox.Show("Lưu thành công!", "Thông báo");
-                                this.Hide();
-                                Reload_datawhencreate();
-                            }
-                        }
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}] NOT NULL";
                     }
                     else
                     {
-                        MessageBox.Show("File excel để nhập dữ liệu không đúng định dạng. Vui lòng xem lại file!", "Thông báo");
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}]({item.Length}) NOT NULL";
                     }
                 }
                 else
                 {
-                    if (CheckValueTextBox() == true)
+                    if (string.IsNullOrEmpty(item.Length))
                     {
-                        var check_part_no = dbcontext.DEVICEs.Where(c => c.PART_NO == txtpart_no.Text).SingleOrDefault();
-                        // part_no chưa có trong csdl
-                        if (check_part_no == null)
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}]";
+                    }
+                    else
+                    {
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}]({item.Length})";
+                    }
+
+                    if (item.AllowNull)
+                    {
+                        filename_datatype += " NULL";
+                    }
+                    else
+                    {
+                        filename_datatype += " NOT NULL";
+                    }
+                }
+                temp.Add(filename_datatype);
+            }
+            // add 4 record default
+            //temp.Add("[CreateUser][VARCHAR] (100) NULL");
+            //temp.Add("[CreateDate][DATETIME] NULL");
+            //temp.Add("[LastModifyUser][VARCHAR] (100) NULL");
+            //temp.Add("[LastModifyDate][DATETIME] NULL");
+
+            // end add default 
+            var item_fieldname = string.Join(", \n\t", temp);
+            
+            var result = $@"CREATE TYPE [dbo].[udt_{tablename}] AS TABLE
+                        ({item_fieldname}                            
+                        ); ";
+            return result;
+        }
+
+        private string CreateProcedureSQL(List<ItemTable> itemTables, string tablename)
+        {
+            var list_primarykey = itemTables.Where(x => x.Key == true).ToList();
+            var list_temp = new List<string>();
+            foreach (var item in list_primarykey)
+            {
+                var itemJoin = $"[Source].[{item.FieldName}] = [Target].[{item.FieldName}]";
+                list_temp.Add(itemJoin);
+            }
+            var item_join_text = string.Join(" AND ", list_temp);
+            
+            var list_item_fieldname_insert_device = itemTables.Select(x => $"[{x.FieldName}]").ToList();
+            var item_fieldname_text = string.Join(",\n\t", list_item_fieldname_insert_device)+ ",\n[STATUS]";
+
+            var list_item_fieldname_text_source = itemTables.Select(x => $"[Source].[{x.FieldName}]").ToList();
+            var item_fieldname_text_source = string.Join(",\n\t", list_item_fieldname_text_source)+",\n1";
+                        
+            var list_item_fieldname_update_text_source = itemTables.Where(x => x.Key == false).Select(x => $"[Target].[{x.FieldName}] = [Source].[{x.FieldName}]").ToList();
+
+            var item_fieldname_update_text_source = string.Join(",\n\t", list_item_fieldname_update_text_source);
+
+            var result = $@"CREATE PROC [dbo].[sp_{tablename}]
+                            (
+                                @Data AS [dbo].[udt_{tablename}] READONLY                              
+                            )
+                            AS
+                            BEGIN
+                                MERGE [dbo].[DEVICE] AS [Target]
+                                USING @Data AS [Source]
+                                ON {item_join_text}
+                                -- For Inserts
+                                WHEN NOT MATCHED BY TARGET THEN
+                                    INSERT
+                                    (
+                                        {item_fieldname_text}
+        
+                                    )
+                                    VALUES
+                                    ({item_fieldname_text_source})
+
+                                -- For Updates
+                                WHEN MATCHED THEN
+                                    UPDATE SET {item_fieldname_update_text_source} ;
+
+                            END;
+                            ";
+
+            return result;
+        }
+
+        private string CreateTypeUserDefinedSQL_Calibration(List<ItemTable> itemTables, string tablename)
+        {
+            string filename_datatype;
+            var temp = new List<string>();
+            foreach (var item in itemTables)
+            {
+
+                if (item.Caption == "Part no")
+                {
+                    item.Key = true;
+                }
+                if (item.Key) // primary key
+                {
+                    if (string.IsNullOrEmpty(item.Length))
+                    {
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}] NOT NULL";
+                    }
+                    else
+                    {
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}]({item.Length}) NOT NULL";
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(item.Length))
+                    {
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}]";
+                    }
+                    else
+                    {
+                        filename_datatype = $"[{item.FieldName}][{item.DataType.ToUpper()}]({item.Length})";
+                    }
+
+                    if (item.AllowNull)
+                    {
+                        filename_datatype += " NULL";
+                    }
+                    else
+                    {
+                        filename_datatype += " NOT NULL";
+                    }
+                }
+                temp.Add(filename_datatype);
+            }
+            // add 4 record default
+            //temp.Add("[CreateUser][VARCHAR] (100) NULL");
+            //temp.Add("[CreateDate][DATETIME] NULL");
+            //temp.Add("[LastModifyUser][VARCHAR] (100) NULL");
+            //temp.Add("[LastModifyDate][DATETIME] NULL");
+
+            // end add default 
+            var item_fieldname = string.Join(", \n\t", temp);
+
+            var result = $@"CREATE TYPE [dbo].[udt_{tablename}] AS TABLE
+                        ({item_fieldname}                            
+                        ); ";
+            return result;
+        }
+
+        private string CreateProcedureSQL_Calibration(List<ItemTable> itemTables, string tablename)
+        {
+            var list_primarykey = itemTables.Where(x => x.Key == true).ToList();
+            var list_temp = new List<string>();
+            foreach (var item in list_primarykey)
+            {
+                var itemJoin = $"[Source].[{item.FieldName}] = [Target].[{item.FieldName}]";
+                list_temp.Add(itemJoin);
+            }
+            var item_join_text = string.Join(" AND ", list_temp);
+
+            var list_item_fieldname_insert_device = itemTables.Select(x => $"[{x.FieldName}]").ToList();
+            var item_fieldname_text = string.Join(",\n\t", list_item_fieldname_insert_device) +",\n[STATUS]";
+            var list_item_fieldname_text_source = itemTables.Select(x => $"[Source].[{x.FieldName}]").ToList();
+            var item_fieldname_text_source = string.Join(",\n\t", list_item_fieldname_text_source) + ",\n1";
+            var list_item_fieldname_update_text_source = itemTables.Where(x => x.Key == false).Select(x => $"[Target].[{x.FieldName}] = [Source].[{x.FieldName}]").ToList();
+
+            var item_fieldname_update_text_source = string.Join(",\n\t", list_item_fieldname_update_text_source);
+
+            var result = $@"CREATE PROC [dbo].[sp_{tablename}]
+                            (
+                                @Data AS [dbo].[udt_{tablename}] READONLY                              
+                            )
+                            AS
+                            BEGIN
+                                MERGE [dbo].[CALIBRATION] AS [Target]
+                                USING @Data AS [Source]
+                                ON {item_join_text}
+                                -- For Inserts
+                                WHEN NOT MATCHED BY TARGET THEN
+                                    INSERT
+                                    (
+                                        {item_fieldname_text}
+        
+                                    )
+                                    VALUES
+                                    ({item_fieldname_text_source})
+
+                                -- For Updates
+                                WHEN MATCHED THEN
+                                    UPDATE SET {item_fieldname_update_text_source} ;
+
+                            END;
+                            ";
+
+            return result;
+        }
+        private async void btn_save_Click(object sender, EventArgs e)
+        {
+            var data = dtgrtoconvert.DataSource as List<ItemTable>;
+            var data_calibration =new List<ItemTable>();
+            foreach (var item in data.ToList())
+            {
+                if(item.FieldName == "PART_NO")
+                {
+                    data_calibration.Add(item);
+                }
+                if (item.FieldName == "CALI_DATE" || item.FieldName == "CALI_RECOMMEND" )
+                {
+                    data_calibration.Add(item);
+                    data.Remove(item);
+                }
+                else if(  item.FieldName == "NEXT_CALIBRATION_LATEST" || item.FieldName == "MONTH_YEAR")
+                {
+                    data.Remove(item);
+                }
+            
+            }
+            if (data.Count() >= 18)
+            {
+                string table_name_device = tableDevice.TableName + DateTime.Now.ToString("ddMMyyyyHHmmss");
+                //insert table DEVICE
+                // create Type user defined
+                var sql_type_user_defined = CreateTypeUserDefinedSQL(data, table_name_device);
+                // create Store Procedure
+                var sql_store_procedure = CreateProcedureSQL(data, table_name_device);
+                //SQLHelper.ExecQueryNonData(sql_create_table.Trim());
+                SQLHelper.ExecQueryNonData(sql_type_user_defined.Trim());
+                SQLHelper.ExecQueryNonData(sql_store_procedure.Trim());
+
+                //insert table CALIBRATION
+                string table_name_calibration = tableDevice.TableName+"_Cali"+ DateTime.Now.ToString("ddMMyyyyHHmmss");
+                var sql_type_user_defined_calibration = CreateTypeUserDefinedSQL_Calibration(data_calibration, table_name_calibration);
+                // create Store Procedure
+                var sql_store_procedure_calibration = CreateProcedureSQL_Calibration(data_calibration, table_name_calibration);
+                //SQLHelper.ExecQueryNonData(sql_create_table.Trim());
+                SQLHelper.ExecQueryNonData(sql_type_user_defined_calibration.Trim());
+                SQLHelper.ExecQueryNonData(sql_store_procedure_calibration.Trim());
+                try
+                {
+                    
+                    var arrayNamesColumn = (from DataColumn x in tableDevice.Columns.Cast<DataColumn>() select x.ColumnName).ToArray();
+                    var getnamecolumndevicedelete =new  List<string>();
+                    var getnamecolumncalibration= new List<string>();
+                    for (int i = 0; i < arrayNamesColumn.Count(); i++)
+                    {
+                        if (i==0 || i == 13 || i == 14 || i == 15 || i == 16)
                         {
-                            var data = new DEVICE()
-                            {
-                                PAYMENT = txtpay.Text,
-                                PART_NO = txtpart_no.Text,
-                                PART_NAME = txtpart_name.Text,
-                                SAP_BARCODE = txtsap_barcode.Text,
-                                MODEL = txtmodel.Text,
-                                SERIAL = txtserial.Text,
-                                MANUFACTORY = txtmanufactory.Text,
-                                CALI_CYCLE = int.Parse(txtcycle.Text),
-                                REGISTRATION_DATE = Convert.ToDateTime(dateTimeregistration.Text),
-                                DEPT_CONTROL = txtdept_control.Text,
-                                PLACE_USE = txtpleace_use.Text,
-                                CONTROL_MNG = txtcontrol_mng.Text,
-                                MAKER = txtmaker.Text,
-                                ENQUIP_STATE = txtequip_status.Text,
-                                RMK = txtrmk.Text,
-                                LINE = txtline.Text,
-                                FCT_NO = txtfctno.Text,
-                                MODEL_UMC = txtmodelumc.Text,
-                                STATUS = true,
-                            };
-                            dbcontext.DEVICEs.Add(data);
-                            var data_cali = new CALIBRATION()
-                            {
-                                PART_NO = txtpart_no.Text,
-                                CALI_DATE = Convert.ToDateTime(dateTimecalidate.Value),
-                                CALI_RECOMMEND = Convert.ToDateTime(dateTimerecon.Value),
-                                STATUS = true,
-                            };
-                            dbcontext.CALIBRATIONs.Add(data_cali);
-                            dbcontext.SaveChanges();
-                            MessageBox.Show("Lưu thành công!", "Thông báo");
-                            this.Hide();
-                            Reload_datawhencreate();
+                            getnamecolumndevicedelete.Add(arrayNamesColumn[i]);
                         }
-                        //part_no có trong csdl
-                        else
+                        if (i != 2&& i != 13&& i != 14)
                         {
-                            //kiểm tra status
-                            //status=false=> sửa dữ liệu theo textbox và status= true
-                            if (check_part_no.STATUS == true)
-                            {
-                                MessageBox.Show("Mã quản lý " + txtpart_no.Text + " đã có trong database!", "Thông báo");
-                            }
-                            else
-                            {
-                                device = dbcontext.DEVICEs.Find(txtpart_no.Text);
-                                device.PAYMENT = txtpay.Text;
-                                device.SAP_BARCODE = txtsap_barcode.Text;
-                                device.PART_NAME = txtpart_no.Text;
-                                device.MODEL = txtmodel.Text;
-                                device.SERIAL = txtserial.Text;
-                                device.MANUFACTORY = txtmanufactory.Text;
-                                device.CALI_CYCLE = int.Parse(txtcycle.Text);
-                                device.REGISTRATION_DATE = Convert.ToDateTime(dateTimeregistration.Text);
-                                device.DEPT_CONTROL = txtdept_control.Text;
-                                device.PLACE_USE = txtpleace_use.Text;
-                                device.CONTROL_MNG = txtcontrol_mng.Text;
-                                device.MAKER = txtmaker.Text;
-                                device.ENQUIP_STATE = txtequip_status.Text;
-                                device.RMK = txtrmk.Text;
-                                device.LINE = txtline.Text;
-                                device.FCT_NO = txtfctno.Text;
-                                device.MODEL_UMC = txtmodelumc.Text;
-                                device.STATUS = true;
-                                calibration = dbcontext.CALIBRATIONs.Find(device.PART_NO);
-                                calibration.CALI_DATE = Convert.ToDateTime(dateTimecalidate.Value);
-                                calibration.CALI_RECOMMEND = Convert.ToDateTime(dateTimerecon.Value);
-                                calibration.STATUS = true;
-                                dbcontext.SaveChanges();
-                                MessageBox.Show("Lưu thành công!", "Thông báo");
-                                this.Hide();
-                                Reload_datawhencreate();
-                            }
+                            getnamecolumncalibration.Add(arrayNamesColumn[i]);
                         }
                     }
+                    foreach (var item_calicolumn in getnamecolumncalibration)
+                    {
+
+                        if (dt_cali.Columns.Contains(item_calicolumn))
+                        {
+                            dt_cali.Columns.Remove(item_calicolumn);
+                        }
+                    }
+                    foreach (var item_devicecolumn in getnamecolumndevicedelete)
+                    {
+                        if (tableDevice.Columns.Contains(item_devicecolumn))
+                        {
+                            tableDevice.Columns.Remove(item_devicecolumn);
+                        }
+                    }
+
+                    //DEVICE
+                    //Tìm column nào có datatype là object
+                    int k = 0;
+                    var listtemp = new List<int>();
+                    foreach (DataColumn col in tableDevice.Columns)
+                    {
+                        if (col.DataType == typeof(object))
+                        {
+                            listtemp.Add(k);
+                        }
+                        k++;
+                    }
+                    //end 
+                    //convert datatype object => string
+                    DataTable dtCloned = tableDevice.Clone();
+                    foreach (var item in listtemp)
+                    {
+                        dtCloned.Columns[item].DataType = typeof(string);
+                    }
+                    var listpartno = new List<string>();
+                    foreach (DataRow row in tableDevice.Rows)
+                    {
+                        listpartno.Add(row.ItemArray[1].ToString().Trim());
+                       
+                        dtCloned.ImportRow(row);
+                    }
+                    var query = listpartno.GroupBy(x => x).Where(g => g.Count() > 1).Select(y => y.Key).ToList();
+                    if (query.Count == 0)
+                    {
+                        SQLHelper.ExecProcedureNonData($"sp_{table_name_device}", new { Data = dtCloned });
+                        //CALIBRATION
+                        int j = 0;
+                        var listtemp_cali = new List<int>();
+                        foreach (DataColumn col in dt_cali.Columns)
+                        {
+                            if (col.DataType == typeof(object))
+                            {
+                                listtemp_cali.Add(j);
+                            }
+                            j++;
+                        }
+                        //end 
+                        //convert datatype object => string
+                        DataTable dtCloned_Cali = dt_cali.Clone();
+                        foreach (var item in listtemp_cali)
+                        {
+                            dtCloned_Cali.Columns[item].DataType = typeof(string);
+                        }
+
+                        foreach (DataRow row in dt_cali.Rows)
+                        {
+
+                            dtCloned_Cali.ImportRow(row);
+                        }
+                        SQLHelper.ExecProcedureNonData($"sp_{table_name_calibration}", new { Data = dtCloned_Cali });
+                        MessageBox.Show("Đã thực hiện thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Reload_datawhencreate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã quản lý: " + query.Select(inc => inc).Aggregate((buffer, next) => buffer + "," + next.ToString()) + " trong file excel đang bị trùng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }                
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            else
             {
-                foreach (var entityValidationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in entityValidationErrors.ValidationErrors)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
-                    }
-                }
+                MessageBox.Show("Không đúng định dạng số cột file import! Vui lòng xem lại", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }       
 
@@ -252,7 +407,68 @@ namespace QUAN_LY_THIET_BI_DO
             var res = repository.FindAll();
             form_Device.dtgv_device.DataSource = res.OrderByDescending(c => c.PART_NO).ToList();
         }
+        public string NonUnicode(string text)
+        {
+            string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",
+                "đ",
+                "é","è","ẻ","ẽ","ẹ","ê","ế","ề","ể","ễ","ệ",
+                "í","ì","ỉ","ĩ","ị",
+                "ó","ò","ỏ","õ","ọ","ô","ố","ồ","ổ","ỗ","ộ","ơ","ớ","ờ","ở","ỡ","ợ",
+                "ú","ù","ủ","ũ","ụ","ư","ứ","ừ","ử","ữ","ự",
+                "ý","ỳ","ỷ","ỹ","ỵ",};
+            string[] arr2 = new string[] { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+                "d",
+                "e","e","e","e","e","e","e","e","e","e","e",
+                "i","i","i","i","i",
+                "o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o",
+                "u","u","u","u","u","u","u","u","u","u","u",
+                "y","y","y","y","y",};
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                text = text.Replace(arr1[i], arr2[i]);
+                text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
+            }
+            return text;
+        }
+        public string GetDataTypeFromExcelToTypeSql(Type dataType)
+        {
+            if (dataType == typeof(string) || dataType == typeof(object))
+            {
+                return "nvarchar";
+            }
+            else if (dataType == typeof(DateTime))
+            {
+                return "date";
+            }
+            else if (dataType == typeof(int))
+            {
+                return "int";
+            }
+            else if (dataType == typeof(double))
+            {
+                return "decimal";
+            }
+            else if (dataType == typeof(bool))
+            {
+                return "bit";
+            }
 
+
+            return "varchar";
+        }
+        private string GetExcelColumnName(int columnNumber)
+        {
+            string columnName = "";
+
+            while (columnNumber > 0)
+            {
+                int modulo = (columnNumber - 1) % 26;
+                columnName = Convert.ToChar('A' + modulo) + columnName;
+                columnNumber = (columnNumber - modulo) / 26;
+            }
+
+            return columnName;
+        }
         public bool CheckValueTextBox()
         {
             bool ok;
@@ -351,93 +567,113 @@ namespace QUAN_LY_THIET_BI_DO
 
         }
         DataTableCollection tableCollection;
-        private void btnOpenfile_Click(object sender, EventArgs e)
+        DataTable dt_cali;
+        private async void btnOpenfile_Click(object sender, EventArgs e)
         {
-            try
+            var response = await ExcelHelper.ImportExcelToDataTableAsync();
+            if (response?.DATA == null) return;
+            tableCollection = response.DATA;
+            cbbsheet.Items.Clear();
+            foreach (DataTable table in tableCollection)
             {
-                using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Files(.xlsx)|*.xlsx" })
-                {
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                        {
-                            lblnamefile.Visible = true;
-                            lblnamefile.Text = openFileDialog.FileName.Split('\\').LastOrDefault();
-                            using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
-                            {
-                                DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                                {
-                                    ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-                                    {
-                                        UseHeaderRow = true,
-                                    }
-                                });
-                                if (result.Tables.Count > 0)
-                                {
-                                     //var dtData = result.Tables[0];
-                                    //this.dtgvreaderexcel.DataSource = dtData;
-                                    tableCollection = result.Tables;
-                                    cbbsheet.Items.Clear();
-                                    foreach (DataTable table in tableCollection)
-                                    {
-                                        cbbsheet.Items.Add(table.TableName);
-                                        cbbsheet.SelectedIndex = 0;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                cbbsheet.Items.Add(table.TableName);
+                cbbsheet.SelectedIndex = 0;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
-        DataTable dt;
+        public string GetSubstringByString(string a, string b, string c)
+        {
+            return c.Substring((c.IndexOf(a) + a.Length), (c.IndexOf(b) - c.IndexOf(a) - a.Length));
+        }
         private void cbbsheet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dt = tableCollection[cbbsheet.SelectedItem.ToString()];
-            dtgvreaderexcel.DataSource = dt;
-            var Result = dtgvreaderexcel.Rows.OfType<DataGridViewRow>().Select(
-                   r => r.Cells.OfType<DataGridViewCell>().Select(c => c.Value).ToArray()).ToList();
-            if (((DataTable)this.dtgvreaderexcel.DataSource).Columns.Count >= 23)
+            tableDevice = tableCollection[cbbsheet.SelectedItem.ToString()];
+            dt_cali = tableDevice.Copy();
+            dtgvreaderexcel.DataSource = tableDevice;           
+            char[] separators = new char[] { ' ', ';', ',', '\r', '\t', '\n', '\'', '/', '\\', '(', ')', '.', '[', ']', '-' };
+            
+            var listItemTable = new List<ItemTable>();
+            if (tableDevice.Rows.Count > 0)
             {
-                listPartNo.Clear();
-                foreach (var data in Result)
+                var i = 1;
+                foreach (DataColumn column in tableDevice.Columns)
                 {
-                    listPartNo.Add(new ListPartNo
+                    if(column.ColumnName != "No")
                     {
-                        PAYMENT = data[1].ToString(),
-                        PART_NO = data[2].ToString(),
-                        PART_NAME = data[4].ToString(),
-                        SAP_BARCODE = data[3].ToString(),
-                        MODEL = data[5].ToString(),
-                        SERIAL = data[6].ToString(),
-                        MANUFACTORY = data[7].ToString(),
-                        CALI_CYCLE = int.Parse(data[8].ToString()),
-                        REGISTRATION_DATE = Convert.ToDateTime(data[9].ToString()),
-                        DEPT_CONTROL = data[10].ToString(),
-                        PLACE_USE = data[11].ToString(),
-                        CONTROL_MNG = data[12].ToString(),
-                        CALI_DATE = Convert.ToDateTime(data[13].ToString()),
-                        CALI_RECOMMEND = Convert.ToDateTime(data[14].ToString()),
-                        MAKER = data[17].ToString(),
-                        ENQUIP_STATE = data[18].ToString(),
-                        RMK = data[19].ToString(),
-                        LINE = data[20].ToString(),
-                        FCT_NO = data[21].ToString(),
-                        MODEL_UMC = data[22].ToString(),
-                    });
-                }
-                var checkpartNonotnull = listPartNo.Where(x => x.PART_NO == "").ToList();
-                if (checkpartNonotnull.Count != 0)
-                {
-                    MessageBox.Show("Mã quản lý không được để trống! Vui lòng xem lại thông tin của file excel!");
-                    listPartNo.Clear();
+                        string name = column.ColumnName;
+                        string getcolumnnameinroundbrackets = "";
+                        if (name.Contains("("))
+                        {
+                           getcolumnnameinroundbrackets = GetSubstringByString("(", ")", name);;                           
+                        }
+                        else
+                        {
+                            getcolumnnameinroundbrackets=name;
+                        }
+                        if (getcolumnnameinroundbrackets != "")
+                        {
+                            var columnName = getcolumnnameinroundbrackets.Trim();
+                            var itemTable = new ItemTable();
+                            // Get Caption
+                            
+                            itemTable.Caption = getcolumnnameinroundbrackets.Replace("\n"," ").Trim(' ');
+                            // Get FieldName
+                            string[] temp = getcolumnnameinroundbrackets.Replace("'", "").Replace("_", "").Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                            var columnNameRemoveSpecialChar = String.Join("\n", temp);
+                            //string[] getFielName = item.FieldName.Split(new char[] { '{', '}' }, StringSplitOptions.RemoveEmptyEntries);
+                            // [SO_SERIAL][MANFACTORY_PART_NAME],[MONTH_CALIBRATION],\,,\n\t[MODEL_THANH_PHAM]"
+                            var FielName = NonUnicode(columnNameRemoveSpecialChar.ToUpper().Replace('\n', '_'));
+                            if(FielName== "SO_SERIAL")
+                            {
+                                itemTable.FieldName = "SERIAL" ;
+                            }else if(FielName == "MANFACTORY_PART_NAME")
+                            {
+                                itemTable.FieldName = "MANUFACTORY";
+                            }
+                            else if (FielName == "MONTH_CALIBRATION")
+                            {
+                                itemTable.FieldName = "CALI_CYCLE";
+                            }
+                            else if (FielName == "MODEL_THANH_PHAM")
+                            {
+                                itemTable.FieldName = "MODEL_UMC";
+                            }
+                            else if (FielName == "DATE_OF_CALIBRATION")
+                            {
+                                itemTable.FieldName = "CALI_DATE";
+                            }
+                            else if (FielName == "RE_CALIBRATION_RECOMMENDED")
+                            {
+                                itemTable.FieldName = "CALI_RECOMMEND";
+                            }
+                            else
+                            {
+                                itemTable.FieldName = NonUnicode(columnNameRemoveSpecialChar.ToUpper().Replace('\n', '_'));
+                            }
+
+                            // Get DataType and Sample Data
+                            itemTable.DataType = GetDataTypeFromExcelToTypeSql(column.DataType);
+                            if (itemTable.DataType.Contains("varchar"))
+                            {
+                                itemTable.Length = "255";
+                            }
+                            else if (itemTable.DataType == "decimal")
+                            {
+                                itemTable.Length = "10,2";
+                            }
+                            itemTable.SampleData = tableDevice.Rows[0][column.ColumnName].ToString();
+                            itemTable.ExcelCharacter = GetExcelColumnName(i);
+                            listItemTable.Add(itemTable);
+                            i++;
+                        }
+                    }
+                    
+                    
                 }
             }
-
+            
+            dtgrtoconvert.DataSource = listItemTable;
+            
         }
         private void txtcycle_KeyPress(object sender, KeyPressEventArgs e)
         {
