@@ -26,6 +26,7 @@ namespace QUAN_LY_THIET_BI_DO
         }
         public static void DownloadFile(string localPath, string remotePath)
         {
+
             using (var ftp = new FtpClient(Constant.FTP_ADDRESS, Constant.FTP_USER, Constant.FTP_PASS))
             {
                 ftp.Connect();

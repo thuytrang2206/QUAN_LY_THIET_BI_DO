@@ -8,7 +8,7 @@ namespace QUAN_LY_THIET_BI_DO.Model
 {
     public class CaliEntity
     {
-        public string PAYMENT { get; set; }
+        public string PAYMENT_BY { get; set; }
 
         public string PART_NO { get; set; }
 
@@ -26,11 +26,11 @@ namespace QUAN_LY_THIET_BI_DO.Model
 
         public DateTime REGISTRATION_DATE { get; set; }
 
-        public string DEPT_CONTROL { get; set; }
+        public string DEPARTMENT_CONTROL { get; set; }
 
-        public string PLACE_USE { get; set; }
+        public string PLACE_OF_USE { get; set; }
 
-        public string CONTROL_MNG { get; set; }
+        public string CONTROL_MANAGE { get; set; } 
 
         public DateTime CALI_DATE { get; set; }
 
@@ -58,9 +58,9 @@ namespace QUAN_LY_THIET_BI_DO.Model
              }
         }
          
-        public string MAKER { get; set; }
+        public string CALIBRATION_BY { get; set; }
 
-        public string ENQUIP_STATE { get; set; }
+        public string EQUIPMENT_STATUS { get; set; }
         //private int ENQUIP_STATE { get; set; }
 
         //public string Enquip_Name
@@ -71,7 +71,7 @@ namespace QUAN_LY_THIET_BI_DO.Model
         //    }
         //}
 
-        public string RMK { get; set; }       
+        public string REMARK { get; set; }       
 
         public string LINE { get; set; }
 

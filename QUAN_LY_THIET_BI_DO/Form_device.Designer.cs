@@ -38,31 +38,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.tagManager = new System.Windows.Forms.TabControl();
             this.tabcalibration = new System.Windows.Forms.TabPage();
             this.dtgv_device = new System.Windows.Forms.DataGridView();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAYMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SAP_BARCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PART_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SERIAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANUFACTORY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CALI_CYCLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REGISTRATION_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEPT_CONTROL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PLACE_USE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CONTROL_MNG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CALI_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CALI_RECOMMEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CALI_NEXT_LASTEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTH_YEAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAKER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ENQUIP_STATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RMK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LINE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FCT_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODEL_UMC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PDF_FILEs = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PDF_FILE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.top = new System.Windows.Forms.ToolStripSeparator();
@@ -91,6 +66,31 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAYMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SAP_BARCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PART_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SERIAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANUFACTORY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CALI_CYCLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REGISTRATION_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEPT_CONTROL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLACE_USE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONTROL_MNG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CALI_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CALI_RECOMMEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CALI_NEXT_LASTEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTH_YEAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAKER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ENQUIP_STATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RMK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LINE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FCT_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODEL_UMC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PDF_FILEs = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PDF_FILE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tagManager.SuspendLayout();
             this.tabcalibration.SuspendLayout();
@@ -199,212 +199,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgv_device.TabIndex = 0;
             this.dtgv_device.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_device_CellClick);
             this.dtgv_device.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgv_device_RowPostPaint);
-            // 
-            // No
-            // 
-            this.No.HeaderText = "NO.";
-            this.No.Name = "No";
-            this.No.Width = 54;
-            // 
-            // PAYMENT
-            // 
-            this.PAYMENT.DataPropertyName = "PAYMENT";
-            this.PAYMENT.HeaderText = "Thanh toán";
-            this.PAYMENT.Name = "PAYMENT";
-            this.PAYMENT.Width = 97;
-            // 
-            // PART_NO
-            // 
-            this.PART_NO.DataPropertyName = "PART_NO";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.PART_NO.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PART_NO.FillWeight = 79.59391F;
-            this.PART_NO.HeaderText = "Mã quản lý";
-            this.PART_NO.MinimumWidth = 94;
-            this.PART_NO.Name = "PART_NO";
-            this.PART_NO.Width = 94;
-            // 
-            // SAP_BARCODE
-            // 
-            this.SAP_BARCODE.DataPropertyName = "SAP_BARCODE";
-            this.SAP_BARCODE.FillWeight = 79.59391F;
-            this.SAP_BARCODE.HeaderText = "SAP_BARCODE";
-            this.SAP_BARCODE.MinimumWidth = 120;
-            this.SAP_BARCODE.Name = "SAP_BARCODE";
-            this.SAP_BARCODE.Width = 122;
-            // 
-            // PART_NAME
-            // 
-            this.PART_NAME.DataPropertyName = "PART_NAME";
-            this.PART_NAME.FillWeight = 79.59391F;
-            this.PART_NAME.HeaderText = "Tên thiết bị";
-            this.PART_NAME.MinimumWidth = 100;
-            this.PART_NAME.Name = "PART_NAME";
-            // 
-            // MODEL
-            // 
-            this.MODEL.DataPropertyName = "MODEL";
-            this.MODEL.FillWeight = 79.59391F;
-            this.MODEL.HeaderText = "Mã sản phẩm";
-            this.MODEL.MinimumWidth = 120;
-            this.MODEL.Name = "MODEL";
-            this.MODEL.Width = 120;
-            // 
-            // SERIAL
-            // 
-            this.SERIAL.DataPropertyName = "SERIAL";
-            this.SERIAL.FillWeight = 79.59391F;
-            this.SERIAL.HeaderText = "Số Serial";
-            this.SERIAL.MinimumWidth = 90;
-            this.SERIAL.Name = "SERIAL";
-            this.SERIAL.Width = 90;
-            // 
-            // MANUFACTORY
-            // 
-            this.MANUFACTORY.DataPropertyName = "MANUFACTORY";
-            this.MANUFACTORY.FillWeight = 79.59391F;
-            this.MANUFACTORY.HeaderText = "Nhà máy sản xuất";
-            this.MANUFACTORY.MinimumWidth = 135;
-            this.MANUFACTORY.Name = "MANUFACTORY";
-            this.MANUFACTORY.Width = 135;
-            // 
-            // CALI_CYCLE
-            // 
-            this.CALI_CYCLE.DataPropertyName = "CALI_CYCLE";
-            this.CALI_CYCLE.FillWeight = 79.59391F;
-            this.CALI_CYCLE.HeaderText = "Chu kỳ hiệu chuẩn";
-            this.CALI_CYCLE.MinimumWidth = 140;
-            this.CALI_CYCLE.Name = "CALI_CYCLE";
-            this.CALI_CYCLE.Width = 140;
-            // 
-            // REGISTRATION_DATE
-            // 
-            this.REGISTRATION_DATE.DataPropertyName = "REGISTRATION_DATE";
-            this.REGISTRATION_DATE.FillWeight = 79.59391F;
-            this.REGISTRATION_DATE.HeaderText = "Ngày đăng ký";
-            this.REGISTRATION_DATE.MinimumWidth = 115;
-            this.REGISTRATION_DATE.Name = "REGISTRATION_DATE";
-            this.REGISTRATION_DATE.Width = 115;
-            // 
-            // DEPT_CONTROL
-            // 
-            this.DEPT_CONTROL.DataPropertyName = "DEPT_CONTROL";
-            this.DEPT_CONTROL.FillWeight = 79.59391F;
-            this.DEPT_CONTROL.HeaderText = "Bộ phận quản lý";
-            this.DEPT_CONTROL.MinimumWidth = 140;
-            this.DEPT_CONTROL.Name = "DEPT_CONTROL";
-            this.DEPT_CONTROL.Width = 140;
-            // 
-            // PLACE_USE
-            // 
-            this.PLACE_USE.DataPropertyName = "PLACE_USE";
-            this.PLACE_USE.FillWeight = 79.59391F;
-            this.PLACE_USE.HeaderText = "Nơi sử dụng";
-            this.PLACE_USE.MinimumWidth = 120;
-            this.PLACE_USE.Name = "PLACE_USE";
-            this.PLACE_USE.Width = 120;
-            // 
-            // CONTROL_MNG
-            // 
-            this.CONTROL_MNG.DataPropertyName = "CONTROL_MNG";
-            this.CONTROL_MNG.FillWeight = 79.59391F;
-            this.CONTROL_MNG.HeaderText = "Người quản lý";
-            this.CONTROL_MNG.MinimumWidth = 120;
-            this.CONTROL_MNG.Name = "CONTROL_MNG";
-            this.CONTROL_MNG.Width = 120;
-            // 
-            // CALI_DATE
-            // 
-            this.CALI_DATE.DataPropertyName = "CALI_DATE";
-            this.CALI_DATE.HeaderText = "Ngày hiệu chuẩn";
-            this.CALI_DATE.Name = "CALI_DATE";
-            this.CALI_DATE.Width = 117;
-            // 
-            // CALI_RECOMMEND
-            // 
-            this.CALI_RECOMMEND.DataPropertyName = "CALI_RECOMMEND";
-            this.CALI_RECOMMEND.HeaderText = "Ngày hiệu chuẩn đề nghị";
-            this.CALI_RECOMMEND.Name = "CALI_RECOMMEND";
-            this.CALI_RECOMMEND.Width = 121;
-            // 
-            // CALI_NEXT_LASTEST
-            // 
-            this.CALI_NEXT_LASTEST.DataPropertyName = "CALI_NEXT_LASTEST";
-            this.CALI_NEXT_LASTEST.FillWeight = 79.59391F;
-            this.CALI_NEXT_LASTEST.HeaderText = "Ngày hiệu chuẩn tiếp theo muộn nhất";
-            this.CALI_NEXT_LASTEST.Name = "CALI_NEXT_LASTEST";
-            this.CALI_NEXT_LASTEST.Width = 169;
-            // 
-            // MONTH_YEAR
-            // 
-            this.MONTH_YEAR.DataPropertyName = "MONTH_YEAR";
-            this.MONTH_YEAR.FillWeight = 79.59391F;
-            this.MONTH_YEAR.HeaderText = "Tháng/Năm";
-            this.MONTH_YEAR.Name = "MONTH_YEAR";
-            this.MONTH_YEAR.Width = 99;
-            // 
-            // MAKER
-            // 
-            this.MAKER.DataPropertyName = "MAKER";
-            this.MAKER.FillWeight = 79.59391F;
-            this.MAKER.HeaderText = "Đơn vị hiệu chuẩn";
-            this.MAKER.MinimumWidth = 150;
-            this.MAKER.Name = "MAKER";
-            this.MAKER.Width = 150;
-            // 
-            // ENQUIP_STATE
-            // 
-            this.ENQUIP_STATE.DataPropertyName = "ENQUIP_STATE";
-            this.ENQUIP_STATE.FillWeight = 79.59391F;
-            this.ENQUIP_STATE.HeaderText = "Tình trạng hiệu chuẩn";
-            this.ENQUIP_STATE.MinimumWidth = 160;
-            this.ENQUIP_STATE.Name = "ENQUIP_STATE";
-            this.ENQUIP_STATE.Width = 160;
-            // 
-            // RMK
-            // 
-            this.RMK.DataPropertyName = "RMK";
-            this.RMK.FillWeight = 406.0914F;
-            this.RMK.HeaderText = "Ghi chú";
-            this.RMK.MinimumWidth = 80;
-            this.RMK.Name = "RMK";
-            this.RMK.Width = 80;
-            // 
-            // LINE
-            // 
-            this.LINE.DataPropertyName = "LINE";
-            this.LINE.HeaderText = "Line";
-            this.LINE.Name = "LINE";
-            this.LINE.Width = 56;
-            // 
-            // FCT_NO
-            // 
-            this.FCT_NO.DataPropertyName = "FCT_NO";
-            this.FCT_NO.HeaderText = "FCT No";
-            this.FCT_NO.Name = "FCT_NO";
-            this.FCT_NO.Width = 55;
-            // 
-            // MODEL_UMC
-            // 
-            this.MODEL_UMC.DataPropertyName = "MODEL_UMC";
-            this.MODEL_UMC.HeaderText = "Model thành phẩm";
-            this.MODEL_UMC.Name = "MODEL_UMC";
-            this.MODEL_UMC.Width = 124;
-            // 
-            // PDF_FILEs
-            // 
-            this.PDF_FILEs.HeaderText = "View PDF";
-            this.PDF_FILEs.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._211739_eye_icon;
-            this.PDF_FILEs.Name = "PDF_FILEs";
-            this.PDF_FILEs.Width = 40;
-            // 
-            // PDF_FILE
-            // 
-            this.PDF_FILE.DataPropertyName = "PDF_FILE";
-            this.PDF_FILE.HeaderText = "PDF_FILE";
-            this.PDF_FILE.Name = "PDF_FILE";
-            this.PDF_FILE.Visible = false;
-            this.PDF_FILE.Width = 89;
             // 
             // contextMenuStrip1
             // 
@@ -655,6 +449,212 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
             this.toolStripStatusLabel7.Size = new System.Drawing.Size(0, 17);
             // 
+            // No
+            // 
+            this.No.HeaderText = "NO.";
+            this.No.Name = "No";
+            this.No.Width = 54;
+            // 
+            // PAYMENT
+            // 
+            this.PAYMENT.DataPropertyName = "PAYMENT_BY";
+            this.PAYMENT.HeaderText = "Thanh toán";
+            this.PAYMENT.Name = "PAYMENT";
+            this.PAYMENT.Width = 97;
+            // 
+            // PART_NO
+            // 
+            this.PART_NO.DataPropertyName = "PART_NO";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.PART_NO.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PART_NO.FillWeight = 79.59391F;
+            this.PART_NO.HeaderText = "Mã quản lý";
+            this.PART_NO.MinimumWidth = 94;
+            this.PART_NO.Name = "PART_NO";
+            this.PART_NO.Width = 94;
+            // 
+            // SAP_BARCODE
+            // 
+            this.SAP_BARCODE.DataPropertyName = "SAP_BARCODE";
+            this.SAP_BARCODE.FillWeight = 79.59391F;
+            this.SAP_BARCODE.HeaderText = "SAP_BARCODE";
+            this.SAP_BARCODE.MinimumWidth = 120;
+            this.SAP_BARCODE.Name = "SAP_BARCODE";
+            this.SAP_BARCODE.Width = 122;
+            // 
+            // PART_NAME
+            // 
+            this.PART_NAME.DataPropertyName = "PART_NAME";
+            this.PART_NAME.FillWeight = 79.59391F;
+            this.PART_NAME.HeaderText = "Tên thiết bị";
+            this.PART_NAME.MinimumWidth = 100;
+            this.PART_NAME.Name = "PART_NAME";
+            // 
+            // MODEL
+            // 
+            this.MODEL.DataPropertyName = "MODEL";
+            this.MODEL.FillWeight = 79.59391F;
+            this.MODEL.HeaderText = "Mã sản phẩm";
+            this.MODEL.MinimumWidth = 120;
+            this.MODEL.Name = "MODEL";
+            this.MODEL.Width = 120;
+            // 
+            // SERIAL
+            // 
+            this.SERIAL.DataPropertyName = "SERIAL";
+            this.SERIAL.FillWeight = 79.59391F;
+            this.SERIAL.HeaderText = "Số Serial";
+            this.SERIAL.MinimumWidth = 90;
+            this.SERIAL.Name = "SERIAL";
+            this.SERIAL.Width = 90;
+            // 
+            // MANUFACTORY
+            // 
+            this.MANUFACTORY.DataPropertyName = "MANUFACTORY";
+            this.MANUFACTORY.FillWeight = 79.59391F;
+            this.MANUFACTORY.HeaderText = "Nhà máy sản xuất";
+            this.MANUFACTORY.MinimumWidth = 135;
+            this.MANUFACTORY.Name = "MANUFACTORY";
+            this.MANUFACTORY.Width = 135;
+            // 
+            // CALI_CYCLE
+            // 
+            this.CALI_CYCLE.DataPropertyName = "CALI_CYCLE";
+            this.CALI_CYCLE.FillWeight = 79.59391F;
+            this.CALI_CYCLE.HeaderText = "Chu kỳ hiệu chuẩn";
+            this.CALI_CYCLE.MinimumWidth = 140;
+            this.CALI_CYCLE.Name = "CALI_CYCLE";
+            this.CALI_CYCLE.Width = 140;
+            // 
+            // REGISTRATION_DATE
+            // 
+            this.REGISTRATION_DATE.DataPropertyName = "REGISTRATION_DATE";
+            this.REGISTRATION_DATE.FillWeight = 79.59391F;
+            this.REGISTRATION_DATE.HeaderText = "Ngày đăng ký";
+            this.REGISTRATION_DATE.MinimumWidth = 115;
+            this.REGISTRATION_DATE.Name = "REGISTRATION_DATE";
+            this.REGISTRATION_DATE.Width = 115;
+            // 
+            // DEPT_CONTROL
+            // 
+            this.DEPT_CONTROL.DataPropertyName = "DEPARTMENT_CONTROL";
+            this.DEPT_CONTROL.FillWeight = 79.59391F;
+            this.DEPT_CONTROL.HeaderText = "Bộ phận quản lý";
+            this.DEPT_CONTROL.MinimumWidth = 140;
+            this.DEPT_CONTROL.Name = "DEPT_CONTROL";
+            this.DEPT_CONTROL.Width = 140;
+            // 
+            // PLACE_USE
+            // 
+            this.PLACE_USE.DataPropertyName = "PLACE_OF_USE";
+            this.PLACE_USE.FillWeight = 79.59391F;
+            this.PLACE_USE.HeaderText = "Nơi sử dụng";
+            this.PLACE_USE.MinimumWidth = 120;
+            this.PLACE_USE.Name = "PLACE_USE";
+            this.PLACE_USE.Width = 120;
+            // 
+            // CONTROL_MNG
+            // 
+            this.CONTROL_MNG.DataPropertyName = "CONTROL_MANAGE";
+            this.CONTROL_MNG.FillWeight = 79.59391F;
+            this.CONTROL_MNG.HeaderText = "Người quản lý";
+            this.CONTROL_MNG.MinimumWidth = 120;
+            this.CONTROL_MNG.Name = "CONTROL_MNG";
+            this.CONTROL_MNG.Width = 120;
+            // 
+            // CALI_DATE
+            // 
+            this.CALI_DATE.DataPropertyName = "CALI_DATE";
+            this.CALI_DATE.HeaderText = "Ngày hiệu chuẩn";
+            this.CALI_DATE.Name = "CALI_DATE";
+            this.CALI_DATE.Width = 117;
+            // 
+            // CALI_RECOMMEND
+            // 
+            this.CALI_RECOMMEND.DataPropertyName = "CALI_RECOMMEND";
+            this.CALI_RECOMMEND.HeaderText = "Ngày hiệu chuẩn đề nghị";
+            this.CALI_RECOMMEND.Name = "CALI_RECOMMEND";
+            this.CALI_RECOMMEND.Width = 121;
+            // 
+            // CALI_NEXT_LASTEST
+            // 
+            this.CALI_NEXT_LASTEST.DataPropertyName = "CALI_NEXT_LASTEST";
+            this.CALI_NEXT_LASTEST.FillWeight = 79.59391F;
+            this.CALI_NEXT_LASTEST.HeaderText = "Ngày hiệu chuẩn tiếp theo muộn nhất";
+            this.CALI_NEXT_LASTEST.Name = "CALI_NEXT_LASTEST";
+            this.CALI_NEXT_LASTEST.Width = 169;
+            // 
+            // MONTH_YEAR
+            // 
+            this.MONTH_YEAR.DataPropertyName = "MONTH_YEAR";
+            this.MONTH_YEAR.FillWeight = 79.59391F;
+            this.MONTH_YEAR.HeaderText = "Tháng/Năm";
+            this.MONTH_YEAR.Name = "MONTH_YEAR";
+            this.MONTH_YEAR.Width = 99;
+            // 
+            // MAKER
+            // 
+            this.MAKER.DataPropertyName = "CALIBRATION_BY";
+            this.MAKER.FillWeight = 79.59391F;
+            this.MAKER.HeaderText = "Đơn vị hiệu chuẩn";
+            this.MAKER.MinimumWidth = 150;
+            this.MAKER.Name = "MAKER";
+            this.MAKER.Width = 150;
+            // 
+            // ENQUIP_STATE
+            // 
+            this.ENQUIP_STATE.DataPropertyName = "EQUIPMENT_STATUS";
+            this.ENQUIP_STATE.FillWeight = 79.59391F;
+            this.ENQUIP_STATE.HeaderText = "Tình trạng hiệu chuẩn";
+            this.ENQUIP_STATE.MinimumWidth = 160;
+            this.ENQUIP_STATE.Name = "ENQUIP_STATE";
+            this.ENQUIP_STATE.Width = 160;
+            // 
+            // RMK
+            // 
+            this.RMK.DataPropertyName = "REMARK";
+            this.RMK.FillWeight = 406.0914F;
+            this.RMK.HeaderText = "Ghi chú";
+            this.RMK.MinimumWidth = 80;
+            this.RMK.Name = "RMK";
+            this.RMK.Width = 80;
+            // 
+            // LINE
+            // 
+            this.LINE.DataPropertyName = "LINE";
+            this.LINE.HeaderText = "Line";
+            this.LINE.Name = "LINE";
+            this.LINE.Width = 56;
+            // 
+            // FCT_NO
+            // 
+            this.FCT_NO.DataPropertyName = "FCT_NO";
+            this.FCT_NO.HeaderText = "FCT No";
+            this.FCT_NO.Name = "FCT_NO";
+            this.FCT_NO.Width = 55;
+            // 
+            // MODEL_UMC
+            // 
+            this.MODEL_UMC.DataPropertyName = "MODEL_UMC";
+            this.MODEL_UMC.HeaderText = "Model thành phẩm";
+            this.MODEL_UMC.Name = "MODEL_UMC";
+            this.MODEL_UMC.Width = 124;
+            // 
+            // PDF_FILEs
+            // 
+            this.PDF_FILEs.HeaderText = "View PDF";
+            this.PDF_FILEs.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._211739_eye_icon;
+            this.PDF_FILEs.Name = "PDF_FILEs";
+            this.PDF_FILEs.Width = 40;
+            // 
+            // PDF_FILE
+            // 
+            this.PDF_FILE.DataPropertyName = "PDF_FILE";
+            this.PDF_FILE.HeaderText = "PDF_FILE";
+            this.PDF_FILE.Name = "PDF_FILE";
+            this.PDF_FILE.Visible = false;
+            this.PDF_FILE.Width = 89;
+            // 
             // Form_device
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -714,6 +714,11 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.CheckBox checkboxexportall;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.FolderBrowserDialog folderpdf;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAYMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn PART_NO;
@@ -739,10 +744,5 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.DataGridViewTextBoxColumn MODEL_UMC;
         private System.Windows.Forms.DataGridViewImageColumn PDF_FILEs;
         private System.Windows.Forms.DataGridViewTextBoxColumn PDF_FILE;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
     }
 }

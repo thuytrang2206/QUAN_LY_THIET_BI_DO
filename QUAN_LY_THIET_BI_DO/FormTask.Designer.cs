@@ -37,6 +37,8 @@ namespace QUAN_LY_THIET_BI_DO
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.grboximporthand = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dtgrtoconvert = new System.Windows.Forms.DataGridView();
+            this.txtequip_status = new System.Windows.Forms.TextBox();
             this.lblmodelumc = new System.Windows.Forms.Label();
             this.lblfctno = new System.Windows.Forms.Label();
             this.lblline = new System.Windows.Forms.Label();
@@ -98,6 +100,9 @@ namespace QUAN_LY_THIET_BI_DO
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtstoreprocedure = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbbsheet = new System.Windows.Forms.ComboBox();
             this.checkboximport = new System.Windows.Forms.CheckBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.lblnamefile = new System.Windows.Forms.Label();
@@ -105,12 +110,10 @@ namespace QUAN_LY_THIET_BI_DO
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.grboximpportexcel = new System.Windows.Forms.GroupBox();
             this.dtgvreaderexcel = new System.Windows.Forms.DataGridView();
-            this.txtequip_status = new System.Windows.Forms.TextBox();
-            this.cbbsheet = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.grboximporthand.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtoconvert)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -125,6 +128,7 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.dtgrtoconvert);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(5, 27);
             this.panel1.Name = "panel1";
@@ -202,6 +206,22 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "value";
+            // 
+            // dtgrtoconvert
+            // 
+            this.dtgrtoconvert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrtoconvert.Location = new System.Drawing.Point(758, 0);
+            this.dtgrtoconvert.Name = "dtgrtoconvert";
+            this.dtgrtoconvert.Size = new System.Drawing.Size(128, 50);
+            this.dtgrtoconvert.TabIndex = 13;
+            this.dtgrtoconvert.Visible = false;
+            // 
+            // txtequip_status
+            // 
+            this.txtequip_status.Location = new System.Drawing.Point(6, 216);
+            this.txtequip_status.Name = "txtequip_status";
+            this.txtequip_status.Size = new System.Drawing.Size(200, 20);
+            this.txtequip_status.TabIndex = 24;
             // 
             // lblmodelumc
             // 
@@ -826,6 +846,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.Color.White;
+            this.groupBox6.Controls.Add(this.txtstoreprocedure);
             this.groupBox6.Controls.Add(this.label21);
             this.groupBox6.Controls.Add(this.cbbsheet);
             this.groupBox6.Controls.Add(this.checkboximport);
@@ -837,6 +858,35 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox6.Size = new System.Drawing.Size(893, 63);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
+            // 
+            // txtstoreprocedure
+            // 
+            this.txtstoreprocedure.Location = new System.Drawing.Point(10, 37);
+            this.txtstoreprocedure.Name = "txtstoreprocedure";
+            this.txtstoreprocedure.Size = new System.Drawing.Size(100, 20);
+            this.txtstoreprocedure.TabIndex = 12;
+            this.txtstoreprocedure.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(568, 26);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(74, 15);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "Chọn Sheet:";
+            // 
+            // cbbsheet
+            // 
+            this.cbbsheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbsheet.FormattingEnabled = true;
+            this.cbbsheet.Location = new System.Drawing.Point(648, 23);
+            this.cbbsheet.Name = "cbbsheet";
+            this.cbbsheet.Size = new System.Drawing.Size(121, 21);
+            this.cbbsheet.TabIndex = 10;
+            this.cbbsheet.SelectedIndexChanged += new System.EventHandler(this.cbbsheet_SelectedIndexChanged);
             // 
             // checkboximport
             // 
@@ -927,39 +977,11 @@ namespace QUAN_LY_THIET_BI_DO
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvreaderexcel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvreaderexcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvreaderexcel.Location = new System.Drawing.Point(10, 15);
+            this.dtgvreaderexcel.Location = new System.Drawing.Point(5, 15);
             this.dtgvreaderexcel.Name = "dtgvreaderexcel";
             this.dtgvreaderexcel.RowHeadersVisible = false;
             this.dtgvreaderexcel.Size = new System.Drawing.Size(873, 30);
             this.dtgvreaderexcel.TabIndex = 0;
-            // 
-            // txtequip_status
-            // 
-            this.txtequip_status.Location = new System.Drawing.Point(6, 216);
-            this.txtequip_status.Name = "txtequip_status";
-            this.txtequip_status.Size = new System.Drawing.Size(200, 20);
-            this.txtequip_status.TabIndex = 24;
-            // 
-            // cbbsheet
-            // 
-            this.cbbsheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbsheet.FormattingEnabled = true;
-            this.cbbsheet.Location = new System.Drawing.Point(648, 23);
-            this.cbbsheet.Name = "cbbsheet";
-            this.cbbsheet.Size = new System.Drawing.Size(121, 21);
-            this.cbbsheet.TabIndex = 10;
-            this.cbbsheet.SelectedIndexChanged += new System.EventHandler(this.cbbsheet_SelectedIndexChanged);
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(568, 26);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(74, 15);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "Chọn Sheet:";
             // 
             // FormTask
             // 
@@ -980,6 +1002,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.grboximporthand.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtoconvert)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1074,5 +1097,7 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.TextBox txtequip_status;
         private System.Windows.Forms.ComboBox cbbsheet;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView dtgrtoconvert;
+        private System.Windows.Forms.TextBox txtstoreprocedure;
     }
 }

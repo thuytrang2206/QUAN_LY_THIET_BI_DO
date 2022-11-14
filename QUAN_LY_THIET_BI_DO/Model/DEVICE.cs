@@ -29,7 +29,7 @@ namespace QUAN_LY_THIET_BI_DO.Model
         [StringLength(64)]
         public string SERIAL { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(64)]
         public string MANUFACTORY { get; set; }
 
@@ -39,43 +39,43 @@ namespace QUAN_LY_THIET_BI_DO.Model
         public DateTime REGISTRATION_DATE { get; set; }
 
         [StringLength(64)]
-        public string DEPT_CONTROL { get; set; }
+        public string DEPARTMENT_CONTROL { get; set; }
 
         [Required]
         [StringLength(64)]
-        public string PLACE_USE { get; set; }
+        public string PLACE_OF_USE { get; set; }
 
         [Required]
         [StringLength(64)]
-        public string CONTROL_MNG { get; set; }
+        public string CONTROL_MANAGE { get; set; }
 
         [Required]
         [StringLength(64)]
-        public string MAKER { get; set; }
+        public string CALIBRATION_BY { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string ENQUIP_STATE { get; set; }
+        public string EQUIPMENT_STATUS { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(64)]
-        public string RMK { get; set; }
+        public string REMARK { get; set; }
 
         public bool STATUS { get; set; }
 
         [Required]
         [StringLength(200)]
-        public string PAYMENT { get; set; }
+        public string PAYMENT_BY{ get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(64)]
         public string LINE { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(300)]
         public string FCT_NO { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(300)]
         public string MODEL_UMC { get; set; }
 
