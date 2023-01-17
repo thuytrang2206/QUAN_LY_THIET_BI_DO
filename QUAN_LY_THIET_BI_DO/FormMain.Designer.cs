@@ -196,8 +196,8 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(37, 17);
-            this.toolStripStatusLabel4.Text = "PE :IT";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(42, 17);
+            this.toolStripStatusLabel4.Text = "PE-IT :";
             // 
             // toolStripStatusLabel5
             // 
@@ -207,8 +207,9 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // toolStripStatusLabel6
             // 
+            this.toolStripStatusLabel6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(48, 17);
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel6.Text = "Version:";
             // 
             // toolStripStatusLabel7

@@ -75,19 +75,13 @@ namespace QUAN_LY_THIET_BI_DO
                     }
                 }
                 temp.Add(filename_datatype);
-            }
-            // add 4 record default
-            //temp.Add("[CreateUser][VARCHAR] (100) NULL");
-            //temp.Add("[CreateDate][DATETIME] NULL");
-            //temp.Add("[LastModifyUser][VARCHAR] (100) NULL");
-            //temp.Add("[LastModifyDate][DATETIME] NULL");
+            }           
 
             // end add default 
             var item_fieldname = string.Join(", \n\t", temp);
             
             var result = $@"CREATE TYPE [dbo].[udt_{tablename}] AS TABLE
-                        ({item_fieldname}                            
-                        ); ";
+                        ({item_fieldname}); ";
             return result;
         }
 
@@ -124,20 +118,14 @@ namespace QUAN_LY_THIET_BI_DO
                                 -- For Inserts
                                 WHEN NOT MATCHED BY TARGET THEN
                                     INSERT
-                                    (
-                                        {item_fieldname_text}
-        
-                                    )
+                                    ({item_fieldname_text})
                                     VALUES
                                     ({item_fieldname_text_source})
-
                                 -- For Updates
                                 WHEN MATCHED THEN
                                     UPDATE SET {item_fieldname_update_text_source} ;
-
                             END;
                             ";
-
             return result;
         }
 
@@ -185,11 +173,6 @@ namespace QUAN_LY_THIET_BI_DO
                 }
                 temp.Add(filename_datatype);
             }
-            // add 4 record default
-            //temp.Add("[CreateUser][VARCHAR] (100) NULL");
-            //temp.Add("[CreateDate][DATETIME] NULL");
-            //temp.Add("[LastModifyUser][VARCHAR] (100) NULL");
-            //temp.Add("[LastModifyDate][DATETIME] NULL");
 
             // end add default 
             var item_fieldname = string.Join(", \n\t", temp);
@@ -231,20 +214,14 @@ namespace QUAN_LY_THIET_BI_DO
                                 -- For Inserts
                                 WHEN NOT MATCHED BY TARGET THEN
                                     INSERT
-                                    (
-                                        {item_fieldname_text}
-        
-                                    )
+                                    ({item_fieldname_text})
                                     VALUES
                                     ({item_fieldname_text_source})
-
                                 -- For Updates
                                 WHEN MATCHED THEN
                                     UPDATE SET {item_fieldname_update_text_source} ;
-
                             END;
                             ";
-
             return result;
         }
         private async void btn_save_Click(object sender, EventArgs e)
@@ -276,21 +253,17 @@ namespace QUAN_LY_THIET_BI_DO
                 var sql_type_user_defined = CreateTypeUserDefinedSQL(data, table_name_device);
                 // create Store Procedure
                 var sql_store_procedure = CreateProcedureSQL(data, table_name_device);
-                //SQLHelper.ExecQueryNonData(sql_create_table.Trim());
                 SQLHelper.ExecQueryNonData(sql_type_user_defined.Trim());
                 SQLHelper.ExecQueryNonData(sql_store_procedure.Trim());
 
                 //insert table CALIBRATION
                 string table_name_calibration = tableDevice.TableName+"_Cali"+ DateTime.Now.ToString("ddMMyyyyHHmmss");
                 var sql_type_user_defined_calibration = CreateTypeUserDefinedSQL_Calibration(data_calibration, table_name_calibration);
-                // create Store Procedure
                 var sql_store_procedure_calibration = CreateProcedureSQL_Calibration(data_calibration, table_name_calibration);
-                //SQLHelper.ExecQueryNonData(sql_create_table.Trim());
                 SQLHelper.ExecQueryNonData(sql_type_user_defined_calibration.Trim());
                 SQLHelper.ExecQueryNonData(sql_store_procedure_calibration.Trim());
                 try
-                {
-                    
+                {                   
                     var arrayNamesColumn = (from DataColumn x in tableDevice.Columns.Cast<DataColumn>() select x.ColumnName).ToArray();
                     var getnamecolumndevicedelete =new  List<string>();
                     var getnamecolumncalibration= new List<string>();
@@ -320,7 +293,6 @@ namespace QUAN_LY_THIET_BI_DO
                             tableDevice.Columns.Remove(item_devicecolumn);
                         }
                     }
-
                     //DEVICE
                     //Tìm column nào có datatype là object
                     int k = 0;
@@ -344,7 +316,6 @@ namespace QUAN_LY_THIET_BI_DO
                     foreach (DataRow row in tableDevice.Rows)
                     {
                         listpartno.Add(row.ItemArray[1].ToString().Trim());
-                       
                         dtCloned.ImportRow(row);
                     }
                     var query = listpartno.GroupBy(x => x).Where(g => g.Count() > 1).Select(y => y.Key).ToList();
@@ -369,10 +340,8 @@ namespace QUAN_LY_THIET_BI_DO
                         {
                             dtCloned_Cali.Columns[item].DataType = typeof(string);
                         }
-
                         foreach (DataRow row in dt_cali.Rows)
                         {
-
                             dtCloned_Cali.ImportRow(row);
                         }
                         SQLHelper.ExecProcedureNonData($"sp_{table_name_calibration}", new { Data = dtCloned_Cali });
@@ -396,12 +365,7 @@ namespace QUAN_LY_THIET_BI_DO
             }
         }       
 
-        public int Check_equipment(string equipment)
-        {
-            int equipment_state = equipment == "OK" ? 0 : equipment == "Stop Calibration & Use" ? 1 : equipment == "NG chờ sửa" ? 2 : 3;
-            return equipment_state;
-        }
-
+        
         public void Reload_datawhencreate()
         {
             var res = repository.FindAll();
@@ -452,8 +416,6 @@ namespace QUAN_LY_THIET_BI_DO
             {
                 return "bit";
             }
-
-
             return "varchar";
         }
         private string GetExcelColumnName(int columnNumber)
@@ -579,7 +541,8 @@ namespace QUAN_LY_THIET_BI_DO
                 cbbsheet.Items.Add(table.TableName);
                 cbbsheet.SelectedIndex = 0;
             }
-            
+            lblnamefile.Visible = true;
+            lblnamefile.Text = response.URI;
         }
         public string GetSubstringByString(string a, string b, string c)
         {

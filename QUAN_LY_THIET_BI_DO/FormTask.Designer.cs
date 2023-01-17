@@ -32,12 +32,11 @@ namespace QUAN_LY_THIET_BI_DO
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTask));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtgrtoconvert = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.grboximporthand = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dtgrtoconvert = new System.Windows.Forms.DataGridView();
             this.txtequip_status = new System.Windows.Forms.TextBox();
             this.lblmodelumc = new System.Windows.Forms.Label();
             this.lblfctno = new System.Windows.Forms.Label();
@@ -100,7 +99,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txtstoreprocedure = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cbbsheet = new System.Windows.Forms.ComboBox();
             this.checkboximport = new System.Windows.Forms.CheckBox();
@@ -110,16 +108,20 @@ namespace QUAN_LY_THIET_BI_DO
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.grboximpportexcel = new System.Windows.Forms.GroupBox();
             this.dtgvreaderexcel = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtoconvert)).BeginInit();
             this.grboximporthand.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgrtoconvert)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.grboximpportexcel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvreaderexcel)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,6 +137,15 @@ namespace QUAN_LY_THIET_BI_DO
             this.panel1.Size = new System.Drawing.Size(893, 57);
             this.panel1.TabIndex = 9;
             // 
+            // dtgrtoconvert
+            // 
+            this.dtgrtoconvert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrtoconvert.Location = new System.Drawing.Point(758, 0);
+            this.dtgrtoconvert.Name = "dtgrtoconvert";
+            this.dtgrtoconvert.Size = new System.Drawing.Size(128, 50);
+            this.dtgrtoconvert.TabIndex = 13;
+            this.dtgrtoconvert.Visible = false;
+            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -145,14 +156,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.textBox1.Size = new System.Drawing.Size(520, 24);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "UMCVN_QUẢN LÝ HIỆU CHUẨN THIẾT BỊ ĐO";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(910, 24);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
@@ -206,15 +209,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "value";
-            // 
-            // dtgrtoconvert
-            // 
-            this.dtgrtoconvert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgrtoconvert.Location = new System.Drawing.Point(758, 0);
-            this.dtgrtoconvert.Name = "dtgrtoconvert";
-            this.dtgrtoconvert.Size = new System.Drawing.Size(128, 50);
-            this.dtgrtoconvert.TabIndex = 13;
-            this.dtgrtoconvert.Visible = false;
             // 
             // txtequip_status
             // 
@@ -500,7 +494,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(6, 20);
+            this.label18.Location = new System.Drawing.Point(-24, 5);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 16);
             this.label18.TabIndex = 1;
@@ -846,33 +840,22 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.Color.White;
-            this.groupBox6.Controls.Add(this.txtstoreprocedure);
-            this.groupBox6.Controls.Add(this.label21);
-            this.groupBox6.Controls.Add(this.cbbsheet);
+            this.groupBox6.Controls.Add(this.panel3);
+            this.groupBox6.Controls.Add(this.panel2);
             this.groupBox6.Controls.Add(this.checkboximport);
             this.groupBox6.Controls.Add(this.btn_save);
-            this.groupBox6.Controls.Add(this.lblnamefile);
-            this.groupBox6.Controls.Add(this.btnOpenfile);
             this.groupBox6.Location = new System.Drawing.Point(5, 90);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(893, 63);
+            this.groupBox6.Size = new System.Drawing.Size(893, 52);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
-            // 
-            // txtstoreprocedure
-            // 
-            this.txtstoreprocedure.Location = new System.Drawing.Point(10, 37);
-            this.txtstoreprocedure.Name = "txtstoreprocedure";
-            this.txtstoreprocedure.Size = new System.Drawing.Size(100, 20);
-            this.txtstoreprocedure.TabIndex = 12;
-            this.txtstoreprocedure.Visible = false;
             // 
             // label21
             // 
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(568, 26);
+            this.label21.Location = new System.Drawing.Point(3, 10);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 15);
             this.label21.TabIndex = 11;
@@ -882,7 +865,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.cbbsheet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbsheet.FormattingEnabled = true;
-            this.cbbsheet.Location = new System.Drawing.Point(648, 23);
+            this.cbbsheet.Location = new System.Drawing.Point(81, 6);
             this.cbbsheet.Name = "cbbsheet";
             this.cbbsheet.Size = new System.Drawing.Size(121, 21);
             this.cbbsheet.TabIndex = 10;
@@ -908,7 +891,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_save.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85542_guardar_save_icon__1_;
             this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_save.Location = new System.Drawing.Point(825, 19);
+            this.btn_save.Location = new System.Drawing.Point(810, 10);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(62, 27);
             this.btn_save.TabIndex = 5;
@@ -920,7 +903,7 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             this.lblnamefile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblnamefile.AutoSize = true;
-            this.lblnamefile.Location = new System.Drawing.Point(278, 26);
+            this.lblnamefile.Location = new System.Drawing.Point(37, 12);
             this.lblnamefile.Name = "lblnamefile";
             this.lblnamefile.Size = new System.Drawing.Size(52, 13);
             this.lblnamefile.TabIndex = 2;
@@ -935,16 +918,15 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnOpenfile.FlatAppearance.BorderSize = 0;
             this.btnOpenfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnOpenfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnOpenfile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOpenfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenfile.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85334_file_open_icon16px;
             this.btnOpenfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenfile.Location = new System.Drawing.Point(176, 20);
+            this.btnOpenfile.Location = new System.Drawing.Point(3, -1);
             this.btnOpenfile.Name = "btnOpenfile";
-            this.btnOpenfile.Size = new System.Drawing.Size(96, 26);
+            this.btnOpenfile.Size = new System.Drawing.Size(28, 36);
             this.btnOpenfile.TabIndex = 1;
             this.btnOpenfile.TabStop = false;
-            this.btnOpenfile.Text = "     Chọn file";
             this.btnOpenfile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenfile.UseVisualStyleBackColor = false;
             this.btnOpenfile.Click += new System.EventHandler(this.btnOpenfile_Click);
@@ -955,9 +937,9 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grboximpportexcel.Controls.Add(this.dtgvreaderexcel);
-            this.grboximpportexcel.Location = new System.Drawing.Point(5, 155);
+            this.grboximpportexcel.Location = new System.Drawing.Point(5, 148);
             this.grboximpportexcel.Name = "grboximpportexcel";
-            this.grboximpportexcel.Size = new System.Drawing.Size(893, 54);
+            this.grboximpportexcel.Size = new System.Drawing.Size(893, 61);
             this.grboximpportexcel.TabIndex = 12;
             this.grboximpportexcel.TabStop = false;
             // 
@@ -980,8 +962,30 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgvreaderexcel.Location = new System.Drawing.Point(5, 15);
             this.dtgvreaderexcel.Name = "dtgvreaderexcel";
             this.dtgvreaderexcel.RowHeadersVisible = false;
-            this.dtgvreaderexcel.Size = new System.Drawing.Size(873, 30);
+            this.dtgvreaderexcel.Size = new System.Drawing.Size(873, 37);
             this.dtgvreaderexcel.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnOpenfile);
+            this.panel2.Controls.Add(this.lblnamefile);
+            this.panel2.Location = new System.Drawing.Point(193, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(367, 39);
+            this.panel2.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label21);
+            this.panel3.Controls.Add(this.cbbsheet);
+            this.panel3.Location = new System.Drawing.Point(561, 7);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(243, 39);
+            this.panel3.TabIndex = 13;
             // 
             // FormTask
             // 
@@ -992,17 +996,16 @@ namespace QUAN_LY_THIET_BI_DO
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.grboximporthand);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormTask";
             this.Text = "UMC_QUAN_LY_HIEU_CHUAN_THIET_BI_DO";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtoconvert)).EndInit();
             this.grboximporthand.ResumeLayout(false);
             this.grboximporthand.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgrtoconvert)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1013,15 +1016,17 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox6.PerformLayout();
             this.grboximpportexcel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvreaderexcel)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.GroupBox grboximporthand;
         private System.Windows.Forms.Label label1;
@@ -1098,6 +1103,7 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.ComboBox cbbsheet;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridView dtgrtoconvert;
-        private System.Windows.Forms.TextBox txtstoreprocedure;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
     }
 }

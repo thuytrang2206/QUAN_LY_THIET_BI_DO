@@ -18,7 +18,7 @@ namespace QUAN_LY_THIET_BI_DO
 
         DeviceControl_Model dbContext = new DeviceControl_Model();
         CALIBRATION calibration = new CALIBRATION();
-        
+        Repository repository = new Repository();
         public FormCalibration()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace QUAN_LY_THIET_BI_DO
             }
             cbbpart_no.SelectedIndex = -1;
             cbbpart_no.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbbpart_no.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbbpart_no.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
         public void Load_Calibration()
         {
@@ -157,7 +157,7 @@ namespace QUAN_LY_THIET_BI_DO
             var result = dbContext.CALIBRATIONs.Where(x => x.PART_NO == partno && x.STATUS == true).SingleOrDefault();
             if (result == null)
             {
-                MessageBox.Show("Mã quản lý " + partno + " không tìm thấy!", "Thông báo");
+                MessageBox.Show("Mã quản lý " + partno + " không tìm thấy!", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {
@@ -166,5 +166,6 @@ namespace QUAN_LY_THIET_BI_DO
             }
         }
 
+        
     }
 }

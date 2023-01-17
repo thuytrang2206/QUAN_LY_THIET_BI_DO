@@ -259,11 +259,12 @@ namespace QUAN_LY_THIET_BI_DO
             this.cbbpart_no.Name = "cbbpart_no";
             this.cbbpart_no.Size = new System.Drawing.Size(121, 21);
             this.cbbpart_no.TabIndex = 33;
+            this.cbbpart_no.SelectedIndexChanged += new System.EventHandler(this.cbbpart_no_SelectedIndexChanged);
             // 
             // dtcali_recommend
             // 
             this.dtcali_recommend.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtcali_recommend.Location = new System.Drawing.Point(212, 105);
+            this.dtcali_recommend.Location = new System.Drawing.Point(210, 105);
             this.dtcali_recommend.Name = "dtcali_recommend";
             this.dtcali_recommend.Size = new System.Drawing.Size(200, 20);
             this.dtcali_recommend.TabIndex = 32;

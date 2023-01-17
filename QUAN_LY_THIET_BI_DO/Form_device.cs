@@ -23,17 +23,20 @@ namespace QUAN_LY_THIET_BI_DO
         CALIBRATION calibration = new CALIBRATION();
         public Form_device()
         {
+            DateTime current_time = DateTime.Now;
             InitializeComponent();
             toolStripStatusLabel7.Text = Ultils.GetRunningVersion();
+            dtgv_device.Columns[25].ReadOnly = true;
             this.dtgv_device.AutoGenerateColumns = false;
             Load_data();
+
         }
         public void Load_data()
-        {          
-            var res = repository.FindAll();         
+        {
+            DateTime current_time = DateTime.Now;
+            var res = repository.FindAll();
             this.dtgv_device.DataSource = res;
         }
-
         private void Form_device_Load(object sender, EventArgs e)
         {
             //Load_data();
@@ -143,25 +146,26 @@ namespace QUAN_LY_THIET_BI_DO
         {
             var data = new List<CaliEntity>();
             if (checkboxexportall.Checked == true)
-            {              
+            {
                 data = repository.FindAll();
+                
                 Opendialog(data);
             }
             else if (checkboxexport_monthyear.Checked == true)
-            {           
+            {
                 data = repository.ExportMonthYear(datetime_export.Value);
                 if (data.Count == 0)
                 {
-                    MessageBox.Show("Không có dữ liệu bạn muốn xuất ra file excel!");
+                    MessageBox.Show("Không có dữ liệu bạn muốn xuất ra file excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     Opendialog(data);
-                }                
+                }
             }
             else
             {
-                MessageBox.Show("Bạn chưa chọn đối tượng để xuất file excel!");
+                MessageBox.Show("Bạn chưa chọn đối tượng để xuất file excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -182,24 +186,24 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void dtgv_device_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string localPath="";
+            string localPath = "";
             if (e.ColumnIndex == 23) //2nd column - DGV_ImageColumn
             {
                 string part_no = dtgv_device.Rows[e.RowIndex].Cells[2].Value.ToString();
                 var result = repository.Findtopartno_inviewpdf(part_no);
                 if (result.Count() != 0)
                 {
-                    foreach(var item in result)
+                    foreach (var item in result)
                     {
                         if (item.PDF_FILE != null)
                         {
-                            localPath = @"D:\2. Projects\FTP_Root\Cali_Pdf\"  + item.PDF_FILE;
+                            localPath = @"D:\2. Projects\FTP_Root\Cali_Pdf\" + item.PDF_FILE;
                             //localPath = @"\\172.28.10.12\Share\48 DM" + "\\" + result.PDF_FILE;
                             DownloadFiles.DownloadFile(localPath, @"/Cali_Pdf/" + item.PDF_FILE);
                             Views view = new Views(localPath);
                             view.Show();
                         }
-                    }                    
+                    }
                 }
             }
             else
@@ -213,7 +217,7 @@ namespace QUAN_LY_THIET_BI_DO
             {
                 checkboxexport_monthyear.Checked = false;
             }
-            
+
         }
 
         private void checkboxexport_monthyear_CheckedChanged(object sender, EventArgs e)

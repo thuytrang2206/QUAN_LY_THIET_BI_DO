@@ -29,7 +29,7 @@ namespace QUAN_LY_THIET_BI_DO
             var result = dbcontext.DEVICEs.Where(c => c.PART_NO == part_no).SingleOrDefault();
             txtpayment.Text = result.PAYMENT_BY;
             txtpart_no.Text = result.PART_NO;
-           // txtsap_barcode.Text = result.SAP_BARCODE;
+            txtsap_barcode.Text = result.SAP_BARCODE==null?".":result.SAP_BARCODE;
             txtpart_name.Text = result.PART_NAME;
             txtmodel.Text = result.MODEL;
             txtserial.Text = result.SERIAL;
