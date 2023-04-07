@@ -32,43 +32,13 @@ namespace QUAN_LY_THIET_BI_DO
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_device));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tagManager = new System.Windows.Forms.TabControl();
             this.tabcalibration = new System.Windows.Forms.TabPage();
             this.dtgv_device = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.top = new System.Windows.Forms.ToolStripSeparator();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.deletetoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusVersion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtsearch = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.checkboxexportall = new System.Windows.Forms.CheckBox();
-            this.checkboxexport_monthyear = new System.Windows.Forms.CheckBox();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.datetime_export = new System.Windows.Forms.DateTimePicker();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.folderpdf = new System.Windows.Forms.FolderBrowserDialog();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PAYMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,16 +64,53 @@ namespace QUAN_LY_THIET_BI_DO
             this.MODEL_UMC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PDF_FILEs = new System.Windows.Forms.DataGridViewImageColumn();
             this.PDF_FILE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Check = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.top = new System.Windows.Forms.ToolStripSeparator();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.deletetoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusVersion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.folderpdf = new System.Windows.Forms.FolderBrowserDialog();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.datetime_export = new System.Windows.Forms.DateTimePicker();
+            this.checkboxexport_monthyear = new System.Windows.Forms.CheckBox();
+            this.checkboxexportall = new System.Windows.Forms.CheckBox();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.chboxequipment = new System.Windows.Forms.CheckBox();
+            this.rdOK = new System.Windows.Forms.RadioButton();
+            this.rdNG = new System.Windows.Forms.RadioButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtsearch = new System.Windows.Forms.TextBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.cbboxFilter = new System.Windows.Forms.ComboBox();
+            this.btnFilter = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnRefesh = new System.Windows.Forms.Button();
+            this.rdStop = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tagManager.SuspendLayout();
             this.tabcalibration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_device)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -136,10 +143,10 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tagManager.Controls.Add(this.tabcalibration);
             this.tagManager.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tagManager.Location = new System.Drawing.Point(5, 162);
+            this.tagManager.Location = new System.Drawing.Point(5, 192);
             this.tagManager.Name = "tagManager";
             this.tagManager.SelectedIndex = 0;
-            this.tagManager.Size = new System.Drawing.Size(976, 425);
+            this.tagManager.Size = new System.Drawing.Size(976, 395);
             this.tagManager.TabIndex = 6;
             // 
             // tabcalibration
@@ -149,7 +156,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.tabcalibration.Location = new System.Drawing.Point(4, 22);
             this.tabcalibration.Name = "tabcalibration";
             this.tabcalibration.Padding = new System.Windows.Forms.Padding(3);
-            this.tabcalibration.Size = new System.Drawing.Size(968, 399);
+            this.tabcalibration.Size = new System.Drawing.Size(968, 369);
             this.tabcalibration.TabIndex = 1;
             this.tabcalibration.Text = "Calibration management";
             this.tabcalibration.UseVisualStyleBackColor = true;
@@ -202,287 +209,11 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgv_device.Location = new System.Drawing.Point(6, 6);
             this.dtgv_device.Name = "dtgv_device";
             this.dtgv_device.RowHeadersVisible = false;
-            this.dtgv_device.Size = new System.Drawing.Size(952, 388);
+            this.dtgv_device.Size = new System.Drawing.Size(952, 347);
             this.dtgv_device.TabIndex = 0;
             this.dtgv_device.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_device_CellClick);
+            this.dtgv_device.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgv_device_DataBindingComplete);
             this.dtgv_device.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgv_device_RowPostPaint);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.top,
-            this.editToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.deletetoolStripMenuItem2});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 82);
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._8725676_copy_icon;
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
-            // 
-            // top
-            // 
-            this.top.BackColor = System.Drawing.Color.White;
-            this.top.Name = "top";
-            this.top.Size = new System.Drawing.Size(104, 6);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px1;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(104, 6);
-            // 
-            // deletetoolStripMenuItem2
-            // 
-            this.deletetoolStripMenuItem2.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._2462966_delete;
-            this.deletetoolStripMenuItem2.Name = "deletetoolStripMenuItem2";
-            this.deletetoolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
-            this.deletetoolStripMenuItem2.Text = "Delete";
-            this.deletetoolStripMenuItem2.Click += new System.EventHandler(this.deletetoolStripMenuItem2_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(993, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(62, 20);
-            this.toolStripMenuItem1.Text = "Systems";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel1.Text = "PE-IT:";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(35, 17);
-            this.toolStripStatusLabel2.Text = "3143";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(51, 17);
-            this.toolStripStatusLabel3.Text = "Version:";
-            // 
-            // toolStripStatusVersion
-            // 
-            this.toolStripStatusVersion.Name = "toolStripStatusVersion";
-            this.toolStripStatusVersion.Size = new System.Drawing.Size(0, 17);
-            // 
-            // txtsearch
-            // 
-            this.txtsearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtsearch.Location = new System.Drawing.Point(3, 14);
-            this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Size = new System.Drawing.Size(330, 20);
-            this.txtsearch.TabIndex = 4;
-            this.txtsearch.TextChanged += new System.EventHandler(this.txtsearch_TextChanged);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.btnEdit);
-            this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(5, 100);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(972, 56);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.checkboxexportall);
-            this.panel4.Controls.Add(this.checkboxexport_monthyear);
-            this.panel4.Controls.Add(this.btnExport);
-            this.panel4.Controls.Add(this.datetime_export);
-            this.panel4.Location = new System.Drawing.Point(5, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(363, 46);
-            this.panel4.TabIndex = 12;
-            // 
-            // checkboxexportall
-            // 
-            this.checkboxexportall.AutoSize = true;
-            this.checkboxexportall.Location = new System.Drawing.Point(3, 3);
-            this.checkboxexportall.Name = "checkboxexportall";
-            this.checkboxexportall.Size = new System.Drawing.Size(73, 17);
-            this.checkboxexportall.TabIndex = 9;
-            this.checkboxexportall.Text = "Export_All";
-            this.checkboxexportall.UseVisualStyleBackColor = true;
-            this.checkboxexportall.CheckedChanged += new System.EventHandler(this.checkboxexportall_CheckedChanged);
-            // 
-            // checkboxexport_monthyear
-            // 
-            this.checkboxexport_monthyear.AutoSize = true;
-            this.checkboxexport_monthyear.Location = new System.Drawing.Point(3, 26);
-            this.checkboxexport_monthyear.Name = "checkboxexport_monthyear";
-            this.checkboxexport_monthyear.Size = new System.Drawing.Size(116, 17);
-            this.checkboxexport_monthyear.TabIndex = 10;
-            this.checkboxexport_monthyear.Text = "Export Month/Year";
-            this.checkboxexport_monthyear.UseVisualStyleBackColor = true;
-            this.checkboxexport_monthyear.CheckedChanged += new System.EventHandler(this.checkboxexport_monthyear_CheckedChanged);
-            // 
-            // btnExport
-            // 
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._4373169_excel_logo_logos_icon;
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(255, 6);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(74, 30);
-            this.btnExport.TabIndex = 7;
-            this.btnExport.Text = "     Export ";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // datetime_export
-            // 
-            this.datetime_export.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetime_export.Location = new System.Drawing.Point(125, 21);
-            this.datetime_export.Name = "datetime_export";
-            this.datetime_export.Size = new System.Drawing.Size(105, 20);
-            this.datetime_export.TabIndex = 8;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.txtsearch);
-            this.panel3.Controls.Add(this.btnSearch);
-            this.panel3.Location = new System.Drawing.Point(374, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(422, 46);
-            this.panel3.TabIndex = 11;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._8726215_search_alt_icon;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(345, 9);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(70, 27);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "     Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.BackColor = System.Drawing.Color.White;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(902, 11);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(58, 30);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "       Sửa";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.BackColor = System.Drawing.Color.White;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._32378_add_plus_icon;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(821, 11);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 30);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "      Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "PDF_FILE";
-            this.dataGridViewImageColumn1.HeaderText = "View PDF";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 40;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel4,
-            this.toolStripStatusLabel5,
-            this.toolStripStatusLabel6,
-            this.toolStripStatusLabel7});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 590);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(993, 22);
-            this.statusStrip1.TabIndex = 9;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(34, 17);
-            this.toolStripStatusLabel4.Text = "PE:IT";
-            // 
-            // toolStripStatusLabel5
-            // 
-            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(31, 17);
-            this.toolStripStatusLabel5.Text = "3143";
-            // 
-            // toolStripStatusLabel6
-            // 
-            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(45, 17);
-            this.toolStripStatusLabel6.Text = "Version";
-            // 
-            // toolStripStatusLabel7
-            // 
-            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
-            this.toolStripStatusLabel7.Size = new System.Drawing.Size(0, 17);
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "View PDF";
-            this.dataGridViewImageColumn2.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._211739_eye_icon;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 40;
             // 
             // No
             // 
@@ -693,10 +424,378 @@ namespace QUAN_LY_THIET_BI_DO
             // Check
             // 
             this.Check.DataPropertyName = "Check";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Check.DefaultCellStyle = dataGridViewCellStyle3;
             this.Check.HeaderText = "Check";
             this.Check.Name = "Check";
             this.Check.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Check.TrueValue = "true";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.top,
+            this.editToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.deletetoolStripMenuItem2});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 82);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._8725676_copy_icon;
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // top
+            // 
+            this.top.BackColor = System.Drawing.Color.White;
+            this.top.Name = "top";
+            this.top.Size = new System.Drawing.Size(104, 6);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px1;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(104, 6);
+            // 
+            // deletetoolStripMenuItem2
+            // 
+            this.deletetoolStripMenuItem2.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._2462966_delete;
+            this.deletetoolStripMenuItem2.Name = "deletetoolStripMenuItem2";
+            this.deletetoolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
+            this.deletetoolStripMenuItem2.Text = "Delete";
+            this.deletetoolStripMenuItem2.Click += new System.EventHandler(this.deletetoolStripMenuItem2_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(993, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(62, 20);
+            this.toolStripMenuItem1.Text = "Systems";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel1.Text = "PE-IT:";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(35, 17);
+            this.toolStripStatusLabel2.Text = "3143";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(51, 17);
+            this.toolStripStatusLabel3.Text = "Version:";
+            // 
+            // toolStripStatusVersion
+            // 
+            this.toolStripStatusVersion.Name = "toolStripStatusVersion";
+            this.toolStripStatusVersion.Size = new System.Drawing.Size(0, 17);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "PDF_FILE";
+            this.dataGridViewImageColumn1.HeaderText = "View PDF";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 40;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel6,
+            this.toolStripStatusLabel7});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 590);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(993, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabel4.Text = "PE:IT";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(31, 17);
+            this.toolStripStatusLabel5.Text = "3143";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(45, 17);
+            this.toolStripStatusLabel6.Text = "Version";
+            // 
+            // toolStripStatusLabel7
+            // 
+            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
+            this.toolStripStatusLabel7.Size = new System.Drawing.Size(0, 17);
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "View PDF";
+            this.dataGridViewImageColumn2.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._211739_eye_icon;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 40;
+            // 
+            // datetime_export
+            // 
+            this.datetime_export.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datetime_export.Location = new System.Drawing.Point(125, 23);
+            this.datetime_export.Name = "datetime_export";
+            this.datetime_export.Size = new System.Drawing.Size(105, 20);
+            this.datetime_export.TabIndex = 16;
+            // 
+            // checkboxexport_monthyear
+            // 
+            this.checkboxexport_monthyear.AutoSize = true;
+            this.checkboxexport_monthyear.Location = new System.Drawing.Point(3, 26);
+            this.checkboxexport_monthyear.Name = "checkboxexport_monthyear";
+            this.checkboxexport_monthyear.Size = new System.Drawing.Size(116, 17);
+            this.checkboxexport_monthyear.TabIndex = 18;
+            this.checkboxexport_monthyear.Text = "Export Month/Year";
+            this.checkboxexport_monthyear.UseVisualStyleBackColor = true;
+            // 
+            // checkboxexportall
+            // 
+            this.checkboxexportall.AutoSize = true;
+            this.checkboxexportall.Location = new System.Drawing.Point(3, 3);
+            this.checkboxexportall.Name = "checkboxexportall";
+            this.checkboxexportall.Size = new System.Drawing.Size(70, 17);
+            this.checkboxexportall.TabIndex = 17;
+            this.checkboxexportall.Text = "Export All";
+            this.checkboxexportall.UseVisualStyleBackColor = true;
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.LightGreen;
+            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._4373169_excel_logo_logos_icon;
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExport.Location = new System.Drawing.Point(259, 3);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(73, 30);
+            this.btnExport.TabIndex = 15;
+            this.btnExport.Text = "     Export ";
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // chboxequipment
+            // 
+            this.chboxequipment.AutoSize = true;
+            this.chboxequipment.Location = new System.Drawing.Point(2, 48);
+            this.chboxequipment.Name = "chboxequipment";
+            this.chboxequipment.Size = new System.Drawing.Size(109, 17);
+            this.chboxequipment.TabIndex = 19;
+            this.chboxequipment.Text = "Export Equipment";
+            this.chboxequipment.UseVisualStyleBackColor = true;
+            // 
+            // rdOK
+            // 
+            this.rdOK.AutoSize = true;
+            this.rdOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdOK.ForeColor = System.Drawing.Color.Green;
+            this.rdOK.Location = new System.Drawing.Point(117, 47);
+            this.rdOK.Name = "rdOK";
+            this.rdOK.Size = new System.Drawing.Size(42, 17);
+            this.rdOK.TabIndex = 20;
+            this.rdOK.TabStop = true;
+            this.rdOK.Text = "OK";
+            this.rdOK.UseVisualStyleBackColor = true;
+            // 
+            // rdNG
+            // 
+            this.rdNG.AutoSize = true;
+            this.rdNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdNG.ForeColor = System.Drawing.Color.Red;
+            this.rdNG.Location = new System.Drawing.Point(165, 47);
+            this.rdNG.Name = "rdNG";
+            this.rdNG.Size = new System.Drawing.Size(43, 17);
+            this.rdNG.TabIndex = 21;
+            this.rdNG.TabStop = true;
+            this.rdNG.Text = "NG";
+            this.rdNG.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.btnRefesh);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.btnFilter);
+            this.panel3.Controls.Add(this.cbboxFilter);
+            this.panel3.Controls.Add(this.btnEdit);
+            this.panel3.Controls.Add(this.txtsearch);
+            this.panel3.Controls.Add(this.btnAdd);
+            this.panel3.Location = new System.Drawing.Point(338, -2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(632, 75);
+            this.panel3.TabIndex = 11;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._32378_add_plus_icon;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(489, 13);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(72, 30);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "      Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // txtsearch
+            // 
+            this.txtsearch.Location = new System.Drawing.Point(3, 23);
+            this.txtsearch.Name = "txtsearch";
+            this.txtsearch.Size = new System.Drawing.Size(104, 20);
+            this.txtsearch.TabIndex = 4;
+            this.txtsearch.TextChanged += new System.EventHandler(this.txtsearch_TextChanged);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(567, 12);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(58, 30);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "  Sửa";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // cbboxFilter
+            // 
+            this.cbboxFilter.FormattingEnabled = true;
+            this.cbboxFilter.Items.AddRange(new object[] {
+            "OK",
+            "NG",
+            "STOP"});
+            this.cbboxFilter.Location = new System.Drawing.Point(113, 23);
+            this.cbboxFilter.Name = "cbboxFilter";
+            this.cbboxFilter.Size = new System.Drawing.Size(89, 21);
+            this.cbboxFilter.TabIndex = 10;
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnFilter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._4696684_filter_filtering_funnel_order_sort_icon1;
+            this.btnFilter.Location = new System.Drawing.Point(208, 23);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(33, 22);
+            this.btnFilter.TabIndex = 11;
+            this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Mã quản lý:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(110, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Tình trạng thiết bị:";
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnRefesh.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnRefesh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefesh.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._15581_agt_refresh_reload_icon;
+            this.btnRefesh.Location = new System.Drawing.Point(247, 22);
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(33, 22);
+            this.btnRefesh.TabIndex = 14;
+            this.btnRefesh.UseVisualStyleBackColor = false;
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
+            // 
+            // rdStop
+            // 
+            this.rdStop.AutoSize = true;
+            this.rdStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.rdStop.Location = new System.Drawing.Point(214, 47);
+            this.rdStop.Name = "rdStop";
+            this.rdStop.Size = new System.Drawing.Size(51, 17);
+            this.rdStop.TabIndex = 22;
+            this.rdStop.TabStop = true;
+            this.rdStop.Text = "Stop";
+            this.rdStop.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.rdStop);
+            this.panel2.Controls.Add(this.rdNG);
+            this.panel2.Controls.Add(this.rdOK);
+            this.panel2.Controls.Add(this.chboxequipment);
+            this.panel2.Controls.Add(this.btnExport);
+            this.panel2.Controls.Add(this.checkboxexportall);
+            this.panel2.Controls.Add(this.checkboxexport_monthyear);
+            this.panel2.Controls.Add(this.datetime_export);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(5, 100);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(972, 75);
+            this.panel2.TabIndex = 8;
             // 
             // Form_device
             // 
@@ -718,13 +817,12 @@ namespace QUAN_LY_THIET_BI_DO
             this.tabcalibration.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_device)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -749,15 +847,6 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusVersion;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtsearch;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker datetime_export;
-        private System.Windows.Forms.CheckBox checkboxexport_monthyear;
-        private System.Windows.Forms.CheckBox checkboxexportall;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.FolderBrowserDialog folderpdf;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -765,8 +854,6 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAYMENT;
@@ -793,6 +880,24 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.DataGridViewTextBoxColumn MODEL_UMC;
         private System.Windows.Forms.DataGridViewImageColumn PDF_FILEs;
         private System.Windows.Forms.DataGridViewTextBoxColumn PDF_FILE;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Check;
+        private System.Windows.Forms.DateTimePicker datetime_export;
+        private System.Windows.Forms.CheckBox checkboxexport_monthyear;
+        private System.Windows.Forms.CheckBox checkboxexportall;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.CheckBox chboxequipment;
+        private System.Windows.Forms.RadioButton rdOK;
+        private System.Windows.Forms.RadioButton rdNG;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnRefesh;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.ComboBox cbboxFilter;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox txtsearch;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.RadioButton rdStop;
+        private System.Windows.Forms.Panel panel2;
     }
 }

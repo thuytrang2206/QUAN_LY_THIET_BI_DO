@@ -224,6 +224,7 @@ namespace QUAN_LY_THIET_BI_DO
                             ";
             return result;
         }
+
         private async void btn_save_Click(object sender, EventArgs e)
         {
             var data = dtgrtoconvert.DataSource as List<ItemTable>;
@@ -364,13 +365,13 @@ namespace QUAN_LY_THIET_BI_DO
                 MessageBox.Show("Không đúng định dạng số cột file import! Vui lòng xem lại", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }       
-
-        
+      
         public void Reload_datawhencreate()
         {
             var res = repository.FindAll();
             form_Device.dtgv_device.DataSource = res.OrderByDescending(c => c.PART_NO).ToList();
         }
+
         public string NonUnicode(string text)
         {
             string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",
@@ -394,6 +395,7 @@ namespace QUAN_LY_THIET_BI_DO
             }
             return text;
         }
+
         public string GetDataTypeFromExcelToTypeSql(Type dataType)
         {
             if (dataType == typeof(string) || dataType == typeof(object))
@@ -418,6 +420,7 @@ namespace QUAN_LY_THIET_BI_DO
             }
             return "varchar";
         }
+
         private string GetExcelColumnName(int columnNumber)
         {
             string columnName = "";

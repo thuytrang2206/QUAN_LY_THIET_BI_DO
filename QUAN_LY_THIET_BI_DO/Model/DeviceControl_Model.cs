@@ -14,7 +14,7 @@ namespace QUAN_LY_THIET_BI_DO.Model
 
         public virtual DbSet<CALIBRATION> CALIBRATIONs { get; set; }
         public virtual DbSet<DEVICE> DEVICEs { get; set; }
-
+        public virtual DbSet<HISTORY_CALIBRATION> HISTORY_CALIBRATIONs { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

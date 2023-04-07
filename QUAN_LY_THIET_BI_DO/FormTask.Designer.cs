@@ -99,17 +99,17 @@ namespace QUAN_LY_THIET_BI_DO
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.cbbsheet = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnOpenfile = new System.Windows.Forms.Button();
+            this.lblnamefile = new System.Windows.Forms.Label();
             this.checkboximport = new System.Windows.Forms.CheckBox();
             this.btn_save = new System.Windows.Forms.Button();
-            this.lblnamefile = new System.Windows.Forms.Label();
-            this.btnOpenfile = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.grboximpportexcel = new System.Windows.Forms.GroupBox();
             this.dtgvreaderexcel = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrtoconvert)).BeginInit();
             this.grboximporthand.SuspendLayout();
@@ -118,10 +118,10 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.grboximpportexcel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvreaderexcel)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -850,6 +850,17 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label21);
+            this.panel3.Controls.Add(this.cbbsheet);
+            this.panel3.Location = new System.Drawing.Point(561, 7);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(243, 39);
+            this.panel3.TabIndex = 13;
+            // 
             // label21
             // 
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -871,44 +882,16 @@ namespace QUAN_LY_THIET_BI_DO
             this.cbbsheet.TabIndex = 10;
             this.cbbsheet.SelectedIndexChanged += new System.EventHandler(this.cbbsheet_SelectedIndexChanged);
             // 
-            // checkboximport
+            // panel2
             // 
-            this.checkboximport.AutoSize = true;
-            this.checkboximport.Checked = true;
-            this.checkboximport.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkboximport.Location = new System.Drawing.Point(10, 19);
-            this.checkboximport.Name = "checkboximport";
-            this.checkboximport.Size = new System.Drawing.Size(123, 17);
-            this.checkboximport.TabIndex = 9;
-            this.checkboximport.Text = "Nhập bằng file excel";
-            this.checkboximport.UseVisualStyleBackColor = true;
-            this.checkboximport.CheckedChanged += new System.EventHandler(this.checkboximport_CheckedChanged);
-            // 
-            // btn_save
-            // 
-            this.btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_save.BackColor = System.Drawing.Color.White;
-            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_save.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85542_guardar_save_icon__1_;
-            this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_save.Location = new System.Drawing.Point(810, 10);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(62, 27);
-            this.btn_save.TabIndex = 5;
-            this.btn_save.Text = "   Save";
-            this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // lblnamefile
-            // 
-            this.lblnamefile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblnamefile.AutoSize = true;
-            this.lblnamefile.Location = new System.Drawing.Point(37, 12);
-            this.lblnamefile.Name = "lblnamefile";
-            this.lblnamefile.Size = new System.Drawing.Size(52, 13);
-            this.lblnamefile.TabIndex = 2;
-            this.lblnamefile.Text = "name_file";
-            this.lblnamefile.Visible = false;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnOpenfile);
+            this.panel2.Controls.Add(this.lblnamefile);
+            this.panel2.Location = new System.Drawing.Point(193, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(367, 39);
+            this.panel2.TabIndex = 12;
             // 
             // btnOpenfile
             // 
@@ -930,6 +913,47 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnOpenfile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenfile.UseVisualStyleBackColor = false;
             this.btnOpenfile.Click += new System.EventHandler(this.btnOpenfile_Click);
+            // 
+            // lblnamefile
+            // 
+            this.lblnamefile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblnamefile.AutoSize = true;
+            this.lblnamefile.Location = new System.Drawing.Point(37, 12);
+            this.lblnamefile.Name = "lblnamefile";
+            this.lblnamefile.Size = new System.Drawing.Size(52, 13);
+            this.lblnamefile.TabIndex = 2;
+            this.lblnamefile.Text = "name_file";
+            this.lblnamefile.Visible = false;
+            // 
+            // checkboximport
+            // 
+            this.checkboximport.AutoSize = true;
+            this.checkboximport.Checked = true;
+            this.checkboximport.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkboximport.Location = new System.Drawing.Point(10, 19);
+            this.checkboximport.Name = "checkboximport";
+            this.checkboximport.Size = new System.Drawing.Size(123, 17);
+            this.checkboximport.TabIndex = 9;
+            this.checkboximport.Text = "Nhập bằng file excel";
+            this.checkboximport.UseVisualStyleBackColor = true;
+            this.checkboximport.CheckedChanged += new System.EventHandler(this.checkboximport_CheckedChanged);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_save.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._85542_guardar_save_icon__1_;
+            this.btn_save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_save.Location = new System.Drawing.Point(816, 13);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(62, 27);
+            this.btn_save.TabIndex = 5;
+            this.btn_save.Text = "   Save";
+            this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // grboximpportexcel
             // 
@@ -965,28 +989,6 @@ namespace QUAN_LY_THIET_BI_DO
             this.dtgvreaderexcel.Size = new System.Drawing.Size(873, 37);
             this.dtgvreaderexcel.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.btnOpenfile);
-            this.panel2.Controls.Add(this.lblnamefile);
-            this.panel2.Location = new System.Drawing.Point(193, 7);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(367, 39);
-            this.panel2.TabIndex = 12;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label21);
-            this.panel3.Controls.Add(this.cbbsheet);
-            this.panel3.Location = new System.Drawing.Point(561, 7);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(243, 39);
-            this.panel3.TabIndex = 13;
-            // 
             // FormTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1014,12 +1016,12 @@ namespace QUAN_LY_THIET_BI_DO
             this.groupBox2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.grboximpportexcel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvreaderexcel)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.grboximpportexcel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvreaderexcel)).EndInit();
             this.ResumeLayout(false);
 
         }

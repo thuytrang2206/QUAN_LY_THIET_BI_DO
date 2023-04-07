@@ -21,19 +21,19 @@ namespace QUAN_LY_THIET_BI_DO
         Repository repository = new Repository();
         DEVICE device = new DEVICE();
         CALIBRATION calibration = new CALIBRATION();
+        string equipmentStatus = "";
         public Form_device()
         {
-            DateTime current_time = DateTime.Now;
             InitializeComponent();
             toolStripStatusLabel7.Text = Ultils.GetRunningVersion();
             dtgv_device.Columns[25].ReadOnly = true;
             this.dtgv_device.AutoGenerateColumns = false;
             Load_data();
-
+            cbboxFilter.SelectedIndex = 0;
         }
         public void Load_data()
         {
-            DateTime current_time = DateTime.Now;
+            
             var res = repository.FindAll();
             this.dtgv_device.DataSource = res;
         }
@@ -54,14 +54,9 @@ namespace QUAN_LY_THIET_BI_DO
             formEditdevice.Show();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtsearch_TextChanged(object sender, EventArgs e)
         {
-            var result = repository.Search(txtsearch.Text);
+            var result = repository.SearchPartNo(txtsearch.Text);
             dtgv_device.DataSource = result;
         }
 
@@ -147,13 +142,13 @@ namespace QUAN_LY_THIET_BI_DO
             var data = new List<CaliEntity>();
             if (checkboxexportall.Checked == true)
             {
-                data = repository.FindAll();
-                
+                data = repository.FindAll();              
                 Opendialog(data);
             }
             else if (checkboxexport_monthyear.Checked == true)
             {
                 data = repository.ExportMonthYear(datetime_export.Value);
+                dtgv_device.DataSource = data;
                 if (data.Count == 0)
                 {
                     MessageBox.Show("Không có dữ liệu bạn muốn xuất ra file excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -161,6 +156,20 @@ namespace QUAN_LY_THIET_BI_DO
                 else
                 {
                     Opendialog(data);
+                }
+            }
+            else if(chboxequipment.Checked==true)
+            {
+                equipmentStatus = rdOK.Checked == true ? rdOK.Text : (rdNG.Checked == true) ? rdNG.Text : (rdStop.Checked == true) ? rdStop.Text : "";
+                if (!String.IsNullOrEmpty(equipmentStatus))
+                {
+                    data = repository.ExportEquipment(equipmentStatus);
+                    Opendialog(data);
+                    dtgv_device.DataSource = data;
+                }
+                else
+                {
+                    MessageBox.Show("Tình trạng thiết bị chưa được chọn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -186,29 +195,33 @@ namespace QUAN_LY_THIET_BI_DO
 
         private void dtgv_device_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string localPath = "";
-            if (e.ColumnIndex == 23) //2nd column - DGV_ImageColumn
+            try
             {
-                string part_no = dtgv_device.Rows[e.RowIndex].Cells[2].Value.ToString();
-                var result = repository.Findtopartno_inviewpdf(part_no);
-                if (result.Count() != 0)
+                string localPath = "";
+                if (e.ColumnIndex == 23) //2nd column - DGV_ImageColumn
                 {
-                    foreach (var item in result)
+                    string part_no = dtgv_device.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    var result = repository.Findtopartno_inviewpdf(part_no);
+                    if (result.Count() != 0)
                     {
-                        if (item.PDF_FILE != null)
+                        foreach (var item in result)
                         {
-                            localPath = @"D:\2. Projects\FTP_Root\Cali_Pdf\" + item.PDF_FILE;
-                            //localPath = @"\\172.28.10.12\Share\48 DM" + "\\" + result.PDF_FILE;
-                            DownloadFiles.DownloadFile(localPath, @"/Cali_Pdf/" + item.PDF_FILE);
-                            Views view = new Views(localPath);
-                            view.Show();
+                            if (item.PDF_FILE != null)
+                            {
+                                localPath = @"D:\2. Projects\FTP_Root\Cali_Pdf\" + item.PDF_FILE;
+                                //localPath = @"\\172.28.10.12\Share\48 DM" + "\\" + result.PDF_FILE;
+                                DownloadFiles.DownloadFile(localPath, @"/Cali_Pdf/" + item.PDF_FILE);
+                                Views view = new Views(localPath);
+                                view.Show();
+                            }
                         }
                     }
                 }
             }
-            else
+            catch(Exception ex)
             {
-            }
+                MessageBox.Show("Kiểm tra lại mạng kết nối internet!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }            
         }
 
         private void checkboxexportall_CheckedChanged(object sender, EventArgs e)
@@ -217,7 +230,6 @@ namespace QUAN_LY_THIET_BI_DO
             {
                 checkboxexport_monthyear.Checked = false;
             }
-
         }
 
         private void checkboxexport_monthyear_CheckedChanged(object sender, EventArgs e)
@@ -226,7 +238,33 @@ namespace QUAN_LY_THIET_BI_DO
             {
                 checkboxexportall.Checked = false;
             }
-
         }
+
+        private void dtgv_device_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtgv_device.Rows)
+            {
+                if (row.Cells[25].Value.ToString().Contains("OK"))
+                {
+                    row.Cells[25].Style.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    row.Cells[25].Style.BackColor = Color.Salmon;
+                }
+            }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            string equipmentFilter=cbboxFilter.SelectedItem.ToString();
+            var result = repository.EquipmentFilter(equipmentFilter);
+            dtgv_device.DataSource = result;
+        }
+
+        private void btnRefesh_Click(object sender, EventArgs e)
+        {
+            Load_data();
+        }       
     }
 }

@@ -81,24 +81,43 @@ namespace QUAN_LY_THIET_BI_DO.Model
 
         public string PDF_FILE { get; set; }
 
-        private bool _Check;
-        public bool Check
+        //private bool _Check;
+        public string Check
         {
             get
             {
-                if (CALI_RECOMMEND.Year == DateTime.Now.Year && CALI_RECOMMEND.Month == DateTime.Now.Month && DateTime.Now.Day + 7 == CALI_RECOMMEND.Day)
+                if (CALI_RECOMMEND.Year > DateTime.Now.Year)
                 {
-                    return true;
+                    return "OK";
                 }
-                else
+                else if (CALI_RECOMMEND.Year == DateTime.Now.Year)
                 {
-                    return false;
+                    if (CALI_RECOMMEND.Month > DateTime.Now.Month)
+                    {
+                        return "OK";
+                    }
+                    else if(CALI_RECOMMEND.Month < DateTime.Now.Month)
+                    {
+                        return "NG";
+                    }
+                    else
+                    {
+                        if (DateTime.Now.AddDays(7).Day <= CALI_RECOMMEND.Day)
+                        {
+                            return "OK";
+                        }
+                        else
+                        {
+                            return "NG";
+                        }
+                    }
                 }
+                else { return "NG"; }
             }
-            set
-            {
-                this._Check = value;
-            }
+            //set
+            //{
+            //    this._Check = value;
+            //}
         }
     }
 }

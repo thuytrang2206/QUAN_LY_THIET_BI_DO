@@ -63,6 +63,16 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _15581_agt_refresh_reload_icon {
+            get {
+                object obj = ResourceManager.GetObject("15581_agt_refresh_reload_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _211739_eye_icon {
             get {
                 object obj = ResourceManager.GetObject("211739_eye_icon", resourceCulture);
@@ -76,6 +86,26 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         internal static System.Drawing.Bitmap _2462966_delete {
             get {
                 object obj = ResourceManager.GetObject("2462966_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3059891_chart_gear_seo_setting_graph_icon {
+            get {
+                object obj = ResourceManager.GetObject("3059891_chart_gear_seo_setting_graph_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3059891_chart_gear_seo_setting_graph_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("3059891_chart_gear_seo_setting_graph_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +146,56 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         internal static System.Drawing.Bitmap _4373169_excel_logo_logos_icon {
             get {
                 object obj = ResourceManager.GetObject("4373169_excel_logo_logos_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4373169_excel_logo_logos_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("4373169_excel_logo_logos_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4696684_filter_filtering_funnel_order_sort_icon {
+            get {
+                object obj = ResourceManager.GetObject("4696684_filter_filtering_funnel_order_sort_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4696684_filter_filtering_funnel_order_sort_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("4696684_filter_filtering_funnel_order_sort_icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4696684_filter_filtering_funnel_order_sort_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("4696684_filter_filtering_funnel_order_sort_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4696684_filter_filtering_funnel_order_sort_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("4696684_filter_filtering_funnel_order_sort_icon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +266,26 @@ namespace QUAN_LY_THIET_BI_DO.Properties {
         internal static System.Drawing.Bitmap _8726215_search_alt_icon {
             get {
                 object obj = ResourceManager.GetObject("8726215_search_alt_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8726215_search_alt_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("8726215_search_alt_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8726215_search_alt_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("8726215_search_alt_icon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
