@@ -16,7 +16,7 @@ namespace QUAN_LY_THIET_BI_DO.Business
                      WHERE t1.STATUS=1";
         public List<CaliEntity> FindAll()
         {           
-            var res = context.Database.SqlQuery<CaliEntity>(sql, "").OrderByDescending(c=>c.PART_NO).ToList();
+            var res = context.Database.SqlQuery<CaliEntity>(sql, "").OrderBy(c=>c.PART_NO).ToList();
             return res;
         }
         public List<CaliEntity> SearchPartNo(string key)
@@ -25,15 +25,6 @@ namespace QUAN_LY_THIET_BI_DO.Business
                                 FROM[DeviceControl].[dbo].[DEVICE] t1
                                 INNER JOIN[DeviceControl].[dbo].[CALIBRATION] t2 ON t2.PART_NO = t1.PART_NO
                                 WHERE t1.PART_NO LIKE " + "'%" + key + "%' and t1.STATUS= 1";
-            var res = context.Database.SqlQuery<CaliEntity>(sql_search, "").OrderByDescending(c => c.PART_NO).ToList();
-            return res;
-        }
-        public List<CaliEntity> EquipmentFilter(string key)
-        {
-            string sql_search = @"SELECT t1.*, t2.CALI_DATE,t2.CALI_RECOMMEND
-                                FROM[DeviceControl].[dbo].[DEVICE] t1
-                                INNER JOIN[DeviceControl].[dbo].[CALIBRATION] t2 ON t2.PART_NO = t1.PART_NO
-                                WHERE t1.EQUIPMENT_STATUS LIKE " + "'%" + key + "%' and t1.STATUS= 1";
             var res = context.Database.SqlQuery<CaliEntity>(sql_search, "").OrderByDescending(c => c.PART_NO).ToList();
             return res;
         }
@@ -71,6 +62,24 @@ namespace QUAN_LY_THIET_BI_DO.Business
             string sqlhis = @"SELECT * FROM [DeviceControl].[dbo].[HISTORY_CALIBRATION] WHERE PART_NO=" + "'" + key + "'";
             var res_cali = context.Database.SqlQuery<HISTORY_CALIBRATION>(sqlhis, "").OrderByDescending(c => c.PART_NO).ToList();
             return res_cali;
+        }
+        public List<CaliEntity> Filter(string key)
+        {
+            string sql_search = @"SELECT t1.*, t2.CALI_DATE,t2.CALI_RECOMMEND
+                                FROM[DeviceControl].[dbo].[DEVICE] t1
+                                INNER JOIN[DeviceControl].[dbo].[CALIBRATION] t2 ON t2.PART_NO = t1.PART_NO
+                                WHERE " + key + " and t1.STATUS = 1";
+            var res = context.Database.SqlQuery<CaliEntity>(sql_search, "").OrderByDescending(c => c.PART_NO).ToList();
+            return res;
+        }
+        public List<CaliEntity> FilterSort(string key)
+        {
+            string sql_sort = @"SELECT t1.*, t2.CALI_DATE,t2.CALI_RECOMMEND
+                     FROM[DeviceControl].[dbo].[DEVICE] t1
+                     INNER JOIN[DeviceControl].[dbo].[CALIBRATION] t2 ON t2.PART_NO = t1.PART_NO where t1.STATUS = 1
+                     ORDER BY "+ key ;
+            var res = context.Database.SqlQuery<CaliEntity>(sql_sort, "").ToList();
+            return res;
         }
     }
 }

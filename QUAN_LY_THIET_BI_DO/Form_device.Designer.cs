@@ -32,14 +32,13 @@ namespace QUAN_LY_THIET_BI_DO
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_device));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tagManager = new System.Windows.Forms.TabControl();
             this.tabcalibration = new System.Windows.Forms.TabPage();
-            this.dtgv_device = new System.Windows.Forms.DataGridView();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adgv_device = new ADGV.AdvancedDataGridView();
+            this.NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PAYMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PART_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SAP_BARCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,24 +92,28 @@ namespace QUAN_LY_THIET_BI_DO
             this.rdOK = new System.Windows.Forms.RadioButton();
             this.rdNG = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtsearch = new System.Windows.Forms.TextBox();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.cbboxFilter = new System.Windows.Forms.ComboBox();
-            this.btnFilter = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnRefesh = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtsearch = new System.Windows.Forms.TextBox();
             this.rdStop = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DevicebindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tagManager.SuspendLayout();
             this.tabcalibration.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_device)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adgv_device)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DevicebindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -143,31 +146,31 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tagManager.Controls.Add(this.tabcalibration);
             this.tagManager.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tagManager.Location = new System.Drawing.Point(5, 192);
+            this.tagManager.Location = new System.Drawing.Point(5, 208);
             this.tagManager.Name = "tagManager";
             this.tagManager.SelectedIndex = 0;
-            this.tagManager.Size = new System.Drawing.Size(976, 395);
+            this.tagManager.Size = new System.Drawing.Size(976, 379);
             this.tagManager.TabIndex = 6;
             // 
             // tabcalibration
             // 
             this.tabcalibration.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabcalibration.Controls.Add(this.dtgv_device);
+            this.tabcalibration.Controls.Add(this.adgv_device);
             this.tabcalibration.Location = new System.Drawing.Point(4, 22);
             this.tabcalibration.Name = "tabcalibration";
             this.tabcalibration.Padding = new System.Windows.Forms.Padding(3);
-            this.tabcalibration.Size = new System.Drawing.Size(968, 369);
+            this.tabcalibration.Size = new System.Drawing.Size(968, 353);
             this.tabcalibration.TabIndex = 1;
             this.tabcalibration.Text = "Calibration management";
             this.tabcalibration.UseVisualStyleBackColor = true;
             // 
-            // dtgv_device
+            // adgv_device
             // 
-            this.dtgv_device.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.adgv_device.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgv_device.BackgroundColor = System.Drawing.Color.White;
-            this.dtgv_device.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.adgv_device.AutoGenerateContextFilters = true;
+            this.adgv_device.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -175,10 +178,10 @@ namespace QUAN_LY_THIET_BI_DO
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_device.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgv_device.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_device.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.No,
+            this.adgv_device.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.adgv_device.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.adgv_device.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NO,
             this.PAYMENT,
             this.PART_NO,
             this.SAP_BARCODE,
@@ -204,231 +207,231 @@ namespace QUAN_LY_THIET_BI_DO
             this.PDF_FILEs,
             this.PDF_FILE,
             this.Check});
-            this.dtgv_device.ContextMenuStrip = this.contextMenuStrip1;
-            this.dtgv_device.EnableHeadersVisualStyles = false;
-            this.dtgv_device.Location = new System.Drawing.Point(6, 6);
-            this.dtgv_device.Name = "dtgv_device";
-            this.dtgv_device.RowHeadersVisible = false;
-            this.dtgv_device.Size = new System.Drawing.Size(952, 347);
-            this.dtgv_device.TabIndex = 0;
-            this.dtgv_device.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_device_CellClick);
-            this.dtgv_device.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgv_device_DataBindingComplete);
-            this.dtgv_device.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgv_device_RowPostPaint);
+            this.adgv_device.DateWithTime = false;
+            this.adgv_device.Location = new System.Drawing.Point(6, 1);
+            this.adgv_device.Name = "adgv_device";
+            this.adgv_device.RowHeadersVisible = false;
+            this.adgv_device.Size = new System.Drawing.Size(953, 342);
+            this.adgv_device.TabIndex = 1;
+            this.adgv_device.TimeFilter = false;
+            this.adgv_device.SortStringChanged += new System.EventHandler(this.adgv_device_SortStringChanged);
+            this.adgv_device.FilterStringChanged += new System.EventHandler(this.adgv_device_FilterStringChanged);
+            this.adgv_device.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adgv_device_CellClick);
+            this.adgv_device.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.adgv_device_CellMouseDown);
+            this.adgv_device.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.adgv_device_DataBindingComplete);
+            this.adgv_device.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.adgv_device_RowPostPaint);
+            this.adgv_device.MouseClick += new System.Windows.Forms.MouseEventHandler(this.adgv_device_MouseClick);
             // 
-            // No
+            // NO
             // 
-            this.No.HeaderText = "NO.";
-            this.No.Name = "No";
-            this.No.Width = 54;
+            this.NO.HeaderText = "NO.";
+            this.NO.MinimumWidth = 22;
+            this.NO.Name = "NO";
+            this.NO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // PAYMENT
             // 
             this.PAYMENT.DataPropertyName = "PAYMENT_BY";
-            this.PAYMENT.HeaderText = "Thanh toán";
+            this.PAYMENT.HeaderText = "Thanh Toán";
+            this.PAYMENT.MinimumWidth = 22;
             this.PAYMENT.Name = "PAYMENT";
-            this.PAYMENT.Width = 97;
+            this.PAYMENT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // PART_NO
             // 
             this.PART_NO.DataPropertyName = "PART_NO";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.PART_NO.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PART_NO.FillWeight = 79.59391F;
             this.PART_NO.HeaderText = "Mã quản lý";
-            this.PART_NO.MinimumWidth = 94;
+            this.PART_NO.MinimumWidth = 22;
             this.PART_NO.Name = "PART_NO";
-            this.PART_NO.Width = 94;
+            this.PART_NO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // SAP_BARCODE
             // 
             this.SAP_BARCODE.DataPropertyName = "SAP_BARCODE";
-            this.SAP_BARCODE.FillWeight = 79.59391F;
             this.SAP_BARCODE.HeaderText = "SAP_BARCODE";
-            this.SAP_BARCODE.MinimumWidth = 120;
+            this.SAP_BARCODE.MinimumWidth = 22;
             this.SAP_BARCODE.Name = "SAP_BARCODE";
-            this.SAP_BARCODE.Width = 122;
+            this.SAP_BARCODE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // PART_NAME
             // 
             this.PART_NAME.DataPropertyName = "PART_NAME";
-            this.PART_NAME.FillWeight = 79.59391F;
             this.PART_NAME.HeaderText = "Tên thiết bị";
-            this.PART_NAME.MinimumWidth = 100;
+            this.PART_NAME.MinimumWidth = 22;
             this.PART_NAME.Name = "PART_NAME";
+            this.PART_NAME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // MODEL
             // 
             this.MODEL.DataPropertyName = "MODEL";
-            this.MODEL.FillWeight = 79.59391F;
             this.MODEL.HeaderText = "Mã sản phẩm";
-            this.MODEL.MinimumWidth = 120;
+            this.MODEL.MinimumWidth = 22;
             this.MODEL.Name = "MODEL";
-            this.MODEL.Width = 120;
+            this.MODEL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // SERIAL
             // 
             this.SERIAL.DataPropertyName = "SERIAL";
-            this.SERIAL.FillWeight = 79.59391F;
             this.SERIAL.HeaderText = "Số Serial";
-            this.SERIAL.MinimumWidth = 90;
+            this.SERIAL.MinimumWidth = 22;
             this.SERIAL.Name = "SERIAL";
-            this.SERIAL.Width = 90;
+            this.SERIAL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // MANUFACTORY
             // 
             this.MANUFACTORY.DataPropertyName = "MANUFACTORY";
-            this.MANUFACTORY.FillWeight = 79.59391F;
             this.MANUFACTORY.HeaderText = "Nhà máy sản xuất";
-            this.MANUFACTORY.MinimumWidth = 135;
+            this.MANUFACTORY.MinimumWidth = 22;
             this.MANUFACTORY.Name = "MANUFACTORY";
-            this.MANUFACTORY.Width = 135;
+            this.MANUFACTORY.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // CALI_CYCLE
             // 
             this.CALI_CYCLE.DataPropertyName = "CALI_CYCLE";
-            this.CALI_CYCLE.FillWeight = 79.59391F;
             this.CALI_CYCLE.HeaderText = "Chu kỳ hiệu chuẩn";
-            this.CALI_CYCLE.MinimumWidth = 140;
+            this.CALI_CYCLE.MinimumWidth = 22;
             this.CALI_CYCLE.Name = "CALI_CYCLE";
-            this.CALI_CYCLE.Width = 140;
+            this.CALI_CYCLE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // REGISTRATION_DATE
             // 
             this.REGISTRATION_DATE.DataPropertyName = "REGISTRATION_DATE";
-            this.REGISTRATION_DATE.FillWeight = 79.59391F;
             this.REGISTRATION_DATE.HeaderText = "Ngày đăng ký";
-            this.REGISTRATION_DATE.MinimumWidth = 115;
+            this.REGISTRATION_DATE.MinimumWidth = 22;
             this.REGISTRATION_DATE.Name = "REGISTRATION_DATE";
-            this.REGISTRATION_DATE.Width = 115;
+            this.REGISTRATION_DATE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // DEPT_CONTROL
             // 
             this.DEPT_CONTROL.DataPropertyName = "DEPARTMENT_CONTROL";
-            this.DEPT_CONTROL.FillWeight = 79.59391F;
             this.DEPT_CONTROL.HeaderText = "Bộ phận quản lý";
-            this.DEPT_CONTROL.MinimumWidth = 140;
+            this.DEPT_CONTROL.MinimumWidth = 22;
             this.DEPT_CONTROL.Name = "DEPT_CONTROL";
-            this.DEPT_CONTROL.Width = 140;
+            this.DEPT_CONTROL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // PLACE_USE
             // 
             this.PLACE_USE.DataPropertyName = "PLACE_OF_USE";
-            this.PLACE_USE.FillWeight = 79.59391F;
             this.PLACE_USE.HeaderText = "Nơi sử dụng";
-            this.PLACE_USE.MinimumWidth = 120;
+            this.PLACE_USE.MinimumWidth = 22;
             this.PLACE_USE.Name = "PLACE_USE";
-            this.PLACE_USE.Width = 120;
+            this.PLACE_USE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // CONTROL_MNG
             // 
             this.CONTROL_MNG.DataPropertyName = "CONTROL_MANAGE";
-            this.CONTROL_MNG.FillWeight = 79.59391F;
             this.CONTROL_MNG.HeaderText = "Người quản lý";
-            this.CONTROL_MNG.MinimumWidth = 120;
+            this.CONTROL_MNG.MinimumWidth = 22;
             this.CONTROL_MNG.Name = "CONTROL_MNG";
-            this.CONTROL_MNG.Width = 120;
+            this.CONTROL_MNG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // CALI_DATE
             // 
             this.CALI_DATE.DataPropertyName = "CALI_DATE";
             this.CALI_DATE.HeaderText = "Ngày hiệu chuẩn";
+            this.CALI_DATE.MinimumWidth = 22;
             this.CALI_DATE.Name = "CALI_DATE";
-            this.CALI_DATE.Width = 117;
+            this.CALI_DATE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // CALI_RECOMMEND
             // 
             this.CALI_RECOMMEND.DataPropertyName = "CALI_RECOMMEND";
             this.CALI_RECOMMEND.HeaderText = "Ngày hiệu chuẩn đề nghị";
+            this.CALI_RECOMMEND.MinimumWidth = 22;
             this.CALI_RECOMMEND.Name = "CALI_RECOMMEND";
-            this.CALI_RECOMMEND.Width = 121;
+            this.CALI_RECOMMEND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // CALI_NEXT_LASTEST
             // 
             this.CALI_NEXT_LASTEST.DataPropertyName = "CALI_NEXT_LASTEST";
-            this.CALI_NEXT_LASTEST.FillWeight = 79.59391F;
-            this.CALI_NEXT_LASTEST.HeaderText = "Ngày hiệu chuẩn tiếp theo muộn nhất";
+            this.CALI_NEXT_LASTEST.HeaderText = "Ngày hiệu chuẩn tiếp theo";
+            this.CALI_NEXT_LASTEST.MinimumWidth = 22;
             this.CALI_NEXT_LASTEST.Name = "CALI_NEXT_LASTEST";
-            this.CALI_NEXT_LASTEST.Width = 169;
+            this.CALI_NEXT_LASTEST.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // MONTH_YEAR
             // 
             this.MONTH_YEAR.DataPropertyName = "MONTH_YEAR";
-            this.MONTH_YEAR.FillWeight = 79.59391F;
             this.MONTH_YEAR.HeaderText = "Tháng/Năm";
+            this.MONTH_YEAR.MinimumWidth = 22;
             this.MONTH_YEAR.Name = "MONTH_YEAR";
-            this.MONTH_YEAR.Width = 99;
+            this.MONTH_YEAR.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // MAKER
             // 
             this.MAKER.DataPropertyName = "CALIBRATION_BY";
-            this.MAKER.FillWeight = 79.59391F;
             this.MAKER.HeaderText = "Đơn vị hiệu chuẩn";
-            this.MAKER.MinimumWidth = 150;
+            this.MAKER.MinimumWidth = 22;
             this.MAKER.Name = "MAKER";
-            this.MAKER.Width = 150;
+            this.MAKER.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // ENQUIP_STATE
             // 
             this.ENQUIP_STATE.DataPropertyName = "EQUIPMENT_STATUS";
-            this.ENQUIP_STATE.FillWeight = 79.59391F;
             this.ENQUIP_STATE.HeaderText = "Tình trạng hiệu chuẩn";
-            this.ENQUIP_STATE.MinimumWidth = 160;
+            this.ENQUIP_STATE.MinimumWidth = 22;
             this.ENQUIP_STATE.Name = "ENQUIP_STATE";
-            this.ENQUIP_STATE.Width = 160;
+            this.ENQUIP_STATE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // RMK
             // 
             this.RMK.DataPropertyName = "REMARK";
-            this.RMK.FillWeight = 406.0914F;
-            this.RMK.HeaderText = "Ghi chú";
-            this.RMK.MinimumWidth = 80;
+            this.RMK.HeaderText = "Ghi Chú";
+            this.RMK.MinimumWidth = 22;
             this.RMK.Name = "RMK";
-            this.RMK.Width = 80;
+            this.RMK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // LINE
             // 
             this.LINE.DataPropertyName = "LINE";
             this.LINE.HeaderText = "Line";
+            this.LINE.MinimumWidth = 22;
             this.LINE.Name = "LINE";
-            this.LINE.Width = 56;
+            this.LINE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // FCT_NO
             // 
             this.FCT_NO.DataPropertyName = "FCT_NO";
-            this.FCT_NO.HeaderText = "FCT No";
+            this.FCT_NO.HeaderText = "FCT_NO";
+            this.FCT_NO.MinimumWidth = 22;
             this.FCT_NO.Name = "FCT_NO";
-            this.FCT_NO.Width = 55;
+            this.FCT_NO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // MODEL_UMC
             // 
             this.MODEL_UMC.DataPropertyName = "MODEL_UMC";
             this.MODEL_UMC.HeaderText = "Model thành phẩm";
+            this.MODEL_UMC.MinimumWidth = 22;
             this.MODEL_UMC.Name = "MODEL_UMC";
-            this.MODEL_UMC.Width = 124;
+            this.MODEL_UMC.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // PDF_FILEs
             // 
-            this.PDF_FILEs.HeaderText = "View PDF";
+            this.PDF_FILEs.DataPropertyName = "PDF_FILEs";
+            this.PDF_FILEs.HeaderText = "View FDF";
             this.PDF_FILEs.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._211739_eye_icon;
+            this.PDF_FILEs.MinimumWidth = 22;
             this.PDF_FILEs.Name = "PDF_FILEs";
-            this.PDF_FILEs.Width = 40;
+            this.PDF_FILEs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // PDF_FILE
             // 
             this.PDF_FILE.DataPropertyName = "PDF_FILE";
             this.PDF_FILE.HeaderText = "PDF_FILE";
+            this.PDF_FILE.MinimumWidth = 22;
             this.PDF_FILE.Name = "PDF_FILE";
+            this.PDF_FILE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.PDF_FILE.Visible = false;
-            this.PDF_FILE.Width = 89;
             // 
             // Check
             // 
             this.Check.DataPropertyName = "Check";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Check.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Check.DefaultCellStyle = dataGridViewCellStyle2;
             this.Check.HeaderText = "Check";
+            this.Check.MinimumWidth = 22;
             this.Check.Name = "Check";
-            this.Check.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Check.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // contextMenuStrip1
             // 
@@ -569,31 +572,34 @@ namespace QUAN_LY_THIET_BI_DO
             // 
             // datetime_export
             // 
+            this.datetime_export.CustomFormat = "MM/yyyy";
             this.datetime_export.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetime_export.Location = new System.Drawing.Point(125, 23);
+            this.datetime_export.Location = new System.Drawing.Point(111, 36);
             this.datetime_export.Name = "datetime_export";
-            this.datetime_export.Size = new System.Drawing.Size(105, 20);
+            this.datetime_export.Size = new System.Drawing.Size(70, 20);
             this.datetime_export.TabIndex = 16;
             // 
             // checkboxexport_monthyear
             // 
             this.checkboxexport_monthyear.AutoSize = true;
-            this.checkboxexport_monthyear.Location = new System.Drawing.Point(3, 26);
+            this.checkboxexport_monthyear.Location = new System.Drawing.Point(7, 41);
             this.checkboxexport_monthyear.Name = "checkboxexport_monthyear";
-            this.checkboxexport_monthyear.Size = new System.Drawing.Size(116, 17);
+            this.checkboxexport_monthyear.Size = new System.Drawing.Size(83, 17);
             this.checkboxexport_monthyear.TabIndex = 18;
-            this.checkboxexport_monthyear.Text = "Export Month/Year";
+            this.checkboxexport_monthyear.Text = "Month/Year";
             this.checkboxexport_monthyear.UseVisualStyleBackColor = true;
+            this.checkboxexport_monthyear.CheckedChanged += new System.EventHandler(this.checkboxexport_monthyear_CheckedChanged);
             // 
             // checkboxexportall
             // 
             this.checkboxexportall.AutoSize = true;
-            this.checkboxexportall.Location = new System.Drawing.Point(3, 3);
+            this.checkboxexportall.Location = new System.Drawing.Point(6, 18);
             this.checkboxexportall.Name = "checkboxexportall";
-            this.checkboxexportall.Size = new System.Drawing.Size(70, 17);
+            this.checkboxexportall.Size = new System.Drawing.Size(37, 17);
             this.checkboxexportall.TabIndex = 17;
-            this.checkboxexportall.Text = "Export All";
+            this.checkboxexportall.Text = "All";
             this.checkboxexportall.UseVisualStyleBackColor = true;
+            this.checkboxexportall.CheckedChanged += new System.EventHandler(this.checkboxexportall_CheckedChanged);
             // 
             // btnExport
             // 
@@ -602,23 +608,21 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._4373169_excel_logo_logos_icon;
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(259, 3);
+            this.btnExport.Location = new System.Drawing.Point(219, 9);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(73, 30);
+            this.btnExport.Size = new System.Drawing.Size(40, 30);
             this.btnExport.TabIndex = 15;
-            this.btnExport.Text = "     Export ";
             this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // chboxequipment
             // 
             this.chboxequipment.AutoSize = true;
-            this.chboxequipment.Location = new System.Drawing.Point(2, 48);
+            this.chboxequipment.Location = new System.Drawing.Point(7, 64);
             this.chboxequipment.Name = "chboxequipment";
-            this.chboxequipment.Size = new System.Drawing.Size(109, 17);
+            this.chboxequipment.Size = new System.Drawing.Size(76, 17);
             this.chboxequipment.TabIndex = 19;
-            this.chboxequipment.Text = "Export Equipment";
+            this.chboxequipment.Text = "Equipment";
             this.chboxequipment.UseVisualStyleBackColor = true;
             // 
             // rdOK
@@ -626,7 +630,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.rdOK.AutoSize = true;
             this.rdOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdOK.ForeColor = System.Drawing.Color.Green;
-            this.rdOK.Location = new System.Drawing.Point(117, 47);
+            this.rdOK.Location = new System.Drawing.Point(111, 63);
             this.rdOK.Name = "rdOK";
             this.rdOK.Size = new System.Drawing.Size(42, 17);
             this.rdOK.TabIndex = 20;
@@ -639,7 +643,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.rdNG.AutoSize = true;
             this.rdNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdNG.ForeColor = System.Drawing.Color.Red;
-            this.rdNG.Location = new System.Drawing.Point(165, 47);
+            this.rdNG.Location = new System.Drawing.Point(159, 63);
             this.rdNG.Name = "rdNG";
             this.rdNG.Size = new System.Drawing.Size(43, 17);
             this.rdNG.TabIndex = 21;
@@ -652,18 +656,45 @@ namespace QUAN_LY_THIET_BI_DO
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.btnRefesh);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.btnFilter);
-            this.panel3.Controls.Add(this.cbboxFilter);
             this.panel3.Controls.Add(this.btnEdit);
-            this.panel3.Controls.Add(this.txtsearch);
             this.panel3.Controls.Add(this.btnAdd);
-            this.panel3.Location = new System.Drawing.Point(338, -2);
+            this.panel3.Location = new System.Drawing.Point(283, -2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(632, 75);
+            this.panel3.Size = new System.Drawing.Size(687, 97);
             this.panel3.TabIndex = 11;
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefesh.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnRefesh.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnRefesh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefesh.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._15581_agt_refresh_reload_icon;
+            this.btnRefesh.Location = new System.Drawing.Point(495, 13);
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(43, 30);
+            this.btnRefesh.TabIndex = 14;
+            this.btnRefesh.UseVisualStyleBackColor = false;
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(622, 12);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(58, 30);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "  Sửa";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -675,7 +706,7 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._32378_add_plus_icon;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(489, 13);
+            this.btnAdd.Location = new System.Drawing.Point(544, 13);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(72, 30);
             this.btnAdd.TabIndex = 0;
@@ -683,93 +714,29 @@ namespace QUAN_LY_THIET_BI_DO
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Part No:";
+            // 
             // txtsearch
             // 
-            this.txtsearch.Location = new System.Drawing.Point(3, 23);
+            this.txtsearch.Location = new System.Drawing.Point(58, 23);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(104, 20);
             this.txtsearch.TabIndex = 4;
             this.txtsearch.TextChanged += new System.EventHandler(this.txtsearch_TextChanged);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.BackColor = System.Drawing.Color.White;
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._3855617_edit_pencil_write_mode_icon16px;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(567, 12);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(58, 30);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "  Sửa";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // cbboxFilter
-            // 
-            this.cbboxFilter.FormattingEnabled = true;
-            this.cbboxFilter.Items.AddRange(new object[] {
-            "OK",
-            "NG",
-            "STOP"});
-            this.cbboxFilter.Location = new System.Drawing.Point(113, 23);
-            this.cbboxFilter.Name = "cbboxFilter";
-            this.cbboxFilter.Size = new System.Drawing.Size(89, 21);
-            this.cbboxFilter.TabIndex = 10;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackColor = System.Drawing.Color.Cornsilk;
-            this.btnFilter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._4696684_filter_filtering_funnel_order_sort_icon1;
-            this.btnFilter.Location = new System.Drawing.Point(208, 23);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(33, 22);
-            this.btnFilter.TabIndex = 11;
-            this.btnFilter.UseVisualStyleBackColor = false;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Mã quản lý:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(110, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Tình trạng thiết bị:";
-            // 
-            // btnRefesh
-            // 
-            this.btnRefesh.BackColor = System.Drawing.Color.Cornsilk;
-            this.btnRefesh.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnRefesh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefesh.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._15581_agt_refresh_reload_icon;
-            this.btnRefesh.Location = new System.Drawing.Point(247, 22);
-            this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.Size = new System.Drawing.Size(33, 22);
-            this.btnRefesh.TabIndex = 14;
-            this.btnRefesh.UseVisualStyleBackColor = false;
-            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
             // 
             // rdStop
             // 
             this.rdStop.AutoSize = true;
             this.rdStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.rdStop.Location = new System.Drawing.Point(214, 47);
+            this.rdStop.Location = new System.Drawing.Point(208, 63);
             this.rdStop.Name = "rdStop";
             this.rdStop.Size = new System.Drawing.Size(51, 17);
             this.rdStop.TabIndex = 22;
@@ -783,19 +750,55 @@ namespace QUAN_LY_THIET_BI_DO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.rdStop);
-            this.panel2.Controls.Add(this.rdNG);
-            this.panel2.Controls.Add(this.rdOK);
-            this.panel2.Controls.Add(this.chboxequipment);
-            this.panel2.Controls.Add(this.btnExport);
-            this.panel2.Controls.Add(this.checkboxexportall);
-            this.panel2.Controls.Add(this.checkboxexport_monthyear);
-            this.panel2.Controls.Add(this.datetime_export);
+            this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(5, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(972, 75);
+            this.panel2.Size = new System.Drawing.Size(972, 102);
             this.panel2.TabIndex = 8;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtsearch);
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(224, 55);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdStop);
+            this.groupBox1.Controls.Add(this.checkboxexportall);
+            this.groupBox1.Controls.Add(this.checkboxexport_monthyear);
+            this.groupBox1.Controls.Add(this.rdNG);
+            this.groupBox1.Controls.Add(this.btnExport);
+            this.groupBox1.Controls.Add(this.chboxequipment);
+            this.groupBox1.Controls.Add(this.datetime_export);
+            this.groupBox1.Controls.Add(this.rdOK);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(274, 92);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Export";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::QUAN_LY_THIET_BI_DO.Properties.Resources._8726215_search_alt_icon2;
+            this.button1.Location = new System.Drawing.Point(168, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 20);
+            this.button1.TabIndex = 13;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Form_device
             // 
@@ -815,14 +818,17 @@ namespace QUAN_LY_THIET_BI_DO
             this.panel1.PerformLayout();
             this.tagManager.ResumeLayout(false);
             this.tabcalibration.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_device)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adgv_device)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DevicebindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -835,7 +841,6 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.TabPage tabcalibration;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        public System.Windows.Forms.DataGridView dtgv_device;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator top;
@@ -855,7 +860,24 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DateTimePicker datetime_export;
+        private System.Windows.Forms.CheckBox checkboxexport_monthyear;
+        private System.Windows.Forms.CheckBox checkboxexportall;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.CheckBox chboxequipment;
+        private System.Windows.Forms.RadioButton rdOK;
+        private System.Windows.Forms.RadioButton rdNG;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnRefesh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox txtsearch;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.RadioButton rdStop;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NO;
         private System.Windows.Forms.DataGridViewTextBoxColumn PAYMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn PART_NO;
         private System.Windows.Forms.DataGridViewTextBoxColumn SAP_BARCODE;
@@ -881,23 +903,8 @@ namespace QUAN_LY_THIET_BI_DO
         private System.Windows.Forms.DataGridViewImageColumn PDF_FILEs;
         private System.Windows.Forms.DataGridViewTextBoxColumn PDF_FILE;
         private System.Windows.Forms.DataGridViewTextBoxColumn Check;
-        private System.Windows.Forms.DateTimePicker datetime_export;
-        private System.Windows.Forms.CheckBox checkboxexport_monthyear;
-        private System.Windows.Forms.CheckBox checkboxexportall;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.CheckBox chboxequipment;
-        private System.Windows.Forms.RadioButton rdOK;
-        private System.Windows.Forms.RadioButton rdNG;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnRefesh;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnFilter;
-        private System.Windows.Forms.ComboBox cbboxFilter;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox txtsearch;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.RadioButton rdStop;
-        private System.Windows.Forms.Panel panel2;
+        public ADGV.AdvancedDataGridView adgv_device;
+        private System.Windows.Forms.BindingSource DevicebindingSource;
+        private System.Windows.Forms.Button button1;
     }
 }

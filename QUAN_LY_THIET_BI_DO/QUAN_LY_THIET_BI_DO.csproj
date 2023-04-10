@@ -70,6 +70,9 @@
     <ApplicationIcon>Image\logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=0.1.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -136,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\ExcelHelper.cs" />
+    <Compile Include="Business\FilterStringConvert.cs" />
     <Compile Include="Business\Repository.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="DownloadFiles.cs" />

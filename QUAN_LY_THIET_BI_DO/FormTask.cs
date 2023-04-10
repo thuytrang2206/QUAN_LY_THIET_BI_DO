@@ -369,7 +369,7 @@ namespace QUAN_LY_THIET_BI_DO
         public void Reload_datawhencreate()
         {
             var res = repository.FindAll();
-            form_Device.dtgv_device.DataSource = res.OrderByDescending(c => c.PART_NO).ToList();
+            form_Device.adgv_device.DataSource = res.OrderByDescending(c => c.PART_NO).ToList();
         }
 
         public string NonUnicode(string text)

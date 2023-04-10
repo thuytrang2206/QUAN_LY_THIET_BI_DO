@@ -99,7 +99,7 @@ namespace QUAN_LY_THIET_BI_DO
         public void Reload_datawhenedit()
         {
             var res = repository.FindAll();
-            form_Device.dtgv_device.DataSource = res;
+            form_Device.adgv_device.DataSource = res;
         }
         private void btnchoosepdf_Click(object sender, EventArgs e)
         {
